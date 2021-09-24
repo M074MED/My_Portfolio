@@ -21,6 +21,7 @@ View The Project: https://m074med.github.io/My_Portfolio/
 ######  -jQuery
 ######  -Bootstrap
 ######  -React JS
+######  -C++
 ######  -Git & GitHub
 ######  -Command Line
 ######  -Linux
