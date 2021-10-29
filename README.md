@@ -13,6 +13,8 @@ View The Project: https://m074med.github.io/My_Portfolio/
 #### My Technical Skills:
 ######  -Python
 ######  -Django
+######  -Django Rest API Framework
+######  -MySQL
 ######  -oop
 ######  -Web Scraping (with Python Beautiful Soup)
 ######  -HTML
@@ -23,6 +25,7 @@ View The Project: https://m074med.github.io/My_Portfolio/
 ######  -React JS
 ######  -C++
 ######  -Git & GitHub
+######  -JSON
 ######  -Command Line
 ######  -Linux
 
