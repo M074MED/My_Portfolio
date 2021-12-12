@@ -136,15 +136,11 @@
 }
 .portfolio-content .card .info {
     padding: 16px;
-    position: relative;
-    min-height: 200px;
+    min-height: 180px;
 }
 @media (max-width: 767px) {
     .portfolio-content .card .info {
         text-align: center;
-    }
-    .portfolio-content .card .info a {
-        right: calc(50% - 75px);
     }
 }
 .portfolio-content .card .info h4 {
@@ -152,15 +148,15 @@
     font-weight: bold;
 }
 .portfolio-content .card .info p {
-    margin-top: 0 0 16px;
+    margin: 0 0 16px;
     line-height: var(--p-line-height, 1.8);
     font-weight: 300;
     color: #444;
     max-width: 100%;
 }
-.portfolio-content .card .info a {
-    position: absolute;
-    bottom: 10px;
+.portfolio-content .card .buttons {
+    padding: 0 10px;
+    margin-bottom: 10px;
 }
 .portfolio .container .more-pro {
     width: 100%;

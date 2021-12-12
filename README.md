@@ -26,6 +26,7 @@ View The Project: https://m074med.github.io/My_Portfolio/
 ######  -C++
 ######  -Git & GitHub
 ######  -JSON
+######  -Ajax
 ######  -Command Line
 ######  -Linux
 
