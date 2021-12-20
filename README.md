@@ -15,7 +15,6 @@ View The Project: https://m074med.github.io/My_Portfolio/
 ######  -Django
 ######  -Django Rest API Framework
 ######  -MySQL
-######  -oop
 ######  -Web Scraping (with Python Beautiful Soup)
 ######  -HTML
 ######  -CSS
@@ -24,10 +23,11 @@ View The Project: https://m074med.github.io/My_Portfolio/
 ######  -Bootstrap
 ######  -React JS
 ######  -C++
+######  -Java
+######  -Oracle SQL
 ######  -Git & GitHub
 ######  -JSON
 ######  -Ajax
-######  -Command Line
 ######  -Linux
 
 #### My Experience: 1 Year
