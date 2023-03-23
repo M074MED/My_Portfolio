@@ -1,223 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>M074MED</title>
     <!-- Main Template CSS File -->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css" />
     <!-- Link bootstrap.css file -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <!-- Render All Elements Normally -->
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/normalize.css" />
     <!-- Font Awesome Library -->
-    <link rel="stylesheet" href="css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/all.min.css" />
+  </head>
+  <body>
     <!-- Start Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: sticky; top: 0; z-index: 3;">
-        <div class="container-fluid">
-            <a class="navbar-brand text-primary" href="#">M074MED</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#portfolio">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#contact">Contact</a>
-                </li>
-            </ul>
-            </div>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light"
+      style="position: sticky; top: 0; z-index: 3"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand text-primary" href="#">M074MED</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
     <!-- End Navbar -->
-    
+
     <!-- Start Landing\Home Section -->
     <section class="intro">
-        <div class="intro-text">
-            <img src="images/me.jpg" alt="Avatar Image">
-            <h1>Hello There!</h1>
-            <p>I am Mohammed - Software Developer at AUC (The American University in Cairo)</p>
-            <a class="btn btn-primary" href="#portfolio" style="margin-right: 10px;">View my work</a>
-            <a class="btn btn-outline-primary" href="#about" style="margin-left: 10px;">More about me</a>
-        </div>
+      <div class="intro-text">
+        <img src="images/me.jpg" alt="M074MED" />
+        <h1>Hello There!</h1>
+        <p>
+          I am Mohammed - Software Developer at AUC (The American University in
+          Cairo)
+        </p>
+        <a class="btn btn-primary" href="#portfolio" style="margin-right: 10px"
+          >View my work</a
+        >
+        <a
+          class="btn btn-outline-primary"
+          href="#about"
+          style="margin-left: 10px"
+          >More about me</a
+        >
+      </div>
     </section>
     <!-- End Landing\Home Section -->
-    
+
     <!-- Start Portfolio Section -->
     <section id="portfolio" class="portfolio">
-        <div class="container">
-            <h2 class="special-heading">Portfolio</h2>
-            <p>Here are My Projects</p>
-            <div class="portfolio-content">
-                <div class="card">
-                    <div class="card-img"><img src="images/dws.png" alt="Card Image"></div>
-                    <div class="info">
-                        <h4>Django WebShop</h4>
-                        <p>This is a Web Shop in Django, MySQL, Bootstrap and Ajax (Responsive Design).</p>
-                    </div>
-                    <div class="buttons row w-100 justify-content-between mx-auto">
-                        <a href="https://webshop.pythonanywhere.com" class="col-5 btn btn-primary" target="blank">View Project</a>
-                        <a href="https://github.com/M074MED/Django_WebShop" class="col-5 btn btn-outline-primary" target="blank">Source Code</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="images/djb.png" alt="Card Image"></div>
-                    <div class="info">
-                        <h4>Django Job Board</h4>
-                        <p>This is a Job Board website with MySQL database and API in Django.</p>
-                    </div>
-                    <div class="buttons row w-100 justify-content-between mx-auto">
-                        <a href="https://jobboard.pythonanywhere.com" class="col-5 btn btn-primary" target="blank">View Project</a>
-                        <a href="https://github.com/M074MED/Django_Job_Board" class="col-5 btn btn-outline-primary" target="blank">Source Code</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="images/lms.png" alt="Card Image"></div>
-                    <div class="info">
-                        <h4>Django Library Management System</h4>
-                        <p>This is a Library Management System in Django.</p>
-                    </div>
-                    <div class="buttons row w-100 justify-content-between mx-auto">
-                        <a href="https://m074med.pythonanywhere.com" class="col-5 btn btn-primary" target="blank">View Project</a>
-                        <a href="https://github.com/M074MED/Django_LMS" class="col-5 btn btn-outline-primary" target="blank">Source Code</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="images/rwa.png" alt="Card Image"></div>
-                    <div class="info">
-                        <h4>ReactJS Weather App</h4>
-                        <p>This is a Simple Weather App in ReactJS.</p>
-                    </div>
-                    <div class="buttons row w-100 justify-content-between mx-auto">
-                        <a href="https://m074med.github.io/Simple_ReactJS_Weather_App/" class="col-5 btn btn-primary" target="blank">View Project</a>
-                        <a href="https://github.com/M074MED/Simple_ReactJS_Weather_App" class="col-5 btn btn-outline-primary" target="blank">Source Code</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="images/learnero.png" alt="Card Image"></div>
-                    <div class="info">
-                        <h4>Bootstrap and jQuery Template</h4>
-                        <p>This is a Bootstrap and jQuery Template (Responsive Design).</p>
-                    </div>
-                    <div class="buttons row w-100 justify-content-between mx-auto">
-                        <a href="https://m074med.github.io/Bootstrap_and_jQuery_Template/" class="col-5 btn btn-primary" target="blank">View Project</a>
-                        <a href="https://github.com/M074MED/Bootstrap_and_jQuery_Template" class="col-5 btn btn-outline-primary" target="blank">Source Code</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="images/leon.png" alt="Card Image"></div>
-                    <div class="info">
-                        <h4>HTML, CSS and JS Template</h4>
-                        <p>This is a Template with HTML and pure CSS and pure JavaScript. (Responsive Design).</p>
-                    </div>
-                    <div class="buttons row w-100 justify-content-between mx-auto">
-                        <a href="https://m074med.github.io/HTML_and_CSS_and_JS_Template/" class="col-5 btn btn-primary" target="blank">View Project</a>
-                        <a href="https://github.com/M074MED/HTML_and_CSS_and_JS_Template" class="col-5 btn btn-outline-primary" target="blank">Source Code</a>
-                    </div>
-                </div>
+      <div class="container">
+        <h2 class="special-heading">Portfolio</h2>
+        <p>Here are My Projects</p>
+        <div class="portfolio-content">
+          <div class="card">
+            <div class="card-img d-grid">
+              <img
+                style="width: fit-content; justify-self: center"
+                src="images/spacescape.png"
+                alt="Flutter Spacescape Game"
+              />
             </div>
-            <div class="more-pro">
-                <a href="https://github.com/M074MED" target="blank" class="btn btn-outline-primary">More Projects on GitHub</a>
+            <div class="info">
+              <h4>Flutter Spacescape Game</h4>
+              <p>This is a Spacescape Game in Flutter and Flame.</p>
             </div>
+            <div class="buttons row w-100 justify-content-between mx-auto">
+              <a
+                href="https://m074med.github.io/Flutter_Spacescape_Game/"
+                class="col-5 btn btn-primary"
+                target="blank"
+                >View Project</a
+              >
+              <a
+                href="https://github.com/M074MED/Flutter_Spacescape_Game"
+                class="col-5 btn btn-outline-primary"
+                target="blank"
+                >Source Code</a
+              >
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img d-grid">
+              <img
+                style="width: fit-content; justify-self: center"
+                src="images/todo.png"
+                alt="Flutter Todo App"
+              />
+            </div>
+            <div class="info">
+              <h4>Flutter Todo App</h4>
+              <p>This is a Todo App in Flutter.</p>
+            </div>
+            <div class="buttons row w-100 justify-content-between mx-auto">
+              <a
+                href="https://github.com/M074MED/Flutter_Todo_App"
+                class="btn btn-outline-primary"
+                target="blank"
+                >Source Code</a
+              >
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img">
+              <img src="images/dws.png" alt="Django WebShop" />
+            </div>
+            <div class="info">
+              <h4>Django WebShop</h4>
+              <p>
+                This is a Web Shop in Django, MySQL, Bootstrap and Ajax
+                (Responsive Design).
+              </p>
+            </div>
+            <div class="buttons row w-100 justify-content-between mx-auto">
+              <a
+                href="https://webshop.pythonanywhere.com"
+                class="col-5 btn btn-primary"
+                target="blank"
+                >View Project</a
+              >
+              <a
+                href="https://github.com/M074MED/Django_WebShop"
+                class="col-5 btn btn-outline-primary"
+                target="blank"
+                >Source Code</a
+              >
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img">
+              <img src="images/djb.png" alt="Django Job Board" />
+            </div>
+            <div class="info">
+              <h4>Django Job Board</h4>
+              <p>
+                This is a Job Board website with MySQL database and API in
+                Django.
+              </p>
+            </div>
+            <div class="buttons row w-100 justify-content-between mx-auto">
+              <a
+                href="https://jobboard.pythonanywhere.com"
+                class="col-5 btn btn-primary"
+                target="blank"
+                >View Project</a
+              >
+              <a
+                href="https://github.com/M074MED/Django_Job_Board"
+                class="col-5 btn btn-outline-primary"
+                target="blank"
+                >Source Code</a
+              >
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img">
+              <img
+                src="images/lms.png"
+                alt="Django Library Management System"
+              />
+            </div>
+            <div class="info">
+              <h4>Django Library Management System</h4>
+              <p>This is a Library Management System in Django.</p>
+            </div>
+            <div class="buttons row w-100 justify-content-between mx-auto">
+              <a
+                href="https://m074med.pythonanywhere.com"
+                class="col-5 btn btn-primary"
+                target="blank"
+                >View Project</a
+              >
+              <a
+                href="https://github.com/M074MED/Django_LMS"
+                class="col-5 btn btn-outline-primary"
+                target="blank"
+                >Source Code</a
+              >
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img">
+              <img src="images/rwa.png" alt="ReactJS Weather App" />
+            </div>
+            <div class="info">
+              <h4>ReactJS Weather App</h4>
+              <p>This is a Simple Weather App in ReactJS.</p>
+            </div>
+            <div class="buttons row w-100 justify-content-between mx-auto">
+              <a
+                href="https://m074med.github.io/Simple_ReactJS_Weather_App/"
+                class="col-5 btn btn-primary"
+                target="blank"
+                >View Project</a
+              >
+              <a
+                href="https://github.com/M074MED/Simple_ReactJS_Weather_App"
+                class="col-5 btn btn-outline-primary"
+                target="blank"
+                >Source Code</a
+              >
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img">
+              <img
+                src="images/learnero.png"
+                alt="Bootstrap and jQuery Template"
+              />
+            </div>
+            <div class="info">
+              <h4>Bootstrap and jQuery Template</h4>
+              <p>
+                This is a Bootstrap and jQuery Template (Responsive Design).
+              </p>
+            </div>
+            <div class="buttons row w-100 justify-content-between mx-auto">
+              <a
+                href="https://m074med.github.io/Bootstrap_and_jQuery_Template/"
+                class="col-5 btn btn-primary"
+                target="blank"
+                >View Project</a
+              >
+              <a
+                href="https://github.com/M074MED/Bootstrap_and_jQuery_Template"
+                class="col-5 btn btn-outline-primary"
+                target="blank"
+                >Source Code</a
+              >
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img">
+              <img src="images/leon.png" alt="HTML, CSS and JS Template" />
+            </div>
+            <div class="info">
+              <h4>HTML, CSS and JS Template</h4>
+              <p>
+                This is a Template with HTML and pure CSS and pure JavaScript.
+                (Responsive Design).
+              </p>
+            </div>
+            <div class="buttons row w-100 justify-content-between mx-auto">
+              <a
+                href="https://m074med.github.io/HTML_and_CSS_and_JS_Template/"
+                class="col-5 btn btn-primary"
+                target="blank"
+                >View Project</a
+              >
+              <a
+                href="https://github.com/M074MED/HTML_and_CSS_and_JS_Template"
+                class="col-5 btn btn-outline-primary"
+                target="blank"
+                >Source Code</a
+              >
+            </div>
+          </div>
         </div>
+        <div class="more-pro">
+          <a
+            href="https://github.com/M074MED"
+            target="blank"
+            class="btn btn-outline-primary"
+            >More Projects on GitHub</a
+          >
+        </div>
+      </div>
     </section>
     <!-- End Portfolio Section -->
-    
+
     <!-- Start About Section -->
     <section id="about" class="about">
-        <div class="container">
-            <h2 class="special-heading">About</h2>
-            <p>Know More About Me</p>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="images/about.jpg" alt="About Image">
-                </div>
-                <div class="about-info">
-                    <p>
-                        Hello,<br/> I am Mohammed, I am a Software Developer at AUC (The American University in Cairo).<br>
-                        I have two years of experience in The Software Development, and I created some projects
-                        (Django WebShop with MySQL DB and Ajax and Bootstrap, Django Job Board with API and MySQL DB, Django Library Management System, ReactJS Weather App, Bootstrap and jQuery Template,
-                        HTML and CSS and JS Template, and other projects on GitHub),
-                        You can see them by clicking <a href="#portfolio">here</a>.
-                    </p>
-                    <hr/>
-                    <p>
-                        My Technical Skills:
-                        -Python
-                        -Django
-                        -Django Rest API Framework
-                        -MySQL
-                        -HTML
-                        -CSS
-                        -JavaScript
-                        -jQuery
-                        -Bootstrap
-                        -Dart
-                        -Flutter
-                        -React JS
-			-Kivy
-                        -WordPress
-                        -C++
-                        -Java
-                        -Oracle SQL
-                        -Git & GitHub
-                        -JSON
-                        -Ajax.<br/>
-                        My Experience: 2 years
-                    </p>
-                </div>
-            </div>
+      <div class="container">
+        <h2 class="special-heading">About</h2>
+        <p>Know More About Me</p>
+        <div class="about-content">
+          <div class="about-image">
+            <img src="images/about.jpg" alt="About Image" />
+          </div>
+          <div class="about-info">
+            <p>
+              Hello,<br />
+              I am Mohammed Mamdouh, a Computer Science and Artificial
+              Intelligence student at Beni Suef University. I am working as a
+              Software Developer at AUC (the American University in Cairo). I
+              have over two years of experience in Software Development
+              including one year of experience in Python and Django and over one
+              year of work experience in mobile application development using
+              Flutter. I have been working as a software developer at The
+              American University in Cairo since April 2022. My responsibilities
+              involve coding, scripting, and implementing the functionality and
+              integrations and creating GUI for mobile psychology applications
+              using Dart, Flutter, and Flame. These applications include video
+              games such as Tetris and SpaceFortress game and involve
+              implementing eye-tracking using Google Machine Learning Face
+              Detection in these applications. In my current role, I have gained
+              valuable experience in software development, teamwork, and project
+              management. My passion for software development drives me to
+              constantly learn and improve my skills. I am a proactive team
+              player who is able to work effectively in a collaborative
+              environment.
+            </p>
+            <hr />
+            <p>
+              <span style="font-weight: bold">Technical Skills:</span> -Dart
+              -Flutter -Flame -Python -Django -Django Rest API Framework -MySQL
+              -HTML -CSS -JavaScript -jQuery -Bootstrap -React JS -Kivy
+              -WordPress -C++ -Java -Oracle SQL -Git & GitHub -JSON -Ajax.<br/>
+              <span style="font-weight: bold">My Years of Experience:</span> More than 
+              <span id="experience-year-num">2</span> Years.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
     <!-- End About Section -->
-    
+
     <!-- Start Contact Section -->
     <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="special-heading">Contact</h2>
-            <p>Here You Can Contact Me</p>
-            <div class="contact-content">
-                <div class="contact-link">
-                    Feel free to drop me a line at:
-                    <a href="mailto:mhmedmhmed1234951@gmail.com">mhmedmhmed1234951@gmail.com</a>
-                </div>
-                <div class="social">
-                    Find me on social networks:
-                    <a target="blank" href="https://www.twitter.com/_m074med_"><i class="fab fa-twitter"></i></a>
-                    <a target="blank" href="https://www.facebook.com/M074MED"><i class="fab fa-facebook"></i></a>
-                    <a target="blank" href="https://www.instagram.com/_m074med_"><i class="fab fa-instagram"></i></a>
-                    <a target="blank" href="https://www.linkedin.com/in/m074med"><i class="fab fa-linkedin-in"></i></a>
-                    <a target="blank" href="https://www.github.com/M074MED"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
+      <div class="container">
+        <h2 class="special-heading">Contact</h2>
+        <p>Here You Can Contact Me</p>
+        <div class="contact-content">
+          <div class="contact-link">
+            Feel free to drop me a line at:
+            <a href="mailto:mhmedmhmed1234951@gmail.com"
+              >mhmedmhmed1234951@gmail.com</a
+            >
+          </div>
+          <div class="social">
+            Find me on social networks:
+            <a target="blank" href="https://www.twitter.com/_m074med_"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a target="blank" href="https://www.facebook.com/M074MED"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a target="blank" href="https://www.instagram.com/_m074med_"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a target="blank" href="https://www.linkedin.com/in/m074med"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a target="blank" href="https://www.github.com/M074MED"
+              ><i class="fab fa-github"></i
+            ></a>
+          </div>
         </div>
+      </div>
     </section>
     <!-- End Contact Section -->
-    
+
     <!-- Start Scroll To Top Button -->
-    <a href="#" class="btn btn-outline-primary btn-floating btn-md scroll-to-top" style="position: fixed; bottom: 10px; right: 10px; z-index: 4;">
-        <i class="fas fa-arrow-up"></i>
+    <a
+      href="#"
+      class="btn btn-outline-primary btn-floating btn-md scroll-to-top"
+      style="position: fixed; bottom: 10px; right: 10px; z-index: 4"
+    >
+      <i class="fas fa-arrow-up"></i>
     </a>
     <!-- End Scroll To Top Button -->
-    
+
     <!-- Start Footer -->
     <footer>
-        &copy; 2021 - <a href="https://github.com/M074MED" target="blank">M074MED</a>,All Right Reserved
+      &copy; <span id="footer-year">2021</span> -
+      <a href="https://www.linkedin.com/in/m074med" target="blank">M074MED</a>,All Right
+      Reserved
     </footer>
     <!-- End Footer -->
-    
-    
+
     <!-- jquery.js File -->
     <script src="js/jquery-3.6.0.min.js"></script>
     <!-- popper.js File -->
@@ -225,14 +404,22 @@
     <!-- bootstrap.js File -->
     <script src="js/bootstrap.min.js"></script>
     <script>
-    // Start Scroll To Top Button
-    $(document).ready(function(){
-        $(".scroll-to-top").hide();
-        window.onscroll = function() {
-            this.scrollY >= 600 ? $(".scroll-to-top").slideDown(300) : $(".scroll-to-top").slideUp(300);
-        };
-    });
-    // End Scroll To Top Button
+        // Start Scroll To Top Button
+        $(document).ready(function () {
+            $(".scroll-to-top").hide();
+            window.onscroll = function () {
+            this.scrollY >= 600
+            ? $(".scroll-to-top").slideDown(300)
+            : $(".scroll-to-top").slideUp(300);
+            };
+            const currentDate = new Date();
+            const pastDate = new Date('September 1, 2020');
+                const diffInMs = currentDate - pastDate;
+                const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365);
+            document.getElementById("experience-year-num").textContent = Math.floor(diffInYears);
+            document.getElementById("footer-year").textContent = currentDate.getFullYear();
+        });
+        // End Scroll To Top Button
     </script>
-</body>
+  </body>
 </html>

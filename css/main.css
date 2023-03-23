@@ -234,10 +234,10 @@
 .about-content .about-info p:first-of-type {
     margin-top: 0;
     margin-bottom: 40px;
-    padding: 5px;
-    font-size: 20px;
+    padding: 0px 5px;
+    font-size: 17px;
     font-weight: bold;
-    line-height: 2;
+    line-height: var(--p-line-height, 1.8);
     max-width: 100%;
 }
 .about-content .about-info hr {
