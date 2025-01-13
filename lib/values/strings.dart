@@ -277,7 +277,7 @@ class StringConst {
   static const String COMPANY_3_ROLE_1 =
       "Work with a team to develop and maintain the GameChanger mobile app using Flutter.";
   static const String COMPANY_3_ROLE_2 =
-      "Develop and maintain Metatris and Space Fortress games and integrate them to the GameChanger app using Flutter.";
+      "Develop and maintain Metatris and Space Fortress games and integrate them into the GameChanger app using Flutter.";
   static const String COMPANY_3_ROLE_3 =
       "Responsible for coding, scripting, implementing functionality and integrations, and creating GUI in the applications.";
   static const String LOCATION_3 = "New Cairo - Egypt";
