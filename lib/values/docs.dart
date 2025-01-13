@@ -7,6 +7,6 @@ class DocumentPath {
 
   //Docs
   static const String CV =
-      "https://drive.google.com/file/d/1Dk3K6NwCOUNvmgDU0uUrHqupgnPEyQLJ/view?usp=sharing";
+      "https://drive.google.com/file/d/1tGhKmsldXIHX9N5CqCs5LP-WqeeNNT1K/view?usp=sharing";
   static const String CV_2 = "$docDir/Mohammed_Mamdouh_CV.pdf";
 }

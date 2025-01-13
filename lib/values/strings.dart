@@ -261,7 +261,7 @@ class StringConst {
 
   static const String COMPANY_2 = "AUC (The American University in Cairo)";
   static const String COMPANY_2_URL = "https://www.aucegypt.edu/";
-  static const String POSITION_2 = "Software Engineer";
+  static const String POSITION_2 = "Flutter Developer";
   static const String COMPANY_2_ROLE_1 =
       "Work with a team to develop mobile psychology applications as video games (such as Tetris game and Space Fortress game) for psychology research using Dart, Flutter, and Flame technologies.";
   static const String COMPANY_2_ROLE_2 =
@@ -273,7 +273,7 @@ class StringConst {
 
   static const String COMPANY_3 = "GameChanger Research Solutions";
   static const String COMPANY_3_URL = "https://www.gamechangerresearch.com/";
-  static const String POSITION_3 = "Software Engineer";
+  static const String POSITION_3 = "Flutter Developer";
   static const String COMPANY_3_ROLE_1 =
       "Work with a team to develop and maintain the GameChanger mobile app using Flutter.";
   static const String COMPANY_3_ROLE_2 =
