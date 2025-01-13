@@ -1,9 +1,9 @@
-import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/core/utils/functions.dart';
-import 'package:aerium/presentation/pages/widgets/socials.dart';
-import 'package:aerium/presentation/widgets/animated_line_through_text.dart';
-import 'package:aerium/presentation/widgets/spaces.dart';
-import 'package:aerium/values/values.dart';
+import '../../../core/layout/adaptive.dart';
+import '../../../core/utils/functions.dart';
+import 'socials.dart';
+import '../../widgets/animated_line_through_text.dart';
+import '../../widgets/spaces.dart';
+import '../../../values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -24,7 +24,7 @@ class SimpleFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width ?? widthOfScreen(context),
-      height: height ?? assignHeight(context, 0.2),
+      height: height ?? assignHeight(context, 0.25),
       color: backgroundColor,
       child: Center(
         child: ResponsiveBuilder(
@@ -59,7 +59,7 @@ class SimpleFooterSm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? style = textTheme.bodyText1?.copyWith(
+    TextStyle? style = textTheme.bodyLarge?.copyWith(
       color: AppColors.accentColor,
       fontSize: Sizes.TEXT_SIZE_14,
     );
@@ -67,12 +67,30 @@ class SimpleFooterSm extends StatelessWidget {
       children: [
         Socials(socialData: Data.socialData),
         SpaceH30(),
+        Text(
+          StringConst.COPYRIGHT,
+          style: style,
+          softWrap: true,
+          textAlign: TextAlign.center,
+        ),
+        SpaceH12(),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              StringConst.COPYRIGHT,
-              style: style,
+            InkWell(
+              onTap: () {
+                Functions.launchLink(StringConst.BIG_THANKS_LINK);
+              },
+              child: AnimatedLineThroughText(
+                text: StringConst.BIG_THANKS_TO,
+                isUnderlinedByDefault: true,
+                isUnderlinedOnHover: false,
+                hoverColor: AppColors.white,
+                coverColor: AppColors.black,
+                textStyle: style?.copyWith(
+                  decoration: TextDecoration.underline,
+                ),
+              ),
             ),
           ],
         ),
@@ -82,7 +100,7 @@ class SimpleFooterSm extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                Functions.launchUrl(StringConst.DESIGN_LINK);
+                Functions.launchLink(StringConst.DESIGN_LINK);
               },
               child: AnimatedLineThroughText(
                 text: StringConst.DESIGNED_BY,
@@ -110,7 +128,7 @@ class SimpleFooterLg extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? style = textTheme.bodyText1?.copyWith(
+    TextStyle? style = textTheme.bodyLarge?.copyWith(
       color: AppColors.accentColor,
       fontSize: Sizes.TEXT_SIZE_14,
     );
@@ -123,8 +141,8 @@ class SimpleFooterLg extends StatelessWidget {
           ],
         ),
         SpaceH20(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        Wrap(
+          alignment: WrapAlignment.center,
           children: [
             Text(
               StringConst.COPYRIGHT,
@@ -133,7 +151,23 @@ class SimpleFooterLg extends StatelessWidget {
             SpaceW8(),
             InkWell(
               onTap: () {
-                Functions.launchUrl(StringConst.DESIGN_LINK);
+                Functions.launchLink(StringConst.BIG_THANKS_LINK);
+              },
+              child: AnimatedLineThroughText(
+                text: StringConst.BIG_THANKS_TO,
+                isUnderlinedByDefault: true,
+                isUnderlinedOnHover: false,
+                hoverColor: AppColors.white,
+                coverColor: AppColors.black,
+                textStyle: style?.copyWith(
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+            SpaceW8(),
+            InkWell(
+              onTap: () {
+                Functions.launchLink(StringConst.DESIGN_LINK);
               },
               child: AnimatedLineThroughText(
                 text: StringConst.DESIGNED_BY,
@@ -161,7 +195,7 @@ class BuiltWithFlutter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? style = textTheme.bodyText1?.copyWith(
+    TextStyle? style = textTheme.bodyLarge?.copyWith(
       color: AppColors.accentColor,
       fontSize: Sizes.TEXT_SIZE_14,
     );

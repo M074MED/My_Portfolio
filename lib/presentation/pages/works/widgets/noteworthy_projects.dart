@@ -1,10 +1,10 @@
-import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/core/utils/functions.dart';
-import 'package:aerium/presentation/widgets/animated_line_through_text.dart';
-import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
-import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
-import 'package:aerium/presentation/widgets/spaces.dart';
-import 'package:aerium/values/values.dart';
+import '../../../../core/layout/adaptive.dart';
+import '../../../../core/utils/functions.dart';
+import '../../../widgets/animated_line_through_text.dart';
+import '../../../widgets/animated_positioned_text.dart';
+import '../../../widgets/animated_text_slide_box_transition.dart';
+import '../../../widgets/spaces.dart';
+import '../../../../values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -37,7 +37,7 @@ class _NoteWorthyProjectsState extends State<NoteWorthyProjects>
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? titleStyle = textTheme.subtitle1?.copyWith(
+    TextStyle? titleStyle = textTheme.titleMedium?.copyWith(
       color: AppColors.black,
       fontSize: responsiveSize(
         context,
@@ -45,7 +45,7 @@ class _NoteWorthyProjectsState extends State<NoteWorthyProjects>
         Sizes.TEXT_SIZE_30,
       ),
     );
-    TextStyle? bodyText1Style = textTheme.bodyText1?.copyWith(
+    TextStyle? bodyText1Style = textTheme.bodyLarge?.copyWith(
       fontSize: responsiveSize(
         context,
         Sizes.TEXT_SIZE_16,
@@ -103,18 +103,18 @@ class _NoteWorthyProjectsState extends State<NoteWorthyProjects>
           projectName: data[index].projectName,
           onSourceTap: data[index].isPublic
               ? () {
-                  Functions.launchUrl(data[index].gitHubUrl!);
+                  Functions.launchLink(data[index].gitHubUrl!);
                 }
               : null,
           onProjectNameTap: data[index].isLive
               ? () {
                   data[index].isWeb
-                      ? Functions.launchUrl(data[index].webUrl!)
-                      : Functions.launchUrl(data[index].playStoreUrl!);
+                      ? Functions.launchLink(data[index].webUrl!)
+                      : Functions.launchLink(data[index].playStoreUrl!);
                 }
               : (data[index].isPublic
                   ? () {
-                      Functions.launchUrl(data[index].gitHubUrl!);
+                      Functions.launchLink(data[index].gitHubUrl!);
                     }
                   : null),
         ),
@@ -153,18 +153,18 @@ class NoteWorthyProjectItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? defaultNumberStyle = textTheme.subtitle1?.copyWith(
+    TextStyle? defaultNumberStyle = textTheme.titleMedium?.copyWith(
       fontSize: Sizes.TEXT_SIZE_16,
       color: AppColors.grey550,
       fontWeight: FontWeight.w400,
     );
-    TextStyle? defaultSourceStyle = textTheme.subtitle1?.copyWith(
+    TextStyle? defaultSourceStyle = textTheme.titleMedium?.copyWith(
       fontSize: Sizes.TEXT_SIZE_16,
       color: AppColors.grey700,
       fontWeight: FontWeight.w400,
       decoration: TextDecoration.underline,
     );
-    TextStyle? defaultProjectNameStyle = textTheme.subtitle1?.copyWith(
+    TextStyle? defaultProjectNameStyle = textTheme.titleMedium?.copyWith(
       fontSize: responsiveSize(
         context,
         Sizes.TEXT_SIZE_16,

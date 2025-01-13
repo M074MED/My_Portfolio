@@ -1,16 +1,16 @@
-import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/core/utils/functions.dart';
-import 'package:aerium/presentation/pages/home/widgets/scroll_down.dart';
-import 'package:aerium/presentation/pages/widgets/socials.dart';
-import 'package:aerium/presentation/pages/works/works_page.dart';
-import 'package:aerium/presentation/widgets/animated_bubble_button.dart';
-import 'package:aerium/presentation/widgets/animated_line_through_text.dart';
-import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
-import 'package:aerium/presentation/widgets/animated_positioned_widget.dart';
-import 'package:aerium/presentation/widgets/animated_slide_transtion.dart';
-import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
-import 'package:aerium/presentation/widgets/spaces.dart';
-import 'package:aerium/values/values.dart';
+import '../../../../core/layout/adaptive.dart';
+import '../../../../core/utils/functions.dart';
+import 'scroll_down.dart';
+import '../../widgets/socials.dart';
+import '../../works/works_page.dart';
+import '../../../widgets/animated_bubble_button.dart';
+import '../../../widgets/animated_line_through_text.dart';
+import '../../../widgets/animated_positioned_text.dart';
+import '../../../widgets/animated_positioned_widget.dart';
+import '../../../widgets/animated_slide_transtion.dart';
+import '../../../widgets/animated_text_slide_box_transition.dart';
+import '../../../widgets/spaces.dart';
+import '../../../../values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -36,6 +36,8 @@ class _HomePageHeaderState extends State<HomePageHeader>
   late AnimationController scrollDownButtonController;
   late Animation<Offset> animation;
   late Animation<Offset> scrollDownBtnAnimation;
+  late Animation<Offset> meditateImageAnimation;
+  late Animation<Offset> mobileImageAnimation;
 
   @override
   void initState() {
@@ -57,6 +59,26 @@ class _HomePageHeaderState extends State<HomePageHeader>
     ).animate(
       CurvedAnimation(
         parent: controller,
+        curve: Curves.easeInOut,
+      ),
+    );
+    meditateImageAnimation = Tween<Offset>(
+      begin: Offset(0, 1),
+      end: Offset(0, 0),
+    ).animate(
+      CurvedAnimation(
+        parent: widget.controller,
+        // curve: Interval(0.6, 1.0, curve: Curves.easeOutCubic),
+        curve: Curves.easeInOut,
+      ),
+    );
+    mobileImageAnimation = Tween<Offset>(
+      begin: Offset(0, -2),
+      end: Offset(0, 0),
+    ).animate(
+      CurvedAnimation(
+        parent: widget.controller,
+        // curve: Interval(0.4, 0.8, curve: Curves.easeOutCubic),
         curve: Curves.easeInOut,
       ),
     );
@@ -119,11 +141,11 @@ class _HomePageHeaderState extends State<HomePageHeader>
       ),
       top: responsiveSize(
         context,
-        30,
-        screenHeight * 0.25,
-        sm: screenHeight * 0.25,
+        20,
+        screenHeight * 0.22,
+        sm: screenHeight * 0.22,
       ),
-      bottom: responsiveSize(context, 20, 40),
+      // bottom: responsiveSize(context, 20, 40),
     );
 
     return Container(
@@ -148,22 +170,31 @@ class _HomePageHeaderState extends State<HomePageHeader>
                   Container(
                     padding: padding,
                     child: AnimatedSlideTranstion(
-                      controller: controller,
-                      position: animation,
-                      child: Stack(
-                        children: [
-                          RotationTransition(
-                            turns: rotationController,
-                            child: Image.asset(
-                              ImagePath.DEV_SKILLS_2,
-                              width: screenWidth,
+                      controller: widget.controller,
+                      position: mobileImageAnimation,
+                      child: AnimatedSlideTranstion(
+                        controller: controller,
+                        position: animation,
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            RotationTransition(
+                              turns: rotationController,
+                              child: Image.asset(
+                                ImagePath.DEV_SKILLS,
+                                width: screenWidth,
+                              ),
                             ),
-                          ),
-                          Image.asset(
-                            ImagePath.DEV_MEDITATE,
-                            width: screenWidth,
-                          ),
-                        ],
+                            CircleAvatar(
+                              backgroundColor: Colors.transparent,
+                              radius: screenWidth * 0.27,
+                              backgroundImage: AssetImage(
+                                ImagePath.DEV,
+                                // width: screenWidth,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -196,24 +227,36 @@ class _HomePageHeaderState extends State<HomePageHeader>
                   SizedBox(width: screenWidth * 0.05),
                   Container(
                     margin: imageMargin,
-                    child: AnimatedSlideTranstion(
-                      controller: controller,
-                      position: animation,
-                      child: Stack(
-                        children: [
-                          RotationTransition(
-                            turns: rotationController,
-                            child: Image.asset(
-                              ImagePath.DEV_SKILLS_2,
-                              width: screenWidth * 0.35,
+                    child: Stack(
+                      children: [
+                        AnimatedSlideTranstion(
+                          controller: widget.controller,
+                          position: mobileImageAnimation,
+                          child: AnimatedSlideTranstion(
+                            controller: controller,
+                            position: animation,
+                            child: Stack(
+                              children: [
+                                RotationTransition(
+                                  turns: rotationController,
+                                  child: Image.asset(
+                                    ImagePath.DEV_SKILLS,
+                                    width: screenWidth * 0.35,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          Image.asset(
+                        ),
+                        AnimatedSlideTranstion(
+                          controller: widget.controller,
+                          position: meditateImageAnimation,
+                          child: Image.asset(
                             ImagePath.DEV_MEDITATE,
                             width: screenWidth * 0.35,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -307,7 +350,7 @@ class _AboutDevState extends State<AboutDev> {
       parent: widget.controller,
       curve: Interval(0.6, 1.0, curve: Curves.fastOutSlowIn),
     );
-    double headerFontSize = responsiveSize(context, 28, 48, md: 36, sm: 32);
+    double headerFontSize = responsiveSize(context, 24, 44, md: 36, sm: 32);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -318,7 +361,7 @@ class _AboutDevState extends State<AboutDev> {
             text: StringConst.HI,
             width: widget.width,
             maxLines: 3,
-            textStyle: textTheme.headline2?.copyWith(
+            textStyle: textTheme.displayMedium?.copyWith(
               color: AppColors.black,
               fontSize: headerFontSize,
             ),
@@ -332,7 +375,7 @@ class _AboutDevState extends State<AboutDev> {
             text: StringConst.DEV_INTRO,
             width: widget.width,
             maxLines: 3,
-            textStyle: textTheme.headline2?.copyWith(
+            textStyle: textTheme.displayMedium?.copyWith(
               color: AppColors.black,
               fontSize: headerFontSize,
             ),
@@ -352,7 +395,7 @@ class _AboutDevState extends State<AboutDev> {
               sm: widget.width,
             ),
             maxLines: 3,
-            textStyle: textTheme.headline2?.copyWith(
+            textStyle: textTheme.displayMedium?.copyWith(
               color: AppColors.black,
               fontSize: headerFontSize,
             ),
@@ -367,7 +410,7 @@ class _AboutDevState extends State<AboutDev> {
             maxLines: 3,
             factor: 2,
             text: StringConst.DEV_DESC,
-            textStyle: textTheme.bodyText1?.copyWith(
+            textStyle: textTheme.bodyLarge?.copyWith(
               fontSize: responsiveSize(
                 context,
                 Sizes.TEXT_SIZE_16,
@@ -393,7 +436,7 @@ class _AboutDevState extends State<AboutDev> {
               Radius.circular(100.0),
             ),
             title: StringConst.SEE_MY_WORKS.toUpperCase(),
-            titleStyle: textTheme.bodyText1?.copyWith(
+            titleStyle: textTheme.bodyLarge?.copyWith(
               color: AppColors.black,
               fontSize: responsiveSize(
                 context,
@@ -429,8 +472,8 @@ class _AboutDevState extends State<AboutDev> {
     required List<SocialData> data,
   }) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? style = textTheme.bodyText1?.copyWith(color: AppColors.grey750);
-    TextStyle? slashStyle = textTheme.bodyText1?.copyWith(
+    TextStyle? style = textTheme.bodyLarge?.copyWith(color: AppColors.grey750);
+    TextStyle? slashStyle = textTheme.bodyLarge?.copyWith(
       color: AppColors.grey750,
       fontWeight: FontWeight.w400,
       fontSize: 18,
@@ -447,7 +490,7 @@ class _AboutDevState extends State<AboutDev> {
           hasOffsetAnimation: true,
           isUnderlinedOnHover: false,
           onTap: () {
-            Functions.launchUrl(data[index].url);
+            Functions.launchLink(data[index].url);
           },
           textStyle: style,
         ),

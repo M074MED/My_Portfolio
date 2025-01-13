@@ -1,5 +1,5 @@
-import 'package:aerium/presentation/widgets/spaces.dart';
-import 'package:aerium/values/values.dart';
+import '../../../widgets/spaces.dart';
+import '../../../../values/values.dart';
 import 'package:flutter/material.dart';
 
 class ScrollDownButton extends StatelessWidget {
@@ -13,7 +13,7 @@ class ScrollDownButton extends StatelessWidget {
           quarterTurns: 1,
           child: Text(
             StringConst.SCROLL_DOWN.toUpperCase(),
-            style: Theme.of(context).textTheme.subtitle1?.copyWith(
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   fontSize: 12,
                   letterSpacing: 1.7,
                 ),

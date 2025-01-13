@@ -1,18 +1,18 @@
-import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/core/utils/functions.dart';
-import 'package:aerium/presentation/pages/home/widgets/home_page_header.dart';
-import 'package:aerium/presentation/pages/home/widgets/loading_page.dart';
-import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
-import 'package:aerium/presentation/pages/works/works_page.dart';
-import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
-import 'package:aerium/presentation/widgets/animated_slide_transtion.dart';
-import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
-import 'package:aerium/presentation/widgets/custom_spacer.dart';
-import 'package:aerium/presentation/widgets/page_wrapper.dart';
-import 'package:aerium/presentation/widgets/project_item.dart';
-import 'package:aerium/presentation/widgets/spaces.dart';
+import '../../../core/layout/adaptive.dart';
+import '../../../core/utils/functions.dart';
+import 'widgets/home_page_header.dart';
+import 'widgets/loading_page.dart';
+import '../widgets/animated_footer.dart';
+import '../works/works_page.dart';
+import '../../widgets/animated_positioned_text.dart';
+import '../../widgets/animated_slide_transtion.dart';
+import '../../widgets/animated_text_slide_box_transition.dart';
+import '../../widgets/custom_spacer.dart';
+import '../../widgets/page_wrapper.dart';
+import '../../widgets/project_item.dart';
+import '../../widgets/spaces.dart';
 import 'package:flutter/material.dart';
-import 'package:aerium/values/values.dart';
+import '../../../values/values.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       vsync: this,
       duration: Animations.slideAnimationDurationLong,
     );
-   
+
     super.initState();
   }
 
@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     double subHeight = (3 / 4) * projectItemHeight;
     double extra = projectItemHeight - subHeight;
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? textButtonStyle = textTheme.headline4?.copyWith(
+    TextStyle? textButtonStyle = textTheme.headlineMedium?.copyWith(
       color: AppColors.black,
       fontSize: responsiveSize(context, 30, 40, md: 36, sm: 32),
       height: 2.0,
@@ -105,7 +105,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       },
       customLoadingAnimation: LoadingHomePageAnimation(
         text: StringConst.DEV_NAME,
-        style: textTheme.headline4!.copyWith(color: AppColors.white),
+        style: textTheme.headlineMedium!.copyWith(
+            color: AppColors.white,
+            fontSize: responsiveSize(context, 30, 40, md: 36, sm: 32)),
         onLoadingDone: () {
           _slideTextController.forward();
         },
@@ -117,7 +119,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           parent: AlwaysScrollableScrollPhysics(),
         ),
         children: [
-          
           HomePageHeader(
             controller: _slideTextController,
             scrollToWorksKey: key,
@@ -140,7 +141,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   AnimatedTextSlideBoxTransition(
                     controller: _recentWorksController,
                     text: StringConst.CRAFTED_WITH_LOVE,
-                    textStyle: textTheme.headline4?.copyWith(
+                    textStyle: textTheme.headlineMedium?.copyWith(
                       color: AppColors.black,
                       fontSize: responsiveSize(context, 30, 48, md: 40, sm: 36),
                       height: 2.0,
@@ -153,7 +154,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       curve: Interval(0.6, 1.0, curve: Curves.fastOutSlowIn),
                     ),
                     text: StringConst.SELECTION,
-                    textStyle: textTheme.bodyText1?.copyWith(
+                    textStyle: textTheme.bodyLarge?.copyWith(
                       fontSize: responsiveSize(
                         context,
                         Sizes.TEXT_SIZE_16,
@@ -202,7 +203,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               children: [
                 Text(
                   StringConst.THERES_MORE.toUpperCase(),
-                  style: textTheme.bodyText1?.copyWith(
+                  style: textTheme.bodyLarge?.copyWith(
                     fontSize: responsiveSize(context, 11, Sizes.TEXT_SIZE_12),
                     letterSpacing: 2,
                     fontWeight: FontWeight.w300,
@@ -270,7 +271,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             projectItemheight: projectHeight.toDouble(),
             subheight: subHeight.toDouble(),
             backgroundColor: AppColors.accentColor2.withOpacity(0.35),
-            title: data[index].title.toLowerCase(),
+            title: data[index].title,
             subtitle: data[index].category,
             containerColor: data[index].primaryColor,
             onTap: () {
@@ -302,7 +303,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           child: ProjectItemSm(
             projectNumber: index + 1 > 9 ? "${index + 1}" : "0${index + 1}",
             imageUrl: data[index].image,
-            title: data[index].title.toLowerCase(),
+            title: data[index].title,
             subtitle: data[index].category,
             containerColor: data[index].primaryColor,
             onTap: () {

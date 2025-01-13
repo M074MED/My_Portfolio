@@ -1,16 +1,19 @@
-import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
-import 'package:aerium/presentation/pages/widgets/page_header.dart';
-import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
-import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
-import 'package:aerium/presentation/widgets/content_area.dart';
-import 'package:aerium/presentation/widgets/content_builder.dart';
-import 'package:aerium/presentation/widgets/custom_spacer.dart';
-import 'package:aerium/presentation/widgets/page_wrapper.dart';
-import 'package:aerium/presentation/widgets/spaces.dart';
-import 'package:aerium/values/values.dart';
+import '../../core/layout/adaptive.dart';
+import 'widgets/animated_footer.dart';
+import 'widgets/page_header.dart';
+import '../widgets/animated_line_through_text.dart';
+import '../widgets/animated_positioned_text.dart';
+import '../widgets/animated_text_slide_box_transition.dart';
+import '../widgets/content_area.dart';
+import '../widgets/content_builder.dart';
+import '../widgets/custom_spacer.dart';
+import '../widgets/page_wrapper.dart';
+import '../widgets/spaces.dart';
+import '../../values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:visibility_detector/visibility_detector.dart';
+
+import '../../core/utils/functions.dart';
 
 class ExperiencePage extends StatefulWidget {
   static const String experiencePageRoute = StringConst.EXPERIENCE_PAGE;
@@ -137,7 +140,7 @@ class _ExperiencePageState extends State<ExperiencePage>
     required double width,
   }) {
     final TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? defaultTitleStyle = textTheme.subtitle1?.copyWith(
+    TextStyle? defaultTitleStyle = textTheme.titleMedium?.copyWith(
       color: AppColors.black,
       fontSize: responsiveSize(
         context,
@@ -166,7 +169,16 @@ class _ExperiencePageState extends State<ExperiencePage>
             heading: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AnimatedTextSlideBoxTransition(
+                AnimatedLineThroughText(
+                  onTap: () {
+                    if (data[index].companyUrl != null &&
+                        data[index].companyUrl != "") {
+                      Functions.launchLink(data[index].companyUrl!);
+                    }
+                  },
+                  hasSlideBoxAnimation: true,
+                  hasOffsetAnimation: true,
+                  isUnderlinedOnHover: false,
                   controller: _experienceControllers[index],
                   text: data[index].company,
                   textStyle: defaultTitleStyle,
@@ -211,7 +223,7 @@ class _ExperiencePageState extends State<ExperiencePage>
     required double width,
   }) {
     final TextTheme textTheme = Theme.of(context).textTheme;
-    final TextStyle? bodyText1Style = textTheme.bodyText1?.copyWith(
+    final TextStyle? bodyText1Style = textTheme.bodyLarge?.copyWith(
       fontSize: responsiveSize(
         context,
         Sizes.TEXT_SIZE_16,

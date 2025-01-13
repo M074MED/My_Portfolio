@@ -1,7 +1,7 @@
-import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/presentation/widgets/animated_bubble_button.dart';
-import 'package:aerium/presentation/widgets/spaces.dart';
-import 'package:aerium/values/values.dart';
+import '../../core/layout/adaptive.dart';
+import 'animated_bubble_button.dart';
+import 'spaces.dart';
+import '../../values/values.dart';
 import 'package:flutter/material.dart';
 
 class ProjectItemData {
@@ -14,21 +14,28 @@ class ProjectItemData {
     required this.platform,
     required this.primaryColor,
     required this.category,
+    required this.projectId, // Add this parameter
     this.designer,
     this.projectAssets = const [],
     this.imageSize,
     this.technologyUsed,
-    this.isPublic = false,
-    this.isOnPlayStore = false,
-    this.isLive = false,
     this.gitHubUrl = "",
-    this.hasBeenReleased = true,
-    this.playStoreUrl = "",
     this.webUrl = "",
+    this.playStoreUrl = "",
+    this.appStoreUrl = "",
+    this.isPublic = false,
+    this.isLive = false,
+    this.isOnPlayStore = false,
+    this.isOnAppStore = false,
     this.navTitleColor = AppColors.grey600,
     this.navSelectedTitleColor = AppColors.black,
     this.appLogoColor = AppColors.black,
-  });
+  }) {
+    isPublic = gitHubUrl != "";
+    isLive = webUrl != "";
+    isOnPlayStore = playStoreUrl != "";
+    isOnAppStore = appStoreUrl != "";
+  }
 
   final Color primaryColor;
   final Color navTitleColor;
@@ -44,13 +51,15 @@ class ProjectItemData {
   final String subtitle;
   final String platform;
   final String? designer;
-  final bool isPublic;
-  final bool hasBeenReleased;
+  final String projectId; // Add this field
+  bool isPublic;
+  bool isLive;
+  bool isOnPlayStore;
+  bool isOnAppStore;
   final String gitHubUrl;
-  final bool isOnPlayStore;
-  final String playStoreUrl;
-  final bool isLive;
   final String webUrl;
+  final String playStoreUrl;
+  final String appStoreUrl;
   final String? technologyUsed;
 }
 
@@ -313,7 +322,7 @@ class _ProjectItemLgState extends State<ProjectItemLg>
     );
     TextTheme textTheme = Theme.of(context).textTheme;
     // textStyle for button for viewing project
-    TextStyle? buttonStyle = textTheme.bodyText1?.copyWith(
+    TextStyle? buttonStyle = textTheme.bodyLarge?.copyWith(
       color: AppColors.black,
       fontSize: responsiveSize(
         context,
@@ -325,20 +334,20 @@ class _ProjectItemLgState extends State<ProjectItemLg>
     );
     // textStyle for the current number or position of project in the list
     TextStyle? defaultNumberStyle = widget.projectNumberStyle ??
-        textTheme.subtitle1?.copyWith(
+        textTheme.titleMedium?.copyWith(
           fontSize: _isHovering ? Sizes.TEXT_SIZE_20 : Sizes.TEXT_SIZE_16,
           color: AppColors.grey550,
           fontWeight: _isHovering ? FontWeight.w400 : FontWeight.w300,
         );
     // textStyle for the title or name of the project
     TextStyle? defaultTitleStyle = widget.titleStyle ??
-        textTheme.subtitle1?.copyWith(
+        textTheme.titleMedium?.copyWith(
           color: AppColors.black,
           fontSize: responsiveSize(context, 24, 40, md: 36, sm: 30),
         );
     // textStyle for the subtitle (describing project platform) of the project
     TextStyle? defaultSubtitleStyle = widget.subtitleStyle ??
-        textTheme.bodyText1?.copyWith(
+        textTheme.bodyLarge?.copyWith(
           color: AppColors.grey700,
           fontSize: 13,
           fontWeight: FontWeight.w400,
@@ -516,8 +525,6 @@ class _ProjectItemSmState extends State<ProjectItemSm>
     }
   }
 
-  
-
   @override
   Widget build(BuildContext context) {
     // takes full width of screen
@@ -538,27 +545,27 @@ class _ProjectItemSmState extends State<ProjectItemSm>
     double positionOfColoredContainer = heightOfProjectImageCover / 2;
     TextTheme textTheme = Theme.of(context).textTheme;
     // textStyle for button for viewing project
-    TextStyle? buttonStyle = textTheme.bodyText1?.copyWith(
+    TextStyle? buttonStyle = textTheme.bodyLarge?.copyWith(
       color: AppColors.black,
       fontSize: Sizes.TEXT_SIZE_14,
       fontWeight: FontWeight.w500,
     );
     // textStyle for the current number or position of project in the list
     TextStyle? defaultNumberStyle = widget.projectNumberStyle ??
-        textTheme.subtitle1?.copyWith(
+        textTheme.titleMedium?.copyWith(
           fontSize: _isHovering ? Sizes.TEXT_SIZE_18 : Sizes.TEXT_SIZE_16,
           color: AppColors.grey550,
           fontWeight: _isHovering ? FontWeight.w400 : FontWeight.w300,
         );
     // textStyle for the title or name of the project
     TextStyle? defaultTitleStyle = widget.titleStyle ??
-        textTheme.subtitle1?.copyWith(
+        textTheme.titleMedium?.copyWith(
           color: AppColors.black,
           fontSize: 26,
         );
     // textStyle for the subtitle (describing project platform) of the project
     TextStyle? defaultSubtitleStyle = widget.subtitleStyle ??
-        textTheme.bodyText1?.copyWith(
+        textTheme.bodyLarge?.copyWith(
           color: AppColors.grey700,
           fontSize: 12,
           fontWeight: FontWeight.w400,

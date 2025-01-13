@@ -1,8 +1,8 @@
-import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/presentation/widgets/animated_bubble_button.dart';
-import 'package:aerium/presentation/widgets/project_item.dart';
-import 'package:aerium/presentation/widgets/spaces.dart';
-import 'package:aerium/values/values.dart';
+import '../../../../core/layout/adaptive.dart';
+import '../../../widgets/animated_bubble_button.dart';
+import '../../../widgets/project_item.dart';
+import '../../../widgets/spaces.dart';
+import '../../../../values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -73,7 +73,7 @@ class _NextProjectState extends State<NextProject>
     BorderRadiusGeometry borderRadius = BorderRadius.all(
       Radius.circular(100.0),
     );
-    TextStyle? buttonStyle = textTheme.bodyText1?.copyWith(
+    TextStyle? buttonStyle = textTheme.bodyLarge?.copyWith(
       color: AppColors.black,
       fontSize: responsiveSize(
         context,
@@ -83,7 +83,7 @@ class _NextProjectState extends State<NextProject>
       ),
       fontWeight: FontWeight.w500,
     );
-    TextStyle? projectTitleStyle = textTheme.subtitle1?.copyWith(
+    TextStyle? projectTitleStyle = textTheme.titleMedium?.copyWith(
       color: AppColors.black,
       fontSize: projectTitleFontSize,
     );
@@ -99,7 +99,7 @@ class _NextProjectState extends State<NextProject>
               children: [
                 Text(
                   StringConst.NEXT_PROJECT,
-                  style: textTheme.bodyText1?.copyWith(
+                  style: textTheme.bodyLarge?.copyWith(
                     fontSize: responsiveSize(context, 11, Sizes.TEXT_SIZE_12),
                     letterSpacing: 2,
                     fontWeight: FontWeight.w300,
@@ -161,7 +161,7 @@ class _NextProjectState extends State<NextProject>
                           children: [
                             Text(
                               StringConst.NEXT_PROJECT,
-                              style: textTheme.bodyText1?.copyWith(
+                              style: textTheme.bodyLarge?.copyWith(
                                 fontSize: responsiveSize(
                                   context,
                                   11,

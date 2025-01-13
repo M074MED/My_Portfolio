@@ -1,6 +1,6 @@
-import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/presentation/widgets/animated_slide_transtion.dart';
-import 'package:aerium/values/values.dart';
+import '../../../core/layout/adaptive.dart';
+import '../../widgets/animated_slide_transtion.dart';
+import '../../../values/values.dart';
 import 'package:flutter/material.dart';
 
 class SlidingBanner extends StatefulWidget {
@@ -58,7 +58,7 @@ class _SlidingBannerState extends State<SlidingBanner>
             ),
             child: Text(
               "TITLE",
-              style: textTheme.headline3?.copyWith(
+              style: textTheme.displaySmall?.copyWith(
                 color: AppColors.white,
               ),
             ),

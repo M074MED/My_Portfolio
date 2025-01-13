@@ -1,6 +1,6 @@
-import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
-import 'package:aerium/presentation/widgets/empty.dart';
-import 'package:aerium/values/values.dart';
+import 'animated_text_slide_box_transition.dart';
+import 'empty.dart';
+import '../../values/values.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedLineThroughText extends StatefulWidget {

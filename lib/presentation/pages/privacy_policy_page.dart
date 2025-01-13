@@ -1,10 +1,10 @@
-import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
-import 'package:aerium/presentation/pages/widgets/page_header.dart';
-import 'package:aerium/presentation/widgets/content_area.dart';
-import 'package:aerium/presentation/widgets/page_wrapper.dart';
-import 'package:aerium/presentation/widgets/spaces.dart';
-import 'package:aerium/values/values.dart';
+import '../../core/layout/adaptive.dart';
+import 'widgets/animated_footer.dart';
+import 'widgets/page_header.dart';
+import '../widgets/content_area.dart';
+import '../widgets/page_wrapper.dart';
+import '../widgets/spaces.dart';
+import '../../values/values.dart';
 import 'package:flutter/material.dart';
 
 class PrivacyPolicyPage extends StatefulWidget {
@@ -125,7 +125,7 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage>
                   ),
                   SpaceH12(),
                   Text(
-                    '''If you have any questions or concerns regarding our privacy policy, please feel free to contact us at davidcobbina47@gmail.com.\nThank you for trusting us with your privacy.''',
+                    '''If you have any questions or concerns regarding our privacy policy, please feel free to contact us at contact.mohammedmamdouh@gmail.com.\nThank you for trusting us with your privacy.''',
                     style: theme.textTheme.bodyLarge,
                   ),
                   SpaceH20(),

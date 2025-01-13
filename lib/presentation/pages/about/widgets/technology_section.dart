@@ -1,7 +1,7 @@
-import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
-import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
-import 'package:aerium/presentation/widgets/spaces.dart';
-import 'package:aerium/values/values.dart';
+import '../../../widgets/animated_positioned_text.dart';
+import '../../../widgets/animated_text_slide_box_transition.dart';
+import '../../../widgets/spaces.dart';
+import '../../../../values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -21,7 +21,7 @@ class TechnologySection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? titleStyle = textTheme.subtitle1?.copyWith(
+    TextStyle? titleStyle = textTheme.titleMedium?.copyWith(
       fontSize: Sizes.TEXT_SIZE_16,
       color: AppColors.black,
     );
@@ -144,7 +144,7 @@ class TechnologySection extends StatelessWidget {
     double? width,
   }) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? bodyText1Style = textTheme.bodyText1?.copyWith(
+    TextStyle? bodyText1Style = textTheme.bodyLarge?.copyWith(
       fontSize: Sizes.TEXT_SIZE_15,
       color: AppColors.grey750,
       fontWeight: FontWeight.w400,

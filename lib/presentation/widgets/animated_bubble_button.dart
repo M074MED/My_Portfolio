@@ -1,9 +1,9 @@
-import 'package:aerium/presentation/widgets/spaces.dart';
-import 'package:aerium/values/values.dart';
+import 'spaces.dart';
+import '../../values/values.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedBubbleButton extends StatefulWidget {
-  AnimatedBubbleButton({
+  const AnimatedBubbleButton({
     Key? key,
     this.child,
     this.title = '',
@@ -42,9 +42,9 @@ class AnimatedBubbleButton extends StatefulWidget {
   final Offset targetOffset;
   final GestureTapCallback? onTap;
   final BorderRadiusGeometry? endBorderRadius;
-  bool? hovering;
+  final bool? hovering;
   // prevents button from animating on mouse enter and exit
-  bool controlsOwnAnimation;
+  final bool controlsOwnAnimation;
   final AnimationController? controller;
 
   @override
@@ -85,7 +85,7 @@ class _AnimatedBubbleButtonState extends State<AnimatedBubbleButton>
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? buttonStyle = textTheme.bodyText1?.copyWith(
+    TextStyle? buttonStyle = textTheme.bodyLarge?.copyWith(
       color: AppColors.accentColor,
       fontSize: Sizes.TEXT_SIZE_16,
       fontWeight: FontWeight.w500,

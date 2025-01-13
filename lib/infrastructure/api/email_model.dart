@@ -6,7 +6,7 @@ String emailModelToJson(Email data) => json.encode(data.toJson());
 
 class Email {
   Email({
-   required this.status,
+    required this.status,
   });
 
   String status;
@@ -18,4 +18,9 @@ class Email {
   Map<String, dynamic> toJson() => {
         "status": status,
       };
+
+  @override
+  String toString() {
+    return 'Email(status: $status)';
+  }
 }

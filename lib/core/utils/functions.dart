@@ -1,11 +1,24 @@
-import 'package:aerium/presentation/pages/project_detail/project_detail_page.dart';
-import 'package:aerium/presentation/widgets/project_item.dart';
+import 'dart:developer';
+
+import '../../presentation/pages/project_detail/project_detail_page.dart';
+import '../../presentation/widgets/project_item.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'toast_message.dart';
+
 class Functions {
-  static void launchUrl(String url) async {
-    await launch(url);
+  static Future<void> launchLink(String url) async {
+    try {
+      if (!await launchUrl(Uri.parse(url))) {
+        log('Could not launch $url');
+        ToastMessage(message: 'Could not launch $url', bgColor: Colors.red)
+            .show();
+      }
+    } catch (e) {
+      log(e.toString());
+      ToastMessage(message: e.toString(), bgColor: Colors.red).show();
+    }
   }
 
   static Size textSize({
@@ -28,22 +41,16 @@ class Functions {
     required ProjectItemData currentProject,
     required int currentProjectIndex,
   }) {
-    ProjectItemData? nextProject;
-    bool hasNextProject;
-    if ((currentProjectIndex + 1) > (dataSource.length - 1)) {
-      hasNextProject = false;
-    } else {
-      hasNextProject = true;
-      nextProject = dataSource[currentProjectIndex + 1];
-    }
     Navigator.of(context).pushNamed(
-      ProjectDetailPage.projectDetailPageRoute,
+      ProjectDetailPage.generateRoute(currentProject.projectId),
       arguments: ProjectDetailArguments(
         dataSource: dataSource,
         currentIndex: currentProjectIndex,
         data: currentProject,
-        nextProject: nextProject,
-        hasNextProject: hasNextProject,
+        nextProject: currentProjectIndex < dataSource.length - 1
+            ? dataSource[currentProjectIndex + 1]
+            : null,
+        hasNextProject: currentProjectIndex < dataSource.length - 1,
       ),
     );
   }

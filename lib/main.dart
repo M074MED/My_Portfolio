@@ -1,10 +1,13 @@
-import 'package:aerium/injection_container.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'injection_container.dart';
 import 'package:flutter/material.dart';
-import 'package:aerium/app_theme.dart';
-import 'package:aerium/presentation/pages/home/home_page.dart';
-import 'package:aerium/presentation/routes/routes.dart';
-import 'package:aerium/values/values.dart';
+import 'app_theme.dart';
+import 'presentation/pages/home/home_page.dart';
+import 'presentation/routes/routes.dart';
+import 'values/values.dart';
 import 'package:layout/layout.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'configure_web.dart';
 
@@ -14,22 +17,26 @@ import 'configure_web.dart';
 // mobile -> kotlin, android, flutter, jetpack compose,
 // web -> react, javascript
 
-
 // Certifications
 // TODO:: Add Cloud Certification from Udacity
 
 // Contact
 // TODO:: Fix email service
 
+final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   configureDependencies();
-   configureApp();
-  runApp(Aerium());
+  configureApp();
+  runApp(M074MED());
 }
 
-class Aerium extends StatelessWidget {
+class M074MED extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Layout(
@@ -39,9 +46,8 @@ class Aerium extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: HomePage.homePageRoute,
         onGenerateRoute: RouteConfiguration.onGenerateRoute,
+        navigatorObservers: [routeObserver],
       ),
     );
   }
 }
-
-

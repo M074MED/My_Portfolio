@@ -1,17 +1,17 @@
-import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/core/utils/functions.dart';
-import 'package:aerium/presentation/pages/about/widgets/about_header.dart';
-import 'package:aerium/presentation/pages/about/widgets/technology_section.dart';
-import 'package:aerium/presentation/pages/widgets/animated_footer.dart';
-import 'package:aerium/presentation/pages/widgets/socials.dart';
-import 'package:aerium/presentation/widgets/animated_line_through_text.dart';
-import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
-import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
-import 'package:aerium/presentation/widgets/content_area.dart';
-import 'package:aerium/presentation/widgets/custom_spacer.dart';
-import 'package:aerium/presentation/widgets/page_wrapper.dart';
-import 'package:aerium/presentation/widgets/spaces.dart';
-import 'package:aerium/values/values.dart';
+import '../../../core/layout/adaptive.dart';
+import '../../../core/utils/functions.dart';
+import 'widgets/about_header.dart';
+import 'widgets/technology_section.dart';
+import '../widgets/animated_footer.dart';
+import '../widgets/socials.dart';
+import '../../widgets/animated_line_through_text.dart';
+import '../../widgets/animated_positioned_text.dart';
+import '../../widgets/animated_text_slide_box_transition.dart';
+import '../../widgets/content_area.dart';
+import '../../widgets/custom_spacer.dart';
+import '../../widgets/page_wrapper.dart';
+import '../../widgets/spaces.dart';
+import '../../../values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -103,7 +103,7 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
     );
 
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? bodyText1Style = textTheme.bodyText1?.copyWith(
+    TextStyle? bodyText1Style = textTheme.bodyLarge?.copyWith(
       fontSize: Sizes.TEXT_SIZE_18,
       color: AppColors.grey750,
       fontWeight: FontWeight.w400,
@@ -111,8 +111,8 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
       // letterSpacing: 2,
     );
     TextStyle? bodyText2Style =
-        textTheme.bodyText1?.copyWith(color: AppColors.grey750);
-    TextStyle? titleStyle = textTheme.subtitle1?.copyWith(
+        textTheme.bodyLarge?.copyWith(color: AppColors.grey750);
+    TextStyle? titleStyle = textTheme.titleMedium?.copyWith(
       color: AppColors.black,
       fontSize: responsiveSize(
         context,
@@ -190,7 +190,7 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
                             text: StringConst.ABOUT_DEV_STORY_CONTENT_2,
                             textStyle: bodyText1Style,
                           ),
-                           AnimatedPositionedText(
+                          AnimatedPositionedText(
                             controller: _storySectionAnimation,
                             width: widthOfBody,
                             maxLines: 30,
@@ -291,7 +291,7 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
                             hasSlideBoxAnimation: true,
                             controller: _contactController,
                             onTap: () {
-                              Functions.launchUrl(StringConst.EMAIL_URL);
+                              Functions.launchLink(StringConst.EMAIL_URL);
                             },
                             textStyle: bodyText2Style,
                           ),
@@ -329,11 +329,11 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
                         ),
                         SpaceH20(),
                         Align(
-                          alignment: Alignment.centerRight,
+                          alignment: Alignment.centerLeft,
                           child: AnimatedTextSlideBoxTransition(
                             controller: _quoteController,
-                            text: "— ${StringConst.FAMOUS_QUOTE_AUTHOR}",
-                            textStyle: textTheme.bodyText1?.copyWith(
+                            text: "${StringConst.FAMOUS_QUOTE_AUTHOR} —",
+                            textStyle: textTheme.bodyLarge?.copyWith(
                               fontSize: responsiveSize(
                                 context,
                                 Sizes.TEXT_SIZE_16,
@@ -362,8 +362,8 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
 
   List<Widget> _buildSocials(List<SocialData> data) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? style = textTheme.bodyText1?.copyWith(color: AppColors.grey750);
-    TextStyle? slashStyle = textTheme.bodyText1?.copyWith(
+    TextStyle? style = textTheme.bodyLarge?.copyWith(color: AppColors.grey750);
+    TextStyle? slashStyle = textTheme.bodyLarge?.copyWith(
       color: AppColors.grey750,
       fontWeight: FontWeight.w400,
       fontSize: 18,
@@ -379,7 +379,7 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
           hasSlideBoxAnimation: true,
           isUnderlinedOnHover: false,
           onTap: () {
-            Functions.launchUrl(data[index].url);
+            Functions.launchLink(data[index].url);
           },
           textStyle: style,
         ),

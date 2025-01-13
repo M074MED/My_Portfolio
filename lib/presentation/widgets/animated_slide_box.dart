@@ -1,4 +1,4 @@
-import 'package:aerium/values/values.dart';
+import '../../values/values.dart';
 import 'package:flutter/material.dart';
 
 const double hiddenFactor = 2.0;

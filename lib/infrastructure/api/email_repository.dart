@@ -1,4 +1,4 @@
-import 'package:aerium/infrastructure/failures/email_failure.dart';
+import '../failures/email_failure.dart';
 import 'package:dartz/dartz.dart';
 
 import 'email_api.dart';
@@ -34,7 +34,7 @@ class EmailRepositoryImpl implements EmailRepository {
         subject: subject,
         message: message,
       );
-      print(emailStatus);
+      print(emailStatus.toString());
       return Right(emailStatus);
     } catch (e) {
       print(e.toString());

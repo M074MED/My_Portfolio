@@ -7,7 +7,7 @@ class ImagePath {
   static const String screenshotsDir = "assets/screenshots";
 
   //Images
-  static const String DEV = "$imageDir/david_legend.png";
+  static const String DEV = "$imageDir/Mohammed_Mamdouh.jpg";
 
   static const String VYBZ = "$imageDir/vybz.jpg";
   static const String DAVID = "$imageDir/david.png";
@@ -32,161 +32,141 @@ class ImagePath {
   static const String MEDITATION = "$imageDir/meditation.png";
   static const String ABOUT_PORTRAIT = "$imageDir/about_portrait.png";
   static const String DEV_ABOUT = "$imageDir/dev-about.jpg";
-  static const String DEV_MEDITATE = "$imageDir/dev_meditate.png";
-  
+  static const String DEV_MEDITATE =
+      "$imageDir/Mohammed_Mamdouh_background_removed.png";
+
   static const String DEV_SKILLS = "$imageDir/skills.png";
   static const String DEV_SKILLS_1 = "$imageDir/skills1.png";
   static const String DEV_SKILLS_2 = "$imageDir/skills2.png";
   static const String GOOGLE_PLAY = "$imageDir/google_play.png";
+  static const String APP_STORE = "$imageDir/app_store.png";
 
   // Certifications
-  static const String ANDROID_BASICS_CERT = "$imageDir/android_basics_cert.png";
-  static const String CLOUD_DEVELOPER_CERT = "$imageDir/cloud_developer_cert.png";
-  static const String CMU_MASTERS_CERT = "$imageDir/cmu_cert.png";
-  static const String ASSOCIATE_ANDROID_DEV =
-      "$imageDir/associate_android_dev.png";
-  static const String DATA_SCIENCE_CERT = "$imageDir/data_science_cert.png";
+  static const String MOBILE_DEV_2024_CERT =
+      "$imageDir/certificates/mobile_dev_2024_cert.jpg";
+  static const String MOBILE_DEV_2023_CERT =
+      "$imageDir/certificates/mobile_dev_2023_cert.jpg";
+  static const String WEB_DEV_1_CERT =
+      "$imageDir/certificates/web_dev_1_cert.png";
+  static const String WEB_DEV_2_CERT =
+      "$imageDir/certificates/web_dev_2_cert.png";
+  static const String BSD_CS_AI_CERT =
+      "$imageDir/certificates/bsd_cs_ai_cert.jpg";
+  static const String GRADUATION_PROJECT_COMPETITION_CERT =
+      "$imageDir/certificates/graduation_project_competition_cert.jpg";
+  static const String FUNDAMENTALS_OF_AGILE_PROJECT_MANAGEMENT_CERT =
+      "$imageDir/certificates/fundamentals_of_agile_project_management_cert.png";
+  static const String FUNDAMENTALS_OF_PREDICTIVE_PROJECT_MANAGEMENT_CERT =
+      "$imageDir/certificates/fundamentals_of_predictive_project_management_cert.png";
+  static const String BANQUE_MISR_TRAINING_PROGRAM_CERT =
+      "$imageDir/certificates/banque_misr_training_program_cert.png";
 
   // Projects
 
-  // Nimbus
-  static const String NIMBUS_COVER = "$projectsDir/nimbus/nimbus_cover.jpg";
-  static const String NIMBUS = "$projectsDir/nimbus/nimbus.jpg";
+  // GameChanger
+  static const String GAMECHANGER_COVER = "$projectsDir/gamechanger/0.png";
+  static const String GAMECHANGER_1 = "$projectsDir/gamechanger/1.png";
+  static const String GAMECHANGER_2 = "$projectsDir/gamechanger/2.png";
+  static const String GAMECHANGER_3 = "$projectsDir/gamechanger/3.png";
+  static const String GAMECHANGER_4 = "$projectsDir/gamechanger/4.png";
+  static const String GAMECHANGER_5 = "$projectsDir/gamechanger/5.png";
+  static const String GAMECHANGER_6 = "$projectsDir/gamechanger/6.png";
 
-  // Foodybite
-  static const String FOODY_BITE_COVER =
-      "$projectsDir/foodybite/foodybite_cover.png";
-  static const String FOODY_BITE_HOME =
-      "$projectsDir/foodybite/foodybite_home.png";
-  static const String FOODY_BITE_STARTING_FLOW =
-      "$projectsDir/foodybite/foodybite_starting_flow.png";
-  static const String FOODY_BITE_HOME_FLOW =
-      "$projectsDir/foodybite/foodybite_home_flow.png";
-  static const String FOODY_BITE_REVIEW_FLOW =
-      "$projectsDir/foodybite/foodybite_review_favorite_notifications_flow.png";
-  static const String FOODY_BITE_TYPOGRAPHY =
-      "$projectsDir/foodybite/foodybite_typography.png";
+  // Mulham
+  static const String MULHAM_COVER = "$projectsDir/mulham/0.png";
+  static const String MULHAM_1 = "$projectsDir/mulham/1.png";
+  static const String MULHAM_2 = "$projectsDir/mulham/2.png";
+  static const String MULHAM_3 = "$projectsDir/mulham/3.png";
+  static const String MULHAM_4 = "$projectsDir/mulham/4.png";
+  static const String MULHAM_5 = "$projectsDir/mulham/5.png";
+  static const String MULHAM_6 = "$projectsDir/mulham/6.png";
+  static const String MULHAM_7 = "$projectsDir/mulham/7.png";
+  static const String MULHAM_8 = "$projectsDir/mulham/8.png";
+  static const String MULHAM_9 = "$projectsDir/mulham/9.png";
+  static const String MULHAM_10 = "$projectsDir/mulham/10.png";
+  static const String MULHAM_11 = "$projectsDir/mulham/11.png";
+  static const String MULHAM_12 = "$projectsDir/mulham/12.png";
+  static const String MULHAM_13 = "$projectsDir/mulham/13.png";
+  static const String MULHAM_14 = "$projectsDir/mulham/14.png";
+  static const String MULHAM_15 = "$projectsDir/mulham/15.png";
+  static const String MULHAM_16 = "$projectsDir/mulham/16.png";
 
-  // Portfolio Site V2
-  static const String AERIUM_V2_COVER =
-      "$projectsDir/aerium-v2/aerium_v2_cover.png";
-  static const String AERIUM_V2_OVERALL = "$projectsDir/aerium-v2/overall.jpg";
-  static const String AERIUM_V2_FIRST = "$projectsDir/aerium-v2/first.jpg";
-  static const String AERIUM_V2_TYPOGRAPHY =
-      "$projectsDir/aerium-v2/typography.jpg";
-  static const String AERIUM_V2_LAST = "$projectsDir/aerium-v2/last.jpg";
+  // FAIT
+  static const String FAIT_COVER = "$projectsDir/fait/0.png";
+  static const String FAIT_1 = "$projectsDir/fait/1.png";
+  static const String FAIT_2 = "$projectsDir/fait/2.png";
+  static const String FAIT_3 = "$projectsDir/fait/3.png";
+  static const String FAIT_4 = "$projectsDir/fait/4.png";
+  static const String FAIT_5 = "$projectsDir/fait/5.png";
+  static const String FAIT_6 = "$projectsDir/fait/6.png";
+  static const String FAIT_7 = "$projectsDir/fait/7.png";
+  static const String FAIT_8 = "$projectsDir/fait/8.png";
+  static const String FAIT_9 = "$projectsDir/fait/9.png";
+  static const String FAIT_10 = "$projectsDir/fait/10.png";
+  static const String FAIT_11 = "$projectsDir/fait/11.png";
 
-  // Drop
-  static const String DROP_COVER = "$projectsDir/drop/drop_cover.png";
-  static const String DROP_DESC = "$projectsDir/drop/drop_description.gif";
-  static const String DROP_EASY_ACCESS =
-      "$projectsDir/drop/drop_easy_access.gif";
-  static const String DROP_FLOW_CHART = "$projectsDir/drop/drop_flowchart.png";
-  static const String DROP_MINIMAL_DESIGN =
-      "$projectsDir/drop/drop_minimal_design.png";
-  static const String DROP_SIMPLE = "$projectsDir/drop/drop_simple.png";
-  static const String DROP_THANKS = "$projectsDir/drop/drop_thanks.gif";
-  static const String DROP_WIREFRAMES = "$projectsDir/drop/drop_wireframes.gif";
+  // Attendfy Pro
+  static const String ATTENDFY_PRO_COVER = "$projectsDir/attendfy_pro/0.png";
+  static const String ATTENDFY_PRO_1 = "$projectsDir/attendfy_pro/1.png";
+  static const String ATTENDFY_PRO_2 = "$projectsDir/attendfy_pro/2.png";
+  static const String ATTENDFY_PRO_3 = "$projectsDir/attendfy_pro/3.png";
+  static const String ATTENDFY_PRO_4 = "$projectsDir/attendfy_pro/4.png";
+  static const String ATTENDFY_PRO_5 = "$projectsDir/attendfy_pro/5.png";
+  static const String ATTENDFY_PRO_6 = "$projectsDir/attendfy_pro/6.png";
 
-  // Roam
-  static const String ROAM_COVER = "$projectsDir/roam/roam_cover.jpeg";
-  static const String ROAM_OVERALL = "$projectsDir/roam/roam_overall.jpeg";
-  static const String ROAM_ONBOARDING =
-      "$projectsDir/roam/roam_onboarding.jpeg";
-  static const String ROAM_HOME = "$projectsDir/roam/roam_home.jpeg";
-  static const String ROAM_EXPLORE = "$projectsDir/roam/roam_explore.jpeg";
-  static const String ROAM_PROFILE = "$projectsDir/roam/roam_profile.jpeg";
-  static const String ROAM_FLOW_CHART = "$projectsDir/roam/roam_flow_chart.png";
-  static const String ROAM_WIREFRAMES_1 =
-      "$projectsDir/roam/wireframes_app.jpeg";
-  static const String ROAM_WIREFRAMES_2 =
-      "$projectsDir/roam/wireframes_onboarding.jpeg";
-  static const String ROAM_WIREFRAMES_3 =
-      "$projectsDir/roam/wireframes_signup_login.jpeg";
+  // MessageMe
+  static const String MESSAGEME_COVER = "$projectsDir/messageme/0.png";
+  static const String MESSAGEME_1 = "$projectsDir/messageme/1.png";
+  static const String MESSAGEME_2 = "$projectsDir/messageme/2.png";
 
+  // Metatris
+  static const String METATRIS_COVER = "$projectsDir/metatris/0.png";
+  static const String METATRIS_1 = "$projectsDir/metatris/1.png";
+  static const String METATRIS_2 = "$projectsDir/metatris/2.png";
+  static const String METATRIS_3 = "$projectsDir/metatris/3.png";
+  static const String METATRIS_4 = "$projectsDir/metatris/4.png";
+  static const String METATRIS_5 = "$projectsDir/metatris/5.png";
+  static const String METATRIS_6 = "$projectsDir/metatris/6.png";
 
-  // Disney
-  static const String DISNEY_PLUS_COVER =
-      "$projectsDir/disneyplus/disneyplus_cover.png";
-  static const String DISNEY_PLUS_SCREENS =
-      "$projectsDir/disneyplus/mockups.png";
+  // Space Fortress
+  static const String SPACE_FORTRESS_COVER =
+      "$projectsDir/space_fortress/0.png";
+  static const String SPACE_FORTRESS_1 = "$projectsDir/space_fortress/1.png";
+  static const String SPACE_FORTRESS_2 = "$projectsDir/space_fortress/2.png";
 
-  static const String DISNEY_PLUS_1 =
-      "$projectsDir/disneyplus/disneyplus_header.png";
-  static const String DISNEY_PLUS_2 =
-      "$projectsDir/disneyplus/disneyplus_cover.png";
-  static const String DISNEY_PLUS_3 =
-      "$projectsDir/disneyplus/disneyplus_description.png";
-  static const String DISNEY_PLUS_4 =
-      "$projectsDir/disneyplus/disneyplus_theme.png";
-  static const String DISNEY_PLUS_5 =
-      "$projectsDir/disneyplus/disneyplus_mockups.png";
-  static const String DISNEY_PLUS_6 =
-      "$projectsDir/disneyplus/disneyplus_designs.png";
-  static const String DISNEY_PLUS_7 =
-      "$projectsDir/disneyplus/disneyplus_more_description.png";
-  static const String DISNEY_PLUS_8 =
-      "$projectsDir/disneyplus/disneyplus_downloads_feature.png";
-  static const String DISNEY_PLUS_9 =
-      "$projectsDir/disneyplus/disneyplus_great_menu.png";
-  static const String DISNEY_PLUS_10 =
-      "$projectsDir/disneyplus/disneyplus_profiles.png";
-  static const String DISNEY_PLUS_11 =
-      "$projectsDir/disneyplus/disneyplus_home.png";
-  static const String DISNEY_PLUS_12 =
-      "$projectsDir/disneyplus/disneyplus_components.png";
-  static const String DISNEY_PLUS_13 =
-      "$projectsDir/disneyplus/disneyplus_the_end.png";
+  // Spacescape
+  static const String SPACESCAPE_COVER = "$projectsDir/spacescape/0.png";
+  static const String SPACESCAPE_1 = "$projectsDir/spacescape/1.mp4";
+  static const String SPACESCAPE_2 = "$projectsDir/spacescape/2.png";
+  static const String SPACESCAPE_3 = "$projectsDir/spacescape/3.png";
+  static const String SPACESCAPE_4 = "$projectsDir/spacescape/4.png";
+  static const String SPACESCAPE_5 = "$projectsDir/spacescape/5.png";
+  static const String SPACESCAPE_6 = "$projectsDir/spacescape/6.png";
 
+  // M074MED_V1
+  static const String M074MED_V1_COVER = "$projectsDir/m074med_v1/0.png";
+  static const String M074MED_V1_1 = "$projectsDir/m074med_v1/1.png";
 
-  // Flutter Catalog
-  static const String FLUTTER_CATALOG_COVER =
-      "$projectsDir/flutter_catalog/flutter_catalog_cover.png";
-  static const String FLUTTER_CATALOG_SCREENS =
-      "$projectsDir/flutter_catalog/screens.png";
+  // WebShop
+  static const String WEBSHOP_COVER = "$projectsDir/webshop/0.png";
+  static const String WEBSHOP_1 = "$projectsDir/webshop/1.png";
+  static const String WEBSHOP_2 = "$projectsDir/webshop/2.png";
+  static const String WEBSHOP_3 = "$projectsDir/webshop/3.png";
+  static const String WEBSHOP_4 = "$projectsDir/webshop/4.png";
+  static const String WEBSHOP_5 = "$projectsDir/webshop/5.png";
+  static const String WEBSHOP_6 = "$projectsDir/webshop/6.png";
 
-  static const String FLUTTER_CATALOG_1 =
-      "$projectsDir/flutter_catalog/typography.png";
-  static const String FLUTTER_CATALOG_2 =
-      "$projectsDir/flutter_catalog/onboarding.png";
-  static const String FLUTTER_CATALOG_3 =
-      "$projectsDir/flutter_catalog/activities.png";
-  static const String FLUTTER_CATALOG_4 =
-      "$projectsDir/flutter_catalog/stats.png";
-  static const String FLUTTER_CATALOG_5 =
-      "$projectsDir/flutter_catalog/thanks.png";
+  // Job Board
+  static const String JOB_BOARD_COVER = "$projectsDir/job_board/0.png";
+  static const String JOB_BOARD_1 = "$projectsDir/job_board/1.png";
+  static const String JOB_BOARD_2 = "$projectsDir/job_board/2.png";
+  static const String JOB_BOARD_3 = "$projectsDir/job_board/3.png";
+  static const String JOB_BOARD_4 = "$projectsDir/job_board/4.png";
+  static const String JOB_BOARD_5 = "$projectsDir/job_board/5.png";
+  static const String JOB_BOARD_6 = "$projectsDir/job_board/6.png";
 
-  // Login Catalog
-  static const String LOGIN_CATALOG_COVER =
-      "$projectsDir/login_catalog/login_catalog_cover.jpg";
-  static const String LOGIN_DESIGN_4 = "$projectsDir/login_catalog/login4.png";
-  static const String LOGIN_DESIGN_5 = "$projectsDir/login_catalog/login5.png";
-  static const String LOGIN_DESIGN_7 = "$projectsDir/login_catalog/login7.jpeg";
-  static const String LOGIN_DESIGN_8 = "$projectsDir/login_catalog/login8.png";
-  static const String LOGIN_DESIGN_9 = "$projectsDir/login_catalog/login9.png";
-
-  // OTP Textfield Package
-  static const String OTP_TEXTFIELD_COVER =
-      "$projectsDir/otp_package/otp_cover.png";
-
-  // Aerium
-  static const String AERIUM_COVER =
-      "$projectsDir/aerium-v1/portfolio_cover.png";
-  
-  static const String AERIUM_DESIGN_2 =
-      "$projectsDir/aerium-v1/portfolio_design_2.png";
-  static const String AERIUM_DESIGN_3 =
-      "$projectsDir/aerium-v1/portfolio_design_3.png";
-
-  // Amor
-  static const String AMOR_COVER =
-      "$projectsDir/login_catalog/foodybite_cover.png";
-
-  // Outfitr
-  static const String OUTFITR_COVER = "$projectsDir/outfitr/outfitr_cover.jpg";
-  static const String OUTFITR_1 = "$projectsDir/outfitr/outfitr_1.jpeg";
-  static const String OUTFITR_2 = "$projectsDir/outfitr/outfitr_2.jpeg";
-  static const String OUTFITR_4 = "$projectsDir/outfitr/outfitr_4.jpeg";
-  static const String OUTFITR_5 = "$projectsDir/outfitr/outfitr_5.jpeg";
-  static const String OUTFITR_6 = "$projectsDir/outfitr/outfitr_6.jpeg";
+  // Library Management System
+  static const String LMS_COVER = "$projectsDir/lms/0.png";
+  static const String LMS_1 = "$projectsDir/lms/1.png";
+  static const String LMS_2 = "$projectsDir/lms/2.png";
 }

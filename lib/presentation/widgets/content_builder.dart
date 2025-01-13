@@ -1,8 +1,8 @@
-import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
-import 'package:aerium/presentation/widgets/empty.dart';
-import 'package:aerium/presentation/widgets/spaces.dart';
-import 'package:aerium/values/values.dart';
+import '../../core/layout/adaptive.dart';
+import 'animated_text_slide_box_transition.dart';
+import 'empty.dart';
+import 'spaces.dart';
+import '../../values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -37,7 +37,7 @@ class ContentBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? defaultNumberStyle = textTheme.bodyText1?.copyWith(
+    TextStyle? defaultNumberStyle = textTheme.bodyLarge?.copyWith(
       fontSize: Sizes.TEXT_SIZE_10,
       color: AppColors.black,
       fontWeight: FontWeight.w400,
@@ -47,7 +47,7 @@ class ContentBuilder extends StatelessWidget {
     TextStyle? defaultSectionStyle = defaultNumberStyle?.copyWith(
       color: AppColors.grey600,
     );
-    TextStyle? defaultTitleStyle = textTheme.subtitle1?.copyWith(
+    TextStyle? defaultTitleStyle = textTheme.titleMedium?.copyWith(
       color: AppColors.black,
       fontSize: responsiveSize(
         context,

@@ -1,9 +1,9 @@
-import 'package:aerium/presentation/widgets/empty.dart';
-import 'package:aerium/presentation/widgets/spaces.dart';
-import 'package:aerium/values/values.dart';
+import 'empty.dart';
+import 'spaces.dart';
+import '../../values/values.dart';
 import 'package:flutter/material.dart';
 
-import 'aerium_button.dart';
+import 'm074med_button.dart';
 
 class CertificationCard extends StatefulWidget {
   CertificationCard({
@@ -125,27 +125,27 @@ class _CertificationCardState extends State<CertificationCard>
               //show info instantly if it is a mobile or tablet device
               widget.isMobileOrTablet
                   ? Container(
-                    width: widget.width,
-                    height: widget.height,
-                    color: widget.hoverColor.withOpacity(0.15),
-                    child: Column(
-                      children: [
-                        Spacer(flex: 3),
-                        AeriumButton(
-                          height: Sizes.HEIGHT_36,
-                          hasIcon: false,
-                          width: 80,
-                          buttonColor: AppColors.white,
-                          borderColor: AppColors.black,
-                          onHoverColor: AppColors.black,
-                          title: widget.actionTitle.toUpperCase(),
-                          onPressed: widget.onTap,
-                        ),
-                         Spacer(),
-                        // SpaceH20(),
-                      ],
-                    ),
-                  )
+                      width: widget.width,
+                      height: widget.height,
+                      color: widget.hoverColor.withOpacity(0.15),
+                      child: Column(
+                        children: [
+                          Spacer(flex: 3),
+                          M074MEDButton(
+                            height: Sizes.HEIGHT_36,
+                            hasIcon: false,
+                            width: 80,
+                            buttonColor: AppColors.white,
+                            borderColor: AppColors.black,
+                            onHoverColor: AppColors.black,
+                            title: widget.actionTitle.toUpperCase(),
+                            onPressed: widget.onTap,
+                          ),
+                          Spacer(),
+                          // SpaceH20(),
+                        ],
+                      ),
+                    )
                   : Empty(),
             ],
           ),
@@ -175,7 +175,7 @@ class _CertificationCardState extends State<CertificationCard>
           widget.title,
           textAlign: TextAlign.center,
           style: widget.titleTextStyle ??
-              theme.textTheme.headline4?.copyWith(
+              theme.textTheme.headlineMedium?.copyWith(
                 color: AppColors.black,
               ),
         ),
@@ -184,13 +184,13 @@ class _CertificationCardState extends State<CertificationCard>
           widget.subtitle,
           textAlign: TextAlign.center,
           style: widget.subtitleTextStyle ??
-              theme.textTheme.bodyText1?.copyWith(
+              theme.textTheme.bodyLarge?.copyWith(
                 color: AppColors.black,
                 fontSize: Sizes.TEXT_SIZE_16,
               ),
         ),
         SpaceH16(),
-        AeriumButton(
+        M074MEDButton(
           height: Sizes.HEIGHT_36,
           hasIcon: false,
           width: 80,

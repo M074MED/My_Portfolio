@@ -1,13 +1,13 @@
-import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/core/utils/functions.dart';
-import 'package:aerium/presentation/widgets/animated_bubble_button.dart';
-import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
-import 'package:aerium/presentation/widgets/animated_positioned_widget.dart';
-import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
-import 'package:aerium/presentation/widgets/empty.dart';
-import 'package:aerium/presentation/widgets/project_item.dart';
-import 'package:aerium/presentation/widgets/spaces.dart';
-import 'package:aerium/values/values.dart';
+import '../../../../core/layout/adaptive.dart';
+import '../../../../core/utils/functions.dart';
+import '../../../widgets/animated_bubble_button.dart';
+import '../../../widgets/animated_positioned_text.dart';
+import '../../../widgets/animated_positioned_widget.dart';
+import '../../../widgets/animated_text_slide_box_transition.dart';
+import '../../../widgets/empty.dart';
+import '../../../widgets/project_item.dart';
+import '../../../widgets/spaces.dart';
+import '../../../../values/values.dart';
 import 'package:flutter/material.dart';
 
 List<String> titles = [
@@ -51,10 +51,10 @@ class _AboutprojectState extends State<Aboutproject> {
   @override
   Widget build(BuildContext context) {
     double googlePlayButtonWidth = 150;
-    double targetWidth = responsiveSize(context, 118, 150, md: 150);
-    double initialWidth = responsiveSize(context, 36, 50, md: 50);
+    double targetWidth = responsiveSize(context, 128, 150, md: 150);
+    double initialWidth = responsiveSize(context, 46, 50, md: 50);
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? bodyTextStyle = textTheme.bodyText1?.copyWith(
+    TextStyle? bodyTextStyle = textTheme.bodyLarge?.copyWith(
       fontSize: Sizes.TEXT_SIZE_18,
       color: AppColors.grey750,
       fontWeight: FontWeight.w400,
@@ -72,7 +72,7 @@ class _AboutprojectState extends State<Aboutproject> {
     BorderRadiusGeometry borderRadius = BorderRadius.all(
       Radius.circular(100.0),
     );
-    TextStyle? buttonStyle = textTheme.bodyText1?.copyWith(
+    TextStyle? buttonStyle = textTheme.bodyLarge?.copyWith(
       color: AppColors.black,
       fontSize: responsiveSize(
         context,
@@ -90,7 +90,7 @@ class _AboutprojectState extends State<Aboutproject> {
             controller: widget.controller,
             text: StringConst.ABOUT_PROJECT,
             coverColor: AppColors.white,
-            textStyle: textTheme.headline4?.copyWith(
+            textStyle: textTheme.headlineMedium?.copyWith(
               fontSize: Sizes.TEXT_SIZE_48,
             ),
           ),
@@ -105,7 +105,7 @@ class _AboutprojectState extends State<Aboutproject> {
             text: widget.projectData.portfolioDescription,
             textStyle: bodyTextStyle,
           ),
-          // SpaceH12(),
+          SpaceH12(),
           Container(
             width: projectDataWidth,
             child: Wrap(
@@ -150,85 +150,120 @@ class _AboutprojectState extends State<Aboutproject> {
                 )
               : Empty(),
           SpaceH30(),
-          Row(
-            children: [
-              widget.projectData.isLive
-                  ? AnimatedPositionedWidget(
-                      controller: CurvedAnimation(
-                        parent: widget.projectDataController,
-                        curve: Animations.textSlideInCurve,
-                      ),
-                       width: targetWidth,
-                      height: initialWidth,
-                      child: AnimatedBubbleButton(
-                        title: StringConst.LAUNCH_APP,
-                        color: AppColors.grey100,
-                        imageColor: AppColors.black,
-                        startBorderRadius: borderRadius,
-                          startWidth: initialWidth,
-                        height: initialWidth,
-                        targetWidth: targetWidth,
-                        titleStyle: buttonStyle,
-                        onTap: () {
-                          Functions.launchUrl(widget.projectData.webUrl);
-                        },
-                        startOffset: Offset(0, 0),
-                        targetOffset: Offset(0.1, 0),
-                      ),
-                    )
-                  : Empty(),
-              widget.projectData.isLive ? Spacer() : Empty(),
-              widget.projectData.isPublic
-                  ? AnimatedPositionedWidget(
-                      controller: CurvedAnimation(
-                        parent: widget.projectDataController,
-                        curve: Animations.textSlideInCurve,
-                      ),
-                      width: targetWidth,
-                      height: initialWidth,
-                      child: AnimatedBubbleButton(
-                        title: StringConst.SOURCE_CODE,
-                        color: AppColors.grey100,
-                        imageColor: AppColors.black,
-                        startBorderRadius: borderRadius,
-                        startWidth: initialWidth,
-                        height: initialWidth,
-                        targetWidth: targetWidth,
-                        titleStyle: buttonStyle,
-                        startOffset: Offset(0, 0),
-                        targetOffset: Offset(0.1, 0),
-                        onTap: () {
-                          Functions.launchUrl(widget.projectData.gitHubUrl);
-                        },
-                      ),
-                    )
-                  : Empty(),
-              widget.projectData.isPublic ? Spacer() : Empty(),
-            ],
-          ),
-          widget.projectData.isPublic || widget.projectData.isLive
-              ? SpaceH30()
-              : Empty(),
-          widget.projectData.isOnPlayStore
-              ? InkWell(
-                  onTap: () {
-                    Functions.launchUrl(widget.projectData.playStoreUrl);
-                  },
-                  child: AnimatedPositionedWidget(
+          SizedBox(
+            width: projectDataWidth,
+            child: Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              runSpacing: 20,
+              children: [
+                if (widget.projectData.isLive) ...[
+                  AnimatedPositionedWidget(
                     controller: CurvedAnimation(
                       parent: widget.projectDataController,
                       curve: Animations.textSlideInCurve,
                     ),
-                    width: googlePlayButtonWidth,
-                    height: 50,
-                    child: Image.asset(
-                      ImagePath.GOOGLE_PLAY,
-                      width: googlePlayButtonWidth,
-                      // fit: BoxFit.fitHeight,
+                    width: targetWidth,
+                    height: initialWidth,
+                    child: AnimatedBubbleButton(
+                      title: StringConst.LAUNCH_APP,
+                      color: AppColors.grey100,
+                      imageColor: AppColors.black,
+                      startBorderRadius: borderRadius,
+                      startWidth: initialWidth,
+                      height: initialWidth,
+                      targetWidth: targetWidth,
+                      titleStyle: buttonStyle,
+                      onTap: () {
+                        Functions.launchLink(widget.projectData.webUrl);
+                      },
+                      startOffset: Offset(0, 0),
+                      targetOffset: Offset(0.1, 0),
                     ),
                   ),
-                )
-              : Empty(),
+                  Spacer()
+                ],
+                if (widget.projectData.isPublic) ...[
+                  AnimatedPositionedWidget(
+                    controller: CurvedAnimation(
+                      parent: widget.projectDataController,
+                      curve: Animations.textSlideInCurve,
+                    ),
+                    width: targetWidth,
+                    height: initialWidth,
+                    child: AnimatedBubbleButton(
+                      title: StringConst.SOURCE_CODE,
+                      color: AppColors.grey100,
+                      imageColor: AppColors.black,
+                      startBorderRadius: borderRadius,
+                      startWidth: initialWidth,
+                      height: initialWidth,
+                      targetWidth: targetWidth,
+                      titleStyle: buttonStyle,
+                      startOffset: Offset(0, 0),
+                      targetOffset: Offset(0.1, 0),
+                      onTap: () {
+                        Functions.launchLink(widget.projectData.gitHubUrl);
+                      },
+                    ),
+                  ),
+                  Spacer()
+                ],
+              ],
+            ),
+          ),
+          if (widget.projectData.isPublic || widget.projectData.isLive)
+            SpaceH30(),
+          SizedBox(
+            width: projectDataWidth,
+            child: Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              runSpacing: 20,
+              children: [
+                if (widget.projectData.isOnPlayStore) ...[
+                  InkWell(
+                    onTap: () {
+                      Functions.launchLink(widget.projectData.playStoreUrl);
+                    },
+                    child: AnimatedPositionedWidget(
+                      controller: CurvedAnimation(
+                        parent: widget.projectDataController,
+                        curve: Animations.textSlideInCurve,
+                      ),
+                      width: googlePlayButtonWidth,
+                      height: 50,
+                      child: Image.asset(
+                        ImagePath.GOOGLE_PLAY,
+                        width: googlePlayButtonWidth,
+                        // fit: BoxFit.fitHeight,
+                      ),
+                    ),
+                  ),
+                  Spacer()
+                ],
+                if (widget.projectData.isOnAppStore) ...[
+                  InkWell(
+                    onTap: () {
+                      Functions.launchLink(widget.projectData.appStoreUrl);
+                    },
+                    child: AnimatedPositionedWidget(
+                      controller: CurvedAnimation(
+                        parent: widget.projectDataController,
+                        curve: Animations.textSlideInCurve,
+                      ),
+                      width: googlePlayButtonWidth,
+                      height: 50,
+                      child: Image.asset(
+                        ImagePath.APP_STORE,
+                        width: googlePlayButtonWidth,
+                        // fit: BoxFit.fitHeight,
+                      ),
+                    ),
+                  ),
+                  Spacer()
+                ],
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -257,11 +292,11 @@ class ProjectData extends StatelessWidget {
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
 
-    TextStyle? defaultTitleStyle = textTheme.subtitle1?.copyWith(
+    TextStyle? defaultTitleStyle = textTheme.titleMedium?.copyWith(
       color: AppColors.black,
       fontSize: 17,
     );
-    TextStyle? defaultSubtitleStyle = textTheme.bodyText1?.copyWith(
+    TextStyle? defaultSubtitleStyle = textTheme.bodyLarge?.copyWith(
       fontSize: 15,
     );
 

@@ -1,16 +1,16 @@
-import 'package:aerium/core/utils/extensions.dart';
-import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/infrastructure/bloc/email_bloc.dart';
-import 'package:aerium/presentation/pages/widgets/simple_footer.dart';
-import 'package:aerium/presentation/widgets/aerium_button.dart';
-import 'package:aerium/presentation/widgets/animated_positioned_text.dart';
-import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
-import 'package:aerium/presentation/widgets/aerium_text_form_field.dart';
-import 'package:aerium/presentation/widgets/content_area.dart';
-import 'package:aerium/presentation/widgets/custom_spacer.dart';
-import 'package:aerium/presentation/widgets/page_wrapper.dart';
-import 'package:aerium/presentation/widgets/spaces.dart';
-import 'package:aerium/values/values.dart';
+import '../../core/utils/extensions.dart';
+import '../../core/layout/adaptive.dart';
+import '../../infrastructure/bloc/email_bloc.dart';
+import 'widgets/simple_footer.dart';
+import '../widgets/m074med_button.dart';
+import '../widgets/animated_positioned_text.dart';
+import '../widgets/animated_text_slide_box_transition.dart';
+import '../widgets/m074med_text_form_field.dart';
+import '../widgets/content_area.dart';
+import '../widgets/custom_spacer.dart';
+import '../widgets/page_wrapper.dart';
+import '../widgets/spaces.dart';
+import '../../values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -78,14 +78,14 @@ class _ContactPageState extends State<ContactPage>
       });
       emailBloc.add(
         SendEmail(
-          name: _nameController.text,
-          email: _emailController.text,
-          subject: _subjectController.text,
+          name: _nameController.text.trim(),
+          email: _emailController.text.trim(),
+          subject: _subjectController.text.trim(),
           message: _messageController.text,
         ),
       );
     } else {
-      isNameValid( _nameController.text);
+      isNameValid(_nameController.text);
       isEmailValid(_emailController.text);
       isSubjectValid(_subjectController.text);
       isMessageValid(_messageController.text);
@@ -95,11 +95,11 @@ class _ContactPageState extends State<ContactPage>
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? initialErrorStyle = textTheme.bodyText1?.copyWith(
+    TextStyle? initialErrorStyle = textTheme.bodyLarge?.copyWith(
       color: AppColors.white,
       fontSize: Sizes.TEXT_SIZE_12,
     );
-    TextStyle? errorStyle = textTheme.bodyText1?.copyWith(
+    TextStyle? errorStyle = textTheme.bodyLarge?.copyWith(
       color: AppColors.errorRed,
       fontWeight: FontWeight.w400,
       fontSize: Sizes.TEXT_SIZE_12,
@@ -133,7 +133,7 @@ class _ContactPageState extends State<ContactPage>
         assignHeight(context, 0.3),
       ),
     );
-    TextStyle? headingStyle = textTheme.headline2?.copyWith(
+    TextStyle? headingStyle = textTheme.displayMedium?.copyWith(
       color: AppColors.black,
       fontSize: responsiveSize(context, 40, 60),
     );
@@ -150,7 +150,7 @@ class _ContactPageState extends State<ContactPage>
                 content: Text(
                   StringConst.EMAIL_FAILED_RESPONSE,
                   textAlign: TextAlign.center,
-                  style: textTheme.bodyText1?.copyWith(
+                  style: textTheme.bodyLarge?.copyWith(
                     fontSize: Sizes.TEXT_SIZE_16,
                     color: AppColors.black,
                   ),
@@ -170,7 +170,7 @@ class _ContactPageState extends State<ContactPage>
                 content: Text(
                   StringConst.EMAIL_RESPONSE,
                   textAlign: TextAlign.center,
-                  style: textTheme.bodyText1?.copyWith(
+                  style: textTheme.bodyLarge?.copyWith(
                     fontSize: Sizes.TEXT_SIZE_16,
                     color: AppColors.black,
                   ),
@@ -217,7 +217,7 @@ class _ContactPageState extends State<ContactPage>
                           ),
                           text: StringConst.CONTACT_MSG,
                           maxLines: 5,
-                          textStyle: textTheme.bodyText1?.copyWith(
+                          textStyle: textTheme.bodyLarge?.copyWith(
                             color: AppColors.grey700,
                             height: 2.0,
                             fontSize: responsiveSize(
@@ -232,7 +232,7 @@ class _ContactPageState extends State<ContactPage>
                           position: _slideAnimation,
                           child: Column(
                             children: [
-                              AeriumTextFormField(
+                              M074MEDTextFormField(
                                 hasTitle: _nameHasError,
                                 title: StringConst.NAME_ERROR_MSG,
                                 titleStyle: _nameHasError
@@ -246,7 +246,7 @@ class _ContactPageState extends State<ContactPage>
                                 },
                               ),
                               SpaceH20(),
-                              AeriumTextFormField(
+                              M074MEDTextFormField(
                                 hasTitle: _emailHasError,
                                 title: StringConst.EMAIL_ERROR_MSG,
                                 titleStyle: _emailHasError
@@ -260,7 +260,7 @@ class _ContactPageState extends State<ContactPage>
                                 },
                               ),
                               SpaceH20(),
-                              AeriumTextFormField(
+                              M074MEDTextFormField(
                                 hasTitle: _subjectHasError,
                                 title: StringConst.SUBJECT_ERROR_MSG,
                                 titleStyle: _subjectHasError
@@ -274,7 +274,7 @@ class _ContactPageState extends State<ContactPage>
                                 },
                               ),
                               SpaceH20(),
-                              AeriumTextFormField(
+                              M074MEDTextFormField(
                                 hasTitle: _messageHasError,
                                 title: StringConst.MESSAGE_ERROR_MSG,
                                 titleStyle: _messageHasError
@@ -292,7 +292,7 @@ class _ContactPageState extends State<ContactPage>
                               SpaceH20(),
                               Align(
                                 alignment: Alignment.topRight,
-                                child: AeriumButton(
+                                child: M074MEDButton(
                                   height: Sizes.HEIGHT_56,
                                   width: buttonWidth,
                                   isLoading: isSendingEmail,

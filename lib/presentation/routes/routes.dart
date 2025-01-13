@@ -1,12 +1,12 @@
-import 'package:aerium/presentation/pages/about/about_page.dart';
-import 'package:aerium/presentation/pages/certification_page.dart';
-import 'package:aerium/presentation/pages/contact_page.dart';
-import 'package:aerium/presentation/pages/experience_page.dart';
-import 'package:aerium/presentation/pages/privacy_policy_page.dart';
-import 'package:aerium/presentation/pages/project_detail/project_detail_page.dart';
-import 'package:aerium/presentation/pages/works/works_page.dart';
+import '../pages/about/about_page.dart';
+import '../pages/certification_page.dart';
+import '../pages/contact_page.dart';
+import '../pages/experience_page.dart';
+import '../pages/privacy_policy_page.dart';
+import '../pages/project_detail/project_detail_page.dart';
+import '../pages/works/works_page.dart';
 import 'package:flutter/material.dart';
-import 'package:aerium/presentation/pages/home/home_page.dart';
+import '../pages/home/home_page.dart';
 
 typedef PathWidgetBuilder = Widget Function(
     BuildContext, String? /*Map<String, String>*/);
@@ -55,7 +55,13 @@ class RouteConfiguration {
     ),
     Path(
       r'^' + ProjectDetailPage.projectDetailPageRoute,
-      (context, matches) => const ProjectDetailPage(),
+      (context, matches) => ProjectDetailPage(),
+    ),
+    Path(
+      r'^' +
+          ProjectDetailPage.projectDetailPageRoute +
+          r'/(?<projectId>[\w-]+)$',
+      (context, projectId) => ProjectDetailPage(projectId: projectId),
     ),
     Path(
       r'^' + ExperiencePage.experiencePageRoute,

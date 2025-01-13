@@ -1,7 +1,7 @@
-import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/presentation/widgets/animated_slide_transtion.dart';
-import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
-import 'package:aerium/values/values.dart';
+import '../../../core/layout/adaptive.dart';
+import '../../widgets/animated_slide_transtion.dart';
+import '../../widgets/animated_text_slide_box_transition.dart';
+import '../../../values/values.dart';
 import 'package:flutter/material.dart';
 
 class PageHeader extends StatefulWidget {
@@ -59,7 +59,7 @@ class _PageHeaderState extends State<PageHeader>
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? headingStyle = textTheme.headline2?.copyWith(
+    TextStyle? headingStyle = textTheme.displayMedium?.copyWith(
       color: AppColors.black,
       fontSize: responsiveSize(
         context,

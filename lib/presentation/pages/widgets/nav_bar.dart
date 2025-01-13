@@ -1,12 +1,12 @@
-import 'package:aerium/core/layout/adaptive.dart';
-import 'package:aerium/core/utils/functions.dart';
-import 'package:aerium/presentation/widgets/aerium_button.dart';
-import 'package:aerium/presentation/widgets/animated_text_slide_box_transition.dart';
-import 'package:aerium/presentation/widgets/app_logo.dart';
-import 'package:aerium/presentation/widgets/empty.dart';
-import 'package:aerium/presentation/widgets/nav_item.dart';
-import 'package:aerium/presentation/widgets/spaces.dart';
-import 'package:aerium/values/values.dart';
+import '../../../core/layout/adaptive.dart';
+import '../../../core/utils/functions.dart';
+import '../../widgets/m074med_button.dart';
+import '../../widgets/animated_text_slide_box_transition.dart';
+import '../../widgets/app_logo.dart';
+import '../../widgets/empty.dart';
+import '../../widgets/nav_item.dart';
+import '../../widgets/spaces.dart';
+import '../../../values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -44,7 +44,7 @@ class NavBar extends StatelessWidget {
     return ResponsiveBuilder(builder: (context, sizingInformation) {
       double screenWidth = sizingInformation.screenSize.width;
 
-      if (screenWidth <= RefinedBreakpoints().tabletNormal) {
+      if (screenWidth <= RefinedBreakpoints().tabletLarge) {
         return mobileNavBar(context);
       } else {
         return webNavBar(context);
@@ -61,7 +61,10 @@ class NavBar extends StatelessWidget {
       ),
       child: Row(
         children: [
-          AppLogo(fontSize: Sizes.TEXT_SIZE_40, titleColor: appLogoColor,),
+          AppLogo(
+            fontSize: Sizes.TEXT_SIZE_40,
+            titleColor: appLogoColor,
+          ),
           Spacer(),
           InkWell(
             onTap: onMenuTap,
@@ -79,7 +82,7 @@ class NavBar extends StatelessWidget {
   Widget webNavBar(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? style = selectedRouteTitleStyle ??
-        textTheme.bodyText1?.copyWith(
+        textTheme.bodyLarge?.copyWith(
           color: AppColors.black,
           fontWeight: FontWeight.w400,
           fontSize: Sizes.TEXT_SIZE_12,
@@ -99,7 +102,7 @@ class NavBar extends StatelessWidget {
               AppLogo(titleColor: appLogoColor),
               Spacer(),
               ..._buildNavItems(context, menuList: Data.menuItems),
-              AeriumButton(
+              M074MEDButton(
                 height: Sizes.HEIGHT_36,
                 hasIcon: false,
                 width: 80,
@@ -108,7 +111,7 @@ class NavBar extends StatelessWidget {
                 onHoverColor: appLogoColor,
                 title: StringConst.RESUME.toUpperCase(),
                 onPressed: () {
-                  Functions.launchUrl(DocumentPath.CV);
+                  Functions.launchLink(DocumentPath.CV);
                 },
               ),
             ],
