@@ -41,10 +41,12 @@ jobs:
       - name: Build Flutter Web
         run: flutter build web --release
 
+      - name: Create .gitignore in build/web
+        run: echo "assets/.env" >> build/web/.gitignore
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          run: echo "assets/.env" >> build/web/.gitignore
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: build/web
 
