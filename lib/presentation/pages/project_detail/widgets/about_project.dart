@@ -153,10 +153,12 @@ class _AboutprojectState extends State<Aboutproject> {
           SizedBox(
             width: projectDataWidth,
             child: Wrap(
-              alignment: WrapAlignment.spaceBetween,
-              runSpacing: 20,
+              spacing: responsiveSize(
+                  context, widget.width * 0.1, widget.width * 0.17,
+                  md: widget.width * 0.17),
+              runSpacing: responsiveSize(context, 30, 40),
               children: [
-                if (widget.projectData.isLive) ...[
+                if (widget.projectData.isLive)
                   AnimatedPositionedWidget(
                     controller: CurvedAnimation(
                       parent: widget.projectDataController,
@@ -180,9 +182,7 @@ class _AboutprojectState extends State<Aboutproject> {
                       targetOffset: Offset(0.1, 0),
                     ),
                   ),
-                  Spacer()
-                ],
-                if (widget.projectData.isPublic) ...[
+                if (widget.projectData.isPublic)
                   AnimatedPositionedWidget(
                     controller: CurvedAnimation(
                       parent: widget.projectDataController,
@@ -206,8 +206,6 @@ class _AboutprojectState extends State<Aboutproject> {
                       },
                     ),
                   ),
-                  Spacer()
-                ],
               ],
             ),
           ),
@@ -216,10 +214,12 @@ class _AboutprojectState extends State<Aboutproject> {
           SizedBox(
             width: projectDataWidth,
             child: Wrap(
-              alignment: WrapAlignment.spaceBetween,
-              runSpacing: 20,
+              spacing: responsiveSize(
+                  context, widget.width * 0.1, widget.width * 0.17,
+                  md: widget.width * 0.17),
+              runSpacing: responsiveSize(context, 30, 40),
               children: [
-                if (widget.projectData.isOnPlayStore) ...[
+                if (widget.projectData.isOnPlayStore)
                   InkWell(
                     onTap: () {
                       Functions.launchLink(widget.projectData.playStoreUrl);
@@ -238,9 +238,7 @@ class _AboutprojectState extends State<Aboutproject> {
                       ),
                     ),
                   ),
-                  Spacer()
-                ],
-                if (widget.projectData.isOnAppStore) ...[
+                if (widget.projectData.isOnAppStore)
                   InkWell(
                     onTap: () {
                       Functions.launchLink(widget.projectData.appStoreUrl);
@@ -259,8 +257,6 @@ class _AboutprojectState extends State<Aboutproject> {
                       ),
                     ),
                   ),
-                  Spacer()
-                ],
               ],
             ),
           ),
