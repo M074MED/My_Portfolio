@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" 
+  content="Portfolio website for Mohammed Mamdouh. This portfolio chowcases his education, skills & expertise, experience, achievements and hobbies.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="M074MED">
+  <link rel="apple-touch-icon" href="icons/logo-m074med-2.png">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="icons/logo-m074med-2.png"/>
+
+  <title>M074MED</title>
+  <link rel="manifest" href="manifest.json">
+  <script type="application/javascript">
+      function openLink(url, target, isAsync=false) {
+        var is_safari = /^(?!.*chrome).*safari/i.test(navigator.userAgent.toLowerCase());
+        if (is_safari && isAsync) {
+          window.location.href = url;
+        } else {
+          window.open(url, target);
+        }
+      }
+    </script>
+</head>
+<body id="app-container">
+  <!-- This script installs service_worker.js to provide PWA functionality to
+       application. For more information, see:
+       https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('flutter.js');
+      });
+    }
+  </script>
+  <script src="main.dart.js" type="application/javascript"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+    
+    const firebaseConfig = {
+      apiKey: "${FIREBASE_API_KEY}",
+      authDomain: "${FIREBASE_AUTH_DOMAIN}",
+      projectId: "${FIREBASE_PROJECT_ID}",
+      storageBucket: "${FIREBASE_STORAGE_BUCKET}",
+      messagingSenderId: "${FIREBASE_MESSAGING_SENDER_ID}",
+      appId: "${FIREBASE_APP_ID}",
+      measurementId: "${FIREBASE_MEASUREMENT_ID}"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+</body>
+</html>
