@@ -80,6 +80,9 @@ class _CertificationPageState extends State<CertificationPage>
       onLoadingAnimationDone: () {
         _headingTextController.forward();
       },
+      imagesToPreload: [
+        ...Data.certificationData.map((cert) => cert.image).toList(),
+      ],
       child: ListView(
         padding: EdgeInsets.zero,
         physics: const BouncingScrollPhysics(

@@ -33,7 +33,9 @@ class PageWrapper extends StatefulWidget {
       this.backgroundColor,
       this.navBarTitleColor = AppColors.grey600,
       this.navBarSelectedTitleColor = AppColors.black,
-      this.appLogoColor = AppColors.black})
+      this.appLogoColor = AppColors.black,
+      this.imagesToPreload = const [], // Add this
+      })
       : super(key: key);
 
   final String selectedRoute;
@@ -49,6 +51,7 @@ class PageWrapper extends StatefulWidget {
   final Color navBarTitleColor;
   final Color navBarSelectedTitleColor;
   final Color appLogoColor;
+  final List<String> imagesToPreload; // Add this
 
   @override
   _PageWrapperState createState() => _PageWrapperState();
@@ -151,6 +154,7 @@ class _PageWrapperState extends State<PageWrapper>
             controller: forwardSlideController,
             width: widthOfScreen(context),
             height: heightOfScreen(context),
+            imagesToPreload: widget.imagesToPreload,
           ),
           widget.hasUnveilPageAnimation
               ? Positioned(
@@ -161,6 +165,8 @@ class _PageWrapperState extends State<PageWrapper>
                     width: widthOfScreen(context),
                     height: heightOfScreen(context),
                     isSlideForward: false,
+                    onLoadingDone: widget.onLoadingAnimationDone,
+                    imagesToPreload: widget.imagesToPreload,
                   ),
                 )
               : widget.customLoadingAnimation,

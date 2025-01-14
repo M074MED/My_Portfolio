@@ -69,6 +69,9 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
       onLoadingAnimationDone: () {
         _headingTextController.forward();
       },
+      imagesToPreload: [
+        ...Data.projects.map((project) => project.image).toList(),
+      ],
       child: ListView(
         padding: EdgeInsets.zero,
         physics: const BouncingScrollPhysics(
@@ -126,9 +129,8 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
   }) {
     List<Widget> items = [];
     int margin = subHeight * (data.length - 1);
-    
+
     for (int index = data.length - 1; index >= 0; index--) {
-      
       items.add(
         Container(
           margin: EdgeInsets.only(top: margin.toDouble()),
@@ -142,7 +144,7 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
             subtitle: data[index].category,
             containerColor: data[index].primaryColor,
             onTap: () {
-             Functions.navigateToProject(
+              Functions.navigateToProject(
                 context: context,
                 dataSource: data,
                 currentProject: data[index],
@@ -163,7 +165,7 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
     required int subHeight,
   }) {
     List<Widget> items = [];
-   
+
     for (int index = 0; index < data.length; index++) {
       items.add(
         Container(
@@ -180,7 +182,6 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
                 currentProject: data[index],
                 currentProjectIndex: index,
               );
-             
             },
           ),
         ),
@@ -191,6 +192,4 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
     }
     return items;
   }
-
- 
 }

@@ -85,7 +85,7 @@ flutter:
     - assets/images/projects/webshop/
     - assets/images/projects/job_board/
     - assets/images/projects/lms/
-    # - .env
+    - .env
   #    - assets/screenshots/
 
   # An image asset can refer to one or more resolution-specific "variants", see

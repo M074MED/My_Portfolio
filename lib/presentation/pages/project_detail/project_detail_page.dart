@@ -159,6 +159,14 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
       onLoadingAnimationDone: () {
         _controller.forward();
       },
+      imagesToPreload: [
+        projectDetails!.data.coverUrl,
+        ...projectDetails!.data.projectAssets
+            .where((asset) => !asset.endsWith('.mp4')),
+        if (projectDetails!.hasNextProject &&
+            projectDetails!.nextProject != null)
+          projectDetails!.nextProject!.coverUrl,
+      ],
       child: ListView(
         padding: EdgeInsets.zero,
         physics: const BouncingScrollPhysics(

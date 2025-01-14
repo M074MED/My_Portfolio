@@ -17,11 +17,13 @@ class LoadingHomePageAnimation extends StatefulWidget {
     required this.style,
     required this.onLoadingDone,
     this.lineColor,
+    required this.imagesToPreload,
   }) : super(key: key);
   final String text;
   final TextStyle? style;
   final VoidCallback onLoadingDone;
   final Color? lineColor;
+  final List<String> imagesToPreload;
 
   @override
   _LoadingHomePageAnimationState createState() =>
@@ -44,6 +46,7 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
   bool _leftRightAnimationStarted = false;
   bool _leftRightAnimationDone = false;
   bool _isAnimationOver = false;
+  bool _imagesLoaded = false;
   late Size size;
   late double textWidth;
   late double textHeight;
@@ -53,6 +56,7 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
     super.initState();
     setTextWidthAndHeight();
     lineColor = widget.lineColor ?? defaultLineColor;
+    _preloadImages();
     _scaleOpacityController = AnimationController(
       vsync: this,
       duration: _scaleDuration,
@@ -115,6 +119,15 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
     });
   }
 
+  Future<void> _preloadImages() async {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      await Functions.preloadImages(context, widget.imagesToPreload);
+      setState(() {
+        _imagesLoaded = true;
+      });
+    });
+  }
+
   @override
   void dispose() {
     _fadeOutController.dispose();
@@ -138,10 +151,9 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
     double screenWidth = widthOfScreen(context);
     double screenHeight = heightOfScreen(context);
     double halfHeightOfScreen = screenHeight / 2;
-    double widthOfLeftLine = assignWidth(context, 0.5) - (textWidth/2);
+    double widthOfLeftLine = assignWidth(context, 0.5) - (textWidth / 2);
     double widthOfRightLine = screenWidth - (widthOfLeftLine + textWidth);
     double leftContainerStart = (screenWidth / 2) - (textWidth / 2);
-
 
     return _isAnimationOver
         ? Empty()
@@ -153,10 +165,12 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
                 duration: _scaleDuration,
                 color: AppColors.black,
                 onEnd: () {
-                  widget.onLoadingDone();
-                  setState(() {
-                    _isAnimationOver = true;
-                  });
+                  if (_imagesLoaded) {
+                    widget.onLoadingDone();
+                    setState(() {
+                      _isAnimationOver = true;
+                    });
+                  }
                 },
               ),
               Positioned(

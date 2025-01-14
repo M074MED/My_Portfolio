@@ -111,6 +111,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         onLoadingDone: () {
           _slideTextController.forward();
         },
+        imagesToPreload: [
+          ImagePath.DEV,
+          ImagePath.DEV_SKILLS,
+          ImagePath.DEV_MEDITATE,
+          // Add any other images that need to be preloaded
+          ...Data.recentWorks.map((e) => e.image).toList(),
+        ],
       ),
       child: ListView(
         padding: EdgeInsets.zero,
