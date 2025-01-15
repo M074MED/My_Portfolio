@@ -140,6 +140,7 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
       onLoadingAnimationDone: () {
         _controller.forward();
       },
+      imagesToPreload: [ImagePath.DEV],
       child: ListView(
         padding: EdgeInsets.zero,
         physics: const BouncingScrollPhysics(

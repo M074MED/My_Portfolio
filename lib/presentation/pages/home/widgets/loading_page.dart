@@ -47,7 +47,7 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
   bool _leftRightAnimationDone = false;
   bool _isAnimationOver = false;
   bool _imagesLoaded = false;
-  bool _animationPaused = false;
+  // bool _animationPaused = false;
   late Size size;
   late double textWidth;
   late double textHeight;
@@ -109,12 +109,12 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
       }
     });
     _containerController.addStatusListener((status) {
-      _handleAnimation();
       if (status == AnimationStatus.completed) {
-        setState(() {
-          _leftRightAnimationStarted = true;
-          _fadeOutController.forward();
-        });
+        // _handleAnimation();
+        // setState(() {
+        //   _leftRightAnimationStarted = true;
+        //   _fadeOutController.forward();
+        // });
       }
     });
 
@@ -122,33 +122,38 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
       if (status == AnimationStatus.completed) {
         setState(() {
           _leftRightAnimationDone = true;
+          _imagesLoaded = true;
         });
       }
     });
   }
 
-  void _handleAnimation() {
-    if (_containerController.value >= 0.9 &&
-        !_imagesLoaded &&
-        !_animationPaused) {
-      _animationPaused = true;
-      _containerController.stop();
-    } else if (_imagesLoaded && _animationPaused) {
-      _animationPaused = false;
-      _containerController.forward();
-    }
-  }
+  // void _handleAnimation() {
+  //   if (_containerController.value >= 0.9 &&
+  //       !_imagesLoaded &&
+  //       !_animationPaused) {
+  //     _animationPaused = true;
+  //     _containerController.stop();
+  //   } else if (_imagesLoaded && _animationPaused) {
+  //     _animationPaused = false;
+  //     _containerController.forward();
+  //   }
+  // }
 
   Future<void> _preloadImages() async {
     await Functions.preloadImages(context, widget.imagesToPreload, onEnd: () {
       if (mounted) {
         setState(() {
-          _imagesLoaded = true;
+          _leftRightAnimationStarted = true;
+          _fadeOutController.forward();
         });
+        // setState(() {
+        //   _imagesLoaded = true;
+        // });
         // Resume animation if it was paused
-        if (_animationPaused) {
-          _containerController.forward();
-        }
+        // if (_animationPaused) {
+        //   _containerController.forward();
+        // }
       }
     });
   }

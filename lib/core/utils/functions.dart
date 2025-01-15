@@ -56,7 +56,8 @@ class Functions {
   }
 
   static Future<void> preloadImages(
-      BuildContext context, List<String> imageUrls, {VoidCallback? onEnd}) async {
+      BuildContext context, List<String> imageUrls,
+      {VoidCallback? onEnd}) async {
     try {
       final List<Future<void>> preloadFutures = imageUrls
           .map(
@@ -65,7 +66,10 @@ class Functions {
           .toList();
 
       await Future.wait(preloadFutures).then((value) {
-        onEnd?.call();
+        Future.delayed(Duration(milliseconds: 1500), () {
+          onEnd?.call();
+        });
+        // onEnd?.call();
       });
     } catch (e) {
       log('Error preloading images: $e');

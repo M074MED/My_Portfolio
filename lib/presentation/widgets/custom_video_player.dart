@@ -93,8 +93,10 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
             key: Key(widget.videoPath), // Unique key for each video
             onVisibilityChanged: (VisibilityInfo info) {
               if (info.visibleFraction == 0) {
-                _controller.pause();
-                _isPlaying = false;
+                setState(() {
+                  _controller.pause();
+                  _isPlaying = false;
+                });
               }
             },
             child: MouseRegion(

@@ -1,5 +1,6 @@
 import '../../../core/layout/adaptive.dart';
 import '../../../core/utils/functions.dart';
+import '../../widgets/loading_slider.dart';
 import '../widgets/animated_footer.dart';
 import 'widgets/noteworthy_projects.dart';
 import '../widgets/page_header.dart';
@@ -21,6 +22,8 @@ class WorksPage extends StatefulWidget {
 class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
   late AnimationController _controller;
   late AnimationController _headingTextController;
+  late AnimationController forwardSlideController;
+  Duration duration = Duration(milliseconds: 1250);
 
   @override
   void initState() {
@@ -32,6 +35,10 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
       vsync: this,
       duration: Duration(milliseconds: 1200),
     );
+    forwardSlideController = AnimationController(
+      vsync: this,
+      duration: duration,
+    );
 
     super.initState();
   }
@@ -40,6 +47,7 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
   void dispose() {
     _controller.dispose();
     _headingTextController.dispose();
+    forwardSlideController.dispose();
     super.dispose();
   }
 
@@ -61,64 +69,73 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
         assignWidth(context, 0.10),
       ),
     );
-    return PageWrapper(
-      selectedRoute: WorksPage.worksPageRoute,
-      selectedPageName: StringConst.WORKS,
-      navBarAnimationController: _headingTextController,
-      hasSideTitle: false,
-      onLoadingAnimationDone: () {
-        _headingTextController.forward();
-      },
-      imagesToPreload: [
-        ...Data.projects.map((project) => project.image).toList(),
-      ],
-      child: ListView(
-        padding: EdgeInsets.zero,
-        physics: const BouncingScrollPhysics(
-          parent: AlwaysScrollableScrollPhysics(),
-        ),
-        children: [
-          PageHeader(
-            headingText: StringConst.WORKS,
-            headingTextController: _headingTextController,
-          ),
-          ResponsiveBuilder(
-            builder: (context, sizingInformation) {
-              double screenWidth = sizingInformation.screenSize.width;
-
-              if (screenWidth <= RefinedBreakpoints().tabletSmall) {
-                return Column(
-                  children: _buildProjectsForMobile(
-                    data: Data.projects,
-                    projectHeight: projectItemHeight.toInt(),
-                    subHeight: subHeight.toInt(),
-                  ),
-                );
-              } else {
-                return Container(
-                  height: (subHeight * (Data.projects.length)) + extra,
-                  child: Stack(
-                    children: _buildProjects(
-                      data: Data.projects,
-                      projectHeight: projectItemHeight.toInt(),
-                      subHeight: subHeight.toInt(),
-                    ),
-                  ),
-                );
-              }
-            },
-          ),
-          CustomSpacer(heightFactor: 0.1),
-          Container(
-            child: Padding(
-              padding: padding,
-              child: NoteWorthyProjects(),
+    return Stack(
+      children: [
+        PageWrapper(
+          selectedRoute: WorksPage.worksPageRoute,
+          selectedPageName: StringConst.WORKS,
+          navBarAnimationController: _headingTextController,
+          hasSideTitle: false,
+          onLoadingAnimationDone: () {
+            _headingTextController.forward();
+          },
+          imagesToPreload: [
+            ...Data.projects.map((project) => project.image).toList(),
+          ],
+          child: ListView(
+            padding: EdgeInsets.zero,
+            physics: const BouncingScrollPhysics(
+              parent: AlwaysScrollableScrollPhysics(),
             ),
+            children: [
+              PageHeader(
+                headingText: StringConst.WORKS,
+                headingTextController: _headingTextController,
+              ),
+              ResponsiveBuilder(
+                builder: (context, sizingInformation) {
+                  double screenWidth = sizingInformation.screenSize.width;
+
+                  if (screenWidth <= RefinedBreakpoints().tabletSmall) {
+                    return Column(
+                      children: _buildProjectsForMobile(
+                        data: Data.projects,
+                        projectHeight: projectItemHeight.toInt(),
+                        subHeight: subHeight.toInt(),
+                      ),
+                    );
+                  } else {
+                    return Container(
+                      height: (subHeight * (Data.projects.length)) + extra,
+                      child: Stack(
+                        children: _buildProjects(
+                          data: Data.projects,
+                          projectHeight: projectItemHeight.toInt(),
+                          subHeight: subHeight.toInt(),
+                        ),
+                      ),
+                    );
+                  }
+                },
+              ),
+              CustomSpacer(heightFactor: 0.1),
+              Container(
+                child: Padding(
+                  padding: padding,
+                  child: NoteWorthyProjects(),
+                ),
+              ),
+              CustomSpacer(heightFactor: 0.15),
+              AnimatedFooter(),
+            ],
           ),
-          CustomSpacer(heightFactor: 0.15),
-          AnimatedFooter(),
-        ],
-      ),
+        ),
+        LoadingSlider(
+          controller: forwardSlideController,
+          width: widthOfScreen(context),
+          height: heightOfScreen(context),
+        ),
+      ],
     );
   }
 
@@ -144,12 +161,20 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
             subtitle: data[index].category,
             containerColor: data[index].primaryColor,
             onTap: () {
-              Functions.navigateToProject(
-                context: context,
-                dataSource: data,
-                currentProject: data[index],
-                currentProjectIndex: index,
-              );
+              forwardSlideController.forward();
+              forwardSlideController.addStatusListener((status) {
+                if (status == AnimationStatus.completed) {
+                  Functions.navigateToProject(
+                    context: context,
+                    dataSource: data,
+                    currentProject: data[index],
+                    currentProjectIndex: index,
+                  );
+                  Future.delayed(Duration(milliseconds: 500), () {
+                    forwardSlideController.reset();
+                  });
+                }
+              });
             },
           ),
         ),
@@ -176,12 +201,20 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
             subtitle: data[index].category,
             containerColor: data[index].primaryColor,
             onTap: () {
-              Functions.navigateToProject(
-                context: context,
-                dataSource: data,
-                currentProject: data[index],
-                currentProjectIndex: index,
-              );
+              forwardSlideController.forward();
+              forwardSlideController.addStatusListener((status) {
+                if (status == AnimationStatus.completed) {
+                  Functions.navigateToProject(
+                    context: context,
+                    dataSource: data,
+                    currentProject: data[index],
+                    currentProjectIndex: index,
+                  );
+                  Future.delayed(Duration(milliseconds: 500), () {
+                    forwardSlideController.reset();
+                  });
+                }
+              });
             },
           ),
         ),

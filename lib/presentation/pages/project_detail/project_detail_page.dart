@@ -1,5 +1,6 @@
 import '../../../core/layout/adaptive.dart';
 import '../../../core/utils/functions.dart';
+import '../../widgets/loading_slider.dart';
 import 'widgets/about_project.dart';
 import 'widgets/next_project.dart';
 import '../widgets/simple_footer.dart';
@@ -52,6 +53,8 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
   late AnimationController _waveController;
   late AnimationController _aboutProjectController;
   late AnimationController _projectDataController;
+  late AnimationController forwardSlideController;
+  Duration duration = Duration(milliseconds: 1250);
   ProjectDetailArguments? projectDetails;
   double waveLineHeight = 100;
 
@@ -81,6 +84,10 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
       duration: Animations.slideAnimationDurationShort,
     );
     _waveController.forward();
+    forwardSlideController = AnimationController(
+      vsync: this,
+      duration: duration,
+    );
     super.initState();
   }
 
@@ -89,6 +96,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
     _waveController.dispose();
     _aboutProjectController.dispose();
     _controller.dispose();
+    forwardSlideController.dispose();
     super.dispose();
   }
 
@@ -147,137 +155,156 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
       assignWidth(context, 0.60),
       assignWidth(context, 0.80),
     );
-    return PageWrapper(
-      backgroundColor: AppColors.white,
-      selectedRoute: ProjectDetailPage.projectDetailPageRoute,
-      hasSideTitle: false,
-      selectedPageName: StringConst.PROJECT,
-      navBarAnimationController: _controller,
-      navBarTitleColor: projectDetails!.data.navTitleColor,
-      navBarSelectedTitleColor: projectDetails!.data.navSelectedTitleColor,
-      appLogoColor: projectDetails!.data.appLogoColor,
-      onLoadingAnimationDone: () {
-        _controller.forward();
-      },
-      imagesToPreload: [
-        projectDetails!.data.coverUrl,
-        ...projectDetails!.data.projectAssets
-            .where((asset) => !asset.endsWith('.mp4')),
-        if (projectDetails!.hasNextProject &&
-            projectDetails!.nextProject != null)
-          projectDetails!.nextProject!.coverUrl,
-      ],
-      child: ListView(
-        padding: EdgeInsets.zero,
-        physics: const BouncingScrollPhysics(
-          parent: AlwaysScrollableScrollPhysics(),
-        ),
-        children: [
-          Container(
-            width: widthOfScreen(context),
-            height: heightOfScreen(context),
-            child: Stack(
-              children: [
-                Image.asset(
-                  projectDetails!.data.coverUrl,
-                  fit: BoxFit.cover,
-                  width: widthOfScreen(context),
-                  height: heightOfScreen(context),
-                ),
-                Container(
-                  margin: EdgeInsets.only(bottom: waveLineHeight + 40),
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        AnimatedTextSlideBoxTransition(
-                          controller: _controller,
-                          widthFactor: 1.20,
-                          text: "${projectDetails!.data.title}.",
-                          coverColor: projectDetails!.data.primaryColor,
-                          textStyle: coverTitleStyle,
-                          textAlign: TextAlign.center,
-                        ),
-                        SpaceH20(),
-                        AnimatedTextSlideBoxTransition(
-                          controller: _controller,
-                          widthFactor: 1.20,
-                          text: projectDetails!.data.subtitle,
-                          coverColor: projectDetails!.data.primaryColor,
-                          textStyle: coverSubtitleStyle,
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Positioned(
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: AnimatedWaveLine(
-                      height: waveLineHeight,
-                      controller: _waveController,
-                      color: projectDetails!.data.primaryColor,
-                    ),
-                  ),
-                )
-              ],
+    return Stack(
+      children: [
+        PageWrapper(
+          backgroundColor: AppColors.white,
+          selectedRoute: ProjectDetailPage.projectDetailPageRoute,
+          hasSideTitle: false,
+          selectedPageName: StringConst.PROJECT,
+          navBarAnimationController: _controller,
+          navBarTitleColor: projectDetails!.data.navTitleColor,
+          navBarSelectedTitleColor: projectDetails!.data.navSelectedTitleColor,
+          appLogoColor: projectDetails!.data.appLogoColor,
+          onLoadingAnimationDone: () {
+            _controller.forward();
+          },
+          imagesToPreload: [
+            projectDetails!.data.coverUrl,
+            ...projectDetails!.data.projectAssets
+                .where((asset) => !asset.endsWith('.mp4')),
+            if (projectDetails!.hasNextProject &&
+                projectDetails!.nextProject != null)
+              projectDetails!.nextProject!.coverUrl,
+          ],
+          child: ListView(
+            padding: EdgeInsets.zero,
+            physics: const BouncingScrollPhysics(
+              parent: AlwaysScrollableScrollPhysics(),
             ),
-          ),
-          CustomSpacer(heightFactor: 0.15),
-          VisibilityDetector(
-            key: Key('about-project'),
-            onVisibilityChanged: (visibilityInfo) {
-              double visiblePercentage = visibilityInfo.visibleFraction * 100;
-              if (visiblePercentage > 40) {
-                _aboutProjectController.forward();
-              }
-            },
-            child: Padding(
-              padding: padding,
-              child: ContentArea(
-                width: contentAreaWidth,
-                child: Aboutproject(
-                  projectData: projectDetails!.data,
-                  controller: _aboutProjectController,
-                  projectDataController: _projectDataController,
-                  width: contentAreaWidth,
+            children: [
+              Container(
+                width: widthOfScreen(context),
+                height: heightOfScreen(context),
+                child: Stack(
+                  children: [
+                    Image.asset(
+                      projectDetails!.data.coverUrl,
+                      fit: BoxFit.cover,
+                      width: widthOfScreen(context),
+                      height: heightOfScreen(context),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(bottom: waveLineHeight + 40),
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            AnimatedTextSlideBoxTransition(
+                              controller: _controller,
+                              widthFactor: 1.20,
+                              text: "${projectDetails!.data.title}.",
+                              coverColor: projectDetails!.data.primaryColor,
+                              textStyle: coverTitleStyle,
+                              textAlign: TextAlign.center,
+                            ),
+                            SpaceH20(),
+                            AnimatedTextSlideBoxTransition(
+                              controller: _controller,
+                              widthFactor: 1.20,
+                              text: projectDetails!.data.subtitle,
+                              coverColor: projectDetails!.data.primaryColor,
+                              textStyle: coverSubtitleStyle,
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: AnimatedWaveLine(
+                          height: waveLineHeight,
+                          controller: _waveController,
+                          color: projectDetails!.data.primaryColor,
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
-            ),
-          ),
-          CustomSpacer(heightFactor: 0.10),
-          ..._buildProjectAlbum(projectDetails!.data.projectAssets),
-          projectDetails!.hasNextProject
-              ? CustomSpacer(heightFactor: 0.15)
-              : Empty(),
-          projectDetails!.hasNextProject
-              ? Padding(
+              CustomSpacer(heightFactor: 0.15),
+              VisibilityDetector(
+                key: Key('about-project'),
+                onVisibilityChanged: (visibilityInfo) {
+                  double visiblePercentage =
+                      visibilityInfo.visibleFraction * 100;
+                  if (visiblePercentage > 40) {
+                    _aboutProjectController.forward();
+                  }
+                },
+                child: Padding(
                   padding: padding,
                   child: ContentArea(
                     width: contentAreaWidth,
-                    child: NextProject(
+                    child: Aboutproject(
+                      projectData: projectDetails!.data,
+                      controller: _aboutProjectController,
+                      projectDataController: _projectDataController,
                       width: contentAreaWidth,
-                      nextProject: projectDetails!.nextProject!,
-                      navigateToNextProject: () {
-                        Functions.navigateToProject(
-                          context: context,
-                          dataSource: projectDetails!.dataSource,
-                          currentProject: projectDetails!.nextProject!,
-                          currentProjectIndex: projectDetails!.currentIndex + 1,
-                        );
-                      },
                     ),
                   ),
-                )
-              : Empty(),
-          projectDetails!.hasNextProject
-              ? CustomSpacer(heightFactor: 0.15)
-              : Empty(),
-          SimpleFooter(),
-        ],
-      ),
+                ),
+              ),
+              CustomSpacer(heightFactor: 0.10),
+              ..._buildProjectAlbum(projectDetails!.data.projectAssets),
+              projectDetails!.hasNextProject
+                  ? CustomSpacer(heightFactor: 0.15)
+                  : Empty(),
+              projectDetails!.hasNextProject
+                  ? Padding(
+                      padding: padding,
+                      child: ContentArea(
+                        width: contentAreaWidth,
+                        child: NextProject(
+                          width: contentAreaWidth,
+                          nextProject: projectDetails!.nextProject!,
+                          navigateToNextProject: () {
+                            forwardSlideController.forward();
+                            forwardSlideController.addStatusListener((status) {
+                              if (status == AnimationStatus.completed) {
+                                Functions.navigateToProject(
+                                  context: context,
+                                  dataSource: projectDetails!.dataSource,
+                                  currentProject: projectDetails!.nextProject!,
+                                  currentProjectIndex:
+                                      projectDetails!.currentIndex + 1,
+                                );
+                                Future.delayed(Duration(milliseconds: 500), () {
+                                  forwardSlideController.reset();
+                                });
+                              }
+                            });
+                          },
+                        ),
+                      ),
+                    )
+                  : Empty(),
+              projectDetails!.hasNextProject
+                  ? CustomSpacer(heightFactor: 0.15)
+                  : Empty(),
+              SimpleFooter(),
+            ],
+          ),
+        ),
+        LoadingSlider(
+          controller: forwardSlideController,
+          width: widthOfScreen(context),
+          height: heightOfScreen(context),
+        ),
+      ],
     );
   }
 

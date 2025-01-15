@@ -35,7 +35,7 @@ class LoadingSlider extends AnimatedWidget {
       );
 
   Animation<double> get backwardsSlideAnimation => Tween<double>(
-        begin: width,
+        begin: width + (width / 2),
         end: 0,
       ).animate(
         CurvedAnimation(
@@ -98,7 +98,6 @@ class _LoadingSliderContentState extends State<_LoadingSliderContent> {
       _preloadImages();
     });
     if (widget.imagesToPreload.isNotEmpty) {
-      // Pause animation at 90% until images are loaded
       widget.controller.addListener(_handleAnimation);
     } else {
       _imagesLoaded = true;
@@ -106,7 +105,7 @@ class _LoadingSliderContentState extends State<_LoadingSliderContent> {
   }
 
   void _handleAnimation() {
-    if (widget.controller.value >= 0.9 && !_imagesLoaded && !_animationPaused) {
+    if (widget.controller.value >= 0 && !_imagesLoaded && !_animationPaused) {
       _animationPaused = true;
       widget.controller.stop();
     } else if (_imagesLoaded && _animationPaused) {
