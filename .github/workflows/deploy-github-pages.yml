@@ -1,0 +1,32 @@
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch
+  # push:
+  #   branches:
+  #     - main
+
+jobs:
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: web-build
+          path: build/web
+
+      - name: Update base href for GitHub Pages
+        run: |
+          sed -i 's|<base href="/">|<base href="/My_Portfolio/">|g' build/web/index.html
+
+      - name: Create .gitignore in build/web
+        run: echo "assets/.env" >> build/web/.gitignore
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/web

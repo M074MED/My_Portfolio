@@ -140,8 +140,7 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
   }
 
   Future<void> _preloadImages() async {
-    await Functions.preloadImages(context, widget.imagesToPreload)
-        .then((value) {
+    await Functions.preloadImages(context, widget.imagesToPreload, onEnd: () {
       if (mounted) {
         setState(() {
           _imagesLoaded = true;

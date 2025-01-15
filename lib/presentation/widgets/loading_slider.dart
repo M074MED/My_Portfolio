@@ -116,8 +116,7 @@ class _LoadingSliderContentState extends State<_LoadingSliderContent> {
   }
 
   Future<void> _preloadImages() async {
-    await Functions.preloadImages(context, widget.imagesToPreload)
-        .then((value) {
+    await Functions.preloadImages(context, widget.imagesToPreload, onEnd: () {
       if (mounted) {
         setState(() {
           _imagesLoaded = true;

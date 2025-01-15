@@ -55,9 +55,21 @@ class Functions {
     );
   }
 
-  static Future<void> preloadImages(BuildContext context, List<String> imageUrls) async {
-    for (String imageUrl in imageUrls) {
-      await precacheImage(AssetImage(imageUrl), context);
+  static Future<void> preloadImages(
+      BuildContext context, List<String> imageUrls, {VoidCallback? onEnd}) async {
+    try {
+      final List<Future<void>> preloadFutures = imageUrls
+          .map(
+            (String imageUrl) => precacheImage(AssetImage(imageUrl), context),
+          )
+          .toList();
+
+      await Future.wait(preloadFutures).then((value) {
+        onEnd?.call();
+      });
+    } catch (e) {
+      log('Error preloading images: $e');
+      onEnd?.call();
     }
   }
 }
