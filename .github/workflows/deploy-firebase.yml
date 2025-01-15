@@ -39,3 +39,14 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           firebase deploy --only hosting --project ${{ secrets.FIREBASE_PROJECT_ID }}
+
+  cleanup:
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+      - name: Delete workflow artifacts
+        uses: geekyeggo/delete-artifact@v4
+        with:
+          name: web-build
