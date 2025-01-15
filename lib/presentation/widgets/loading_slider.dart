@@ -116,16 +116,18 @@ class _LoadingSliderContentState extends State<_LoadingSliderContent> {
   }
 
   Future<void> _preloadImages() async {
-    await Functions.preloadImages(context, widget.imagesToPreload);
-    if (mounted) {
-      setState(() {
-        _imagesLoaded = true;
-      });
-      // Resume animation if it was paused
-      if (_animationPaused) {
-        widget.controller.forward();
+    await Functions.preloadImages(context, widget.imagesToPreload)
+        .then((value) {
+      if (mounted) {
+        setState(() {
+          _imagesLoaded = true;
+        });
+        // Resume animation if it was paused
+        if (_animationPaused) {
+          widget.controller.forward();
+        }
       }
-    }
+    });
   }
 
   @override

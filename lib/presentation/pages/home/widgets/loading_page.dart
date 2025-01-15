@@ -47,6 +47,7 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
   bool _leftRightAnimationDone = false;
   bool _isAnimationOver = false;
   bool _imagesLoaded = false;
+  bool _animationPaused = false;
   late Size size;
   late double textWidth;
   late double textHeight;
@@ -56,7 +57,13 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
     super.initState();
     setTextWidthAndHeight();
     lineColor = widget.lineColor ?? defaultLineColor;
-    _preloadImages();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _preloadImages();
+    });
+    _initializeAnimations();
+  }
+
+  void _initializeAnimations() {
     _scaleOpacityController = AnimationController(
       vsync: this,
       duration: _scaleDuration,
@@ -102,6 +109,7 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
       }
     });
     _containerController.addStatusListener((status) {
+      _handleAnimation();
       if (status == AnimationStatus.completed) {
         setState(() {
           _leftRightAnimationStarted = true;
@@ -119,12 +127,30 @@ class _LoadingHomePageAnimationState extends State<LoadingHomePageAnimation>
     });
   }
 
+  void _handleAnimation() {
+    if (_containerController.value >= 0.9 &&
+        !_imagesLoaded &&
+        !_animationPaused) {
+      _animationPaused = true;
+      _containerController.stop();
+    } else if (_imagesLoaded && _animationPaused) {
+      _animationPaused = false;
+      _containerController.forward();
+    }
+  }
+
   Future<void> _preloadImages() async {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-      await Functions.preloadImages(context, widget.imagesToPreload);
-      setState(() {
-        _imagesLoaded = true;
-      });
+    await Functions.preloadImages(context, widget.imagesToPreload)
+        .then((value) {
+      if (mounted) {
+        setState(() {
+          _imagesLoaded = true;
+        });
+        // Resume animation if it was paused
+        if (_animationPaused) {
+          _containerController.forward();
+        }
+      }
     });
   }
 
