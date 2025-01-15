@@ -1,0 +1,19 @@
+name: Build and Deploy
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+
+  deploy-firebase:
+    needs: build
+    uses: ./.github/workflows/deploy-firebase.yml
+
+  deploy-github-pages:
+    needs: build
+    uses: ./.github/workflows/deploy-github-pages.yml
