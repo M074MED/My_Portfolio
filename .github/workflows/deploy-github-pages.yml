@@ -27,7 +27,7 @@ jobs:
           sed -i 's|<base href="/">|<base href="/My_Portfolio/">|g' build/web/index.html
 
       - name: Create .gitignore in build/web
-        run: echo "assets/.env" >> build/web/.gitignore
+        run: echo "assets/dotenv" >> build/web/.gitignore
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
