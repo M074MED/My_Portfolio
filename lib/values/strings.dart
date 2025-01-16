@@ -74,11 +74,11 @@ class StringConst {
   static const String ABOUT_DEV_STORY = "Story";
   static const String ABOUT_DEV_STORY_TITLE = "A little bit about myself.";
   static const String ABOUT_DEV_STORY_CONTENT_1 =
-      "I am Software Engineer with great passion for building high quality applications. I have an extensive experience building mobile & web applications. I currently work as a Flutter Developer at GameChanger Research Solutions & AUC. and I am enthusiastic about Python & Machine Learning technologies.";
+      "I am a Software Engineer with a passion for building high-quality applications. I have extensive experience building mobile and web applications. I currently work as a Flutter Developer at GameChanger Research Solutions and AUC, and I am enthusiastic about Python and Machine Learning technologies.";
   static const String ABOUT_DEV_STORY_CONTENT_2 =
-      "I have a Bachelor's degree in Computer Science & Artificial Intelligence from Beni Suef University where I majored in Software Engineering. I have strong technical skills as well as excellent interpersonal skills, which has enabled me to work & interact with clients all over the world.";
+      "I have a Bachelor’s degree in Computer Science and Artificial Intelligence from Beni Suef University, where I majored in Software Engineering. My strong technical skills and excellent interpersonal skills have enabled me to work and interact with clients all over the world.";
   static const String ABOUT_DEV_STORY_CONTENT_3 =
-      "I am very great at finding solutions to problems and I have a very keen eye for details. I enjoy building fun/useful projects in my free time. I am an avid reader, lover of following new tech and AI models & tools, and I like content creating.";
+      "I am very great at finding solutions to problems and I have a very keen eye for details. I enjoy building fun/useful projects in my free time. I am an avid reader and lover of following new tech and AI models & tools, and I like content creation.";
   static const String ABOUT_DEV_TECHNOLOGY = "Technology";
   static const String MOBILE_TECH = "Mobile Technologies";
   static const String OTHER_TECH = "Web / Cloud / Design Technologies";
