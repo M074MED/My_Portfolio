@@ -81424,7 +81424,7 @@ o=h.d
 n=t.kK
 m=h.e
 l=t.p
-m=A.awp(A.bb(A.b([A.ib(s,1,30,"I am Software Engineer with great passion for building high quality applications. I have an extensive experience building mobile & web applications. I currently work as a Flutter Developer at GameChanger Research Solutions & AUC. and I am enthusiastic about Python & Machine Learning technologies.",g,a1,q),A.ib(s,1,30,"I have a Bachelor's degree in Computer Science & Artificial Intelligence from Beni Suef University where I majored in Software Engineering. I have strong technical skills as well as excellent interpersonal skills, which has enabled me to work & interact with clients all over the world.",g,a1,q),A.ib(s,1,30,"I am very great at finding solutions to problems and I have a very keen eye for details. I enjoy building fun/useful projects in my free time. I am an avid reader, lover of following new tech and AI models & tools, and I like content creating.",g,a1,q)],l),B.x,B.p,B.t),m,g,g,"/01 ","Story".toUpperCase(),"A little bit about myself.",f)
+m=A.awp(A.bb(A.b([A.ib(s,1,30,"I am a Software Engineer with a passion for building high-quality applications. I have extensive experience building mobile and web applications. I currently work as a Flutter Developer at GameChanger Research Solutions and AUC, and I am enthusiastic about Python and Machine Learning technologies.",g,a1,q),A.ib(s,1,30,"I have a Bachelor\u2019s degree in Computer Science and Artificial Intelligence from Beni Suef University, where I majored in Software Engineering. My strong technical skills and excellent interpersonal skills have enabled me to work and interact with clients all over the world.",g,a1,q),A.ib(s,1,30,"I am very great at finding solutions to problems and I have a very keen eye for details. I enjoy building fun/useful projects in my free time. I am an avid reader and lover of following new tech and AI models & tools, and I like content creation.",g,a1,q)],l),B.x,B.p,B.t),m,g,g,"/01 ","Story".toUpperCase(),"A little bit about myself.",f)
 k=h.f
 a1=A.bb(A.b([A.ib(r,1,12,"I use a number of tools to aid my creative process when bringing things to life. Listed below are the tools and technologies that I have used over the years.",g,a1,q)],l),B.x,B.p,B.t)
 j=h.w
@@ -82812,7 +82812,7 @@ q=s.z
 return A.am(p,A.cW(A.b([A.awc(40,q),new A.de(1,p),A.f2(!1,!0,A.pn(B.Ee,q,30),p,!0,p,p,p,p,p,p,p,p,p,s.r,p,p,p,p)],t.p),B.x,B.p,B.t,p),B.l,p,p,p,p,p,p,p,B.DW,p,p,r.a.a)}else return s.apl(a)},
 $S:68}
 A.abh.prototype={
-$0(){A.dy("https://drive.google.com/file/d/1yNWxWKwbdsxcRZsaHqzO2eitiPUin07E/view?usp=sharing")},
+$0(){A.dy("https://drive.google.com/file/d/10MmjfF_Hjbb9WovAlm-TFjpKvwnbmW2r/view?usp=sharing")},
 $S:0}
 A.abf.prototype={
 $0(){this.a.Q.$1(this.b[this.c].b)},
