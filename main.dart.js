@@ -24405,7 +24405,7 @@ var $async$Zs=A.H(function(a,b){if(a===1)return A.D(b,r)
 while(true)switch(s){case 0:if($.Z==null)A.ay_()
 $.Z.toString
 s=2
-return A.J($.j0().zk(".env",!0),$async$Zs)
+return A.J($.j0().zk("dotenv",!0),$async$Zs)
 case 2:s=3
 return A.J(A.a46(A.aMe()),$async$Zs)
 case 3:A.aV9()
