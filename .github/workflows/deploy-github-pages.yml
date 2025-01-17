@@ -30,7 +30,7 @@ jobs:
         run: echo "assets/.env" >> build/web/.gitignore
       
       - name: Print .env File
-        run: cat $GITHUB_WORKSPACE/build/web/assets/.env
+        run: cat build/web/assets/.env
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

@@ -48,6 +48,10 @@ jobs:
         id: build
         run: |
           flutter build web --release
+          # Ensure the assets directory exists
+          mkdir -p build/web/assets
+          # Copy .env file to the assets directory
+          cp .env build/web/assets/.env
           echo "build_path=$(pwd)/build/web" >> $GITHUB_OUTPUT
       
       - name: Print .env File
@@ -57,5 +61,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: web-build
-          path: build/web
+          path: |
+            build/web
+            build/web/assets/.env
           retention-days: 1  # Set to minimum required time
