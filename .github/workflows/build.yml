@@ -21,9 +21,6 @@ jobs:
         with:
           flutter-version: '3.27.0'
 
-      - name: Install Dependencies
-        run: flutter pub get
-
       - name: Create .env File
         run: |
           echo SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }} >> .env
@@ -41,11 +38,20 @@ jobs:
           echo FIREBASE_IOS_APP_ID=${{ secrets.FIREBASE_IOS_APP_ID }} >> .env
           echo FIREBASE_IOS_BUNDLE_ID=${{ secrets.FIREBASE_IOS_BUNDLE_ID }} >> .env
 
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Print .env File
+        run: cat .env
+
       - name: Build Flutter Web
         id: build
         run: |
           flutter build web --release
           echo "build_path=$(pwd)/build/web" >> $GITHUB_OUTPUT
+      
+      - name: Print .env File
+        run: cat build/web/assets/.env
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4

@@ -28,6 +28,9 @@ jobs:
 
       - name: Create .gitignore in build/web
         run: echo "assets/.env" >> build/web/.gitignore
+      
+      - name: Print .env File
+        run: cat build/web/assets/.env
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
