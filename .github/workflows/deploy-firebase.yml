@@ -24,6 +24,12 @@ jobs:
         with:
           name: web-build
           path: build/web
+      
+      - name: Download env-file artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: env-file
+          path: build/web/assets/.env
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -49,7 +55,12 @@ jobs:
     if: always()
     
     steps:
-      - name: Delete workflow artifacts
+      - name: Delete web-build artifacts
         uses: geekyeggo/delete-artifact@v4
         with:
           name: web-build
+      
+      - name: Delete env-file artifacts
+        uses: geekyeggo/delete-artifact@v4
+        with:
+          name: env-file
