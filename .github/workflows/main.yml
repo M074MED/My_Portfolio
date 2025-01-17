@@ -16,5 +16,5 @@ jobs:
 
   deploy-github-pages:
     # needs: build
-    needs: deploy-firebase
+    # needs: deploy-firebase
     uses: ./.github/workflows/deploy-github-pages.yml
