@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       build_path: ${{ steps.build.outputs.build_path }}
-      env-file_path: ${{ steps.build.outputs.env-file_path }}
 
     steps:
       - name: Checkout Repository
@@ -50,7 +49,6 @@ jobs:
         run: |
           flutter build web --release
           echo "build_path=$(pwd)/build/web" >> $GITHUB_OUTPUT
-          echo "env-file_path=$(pwd)/build/web/assets/.env" >> $GITHUB_OUTPUT
       
       - name: Print .env File
         run: cat build/web/assets/.env
@@ -60,11 +58,4 @@ jobs:
         with:
           name: web-build
           path: build/web
-          retention-days: 1  # Set to minimum required time
-      
-      - name: Upload env-file artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: env-file
-          path: build/web/assets/.env
           retention-days: 1  # Set to minimum required time
