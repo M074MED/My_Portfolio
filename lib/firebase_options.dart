@@ -18,7 +18,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      print("Key: ${dotenv.env.toString()}");
+      print("Key: ${const String.fromEnvironment('FIREBASE_API_KEY')}");
       return web;
     }
     switch (defaultTargetPlatform) {
@@ -49,13 +49,28 @@ class DefaultFirebaseOptions {
   }
 
   static FirebaseOptions get web => FirebaseOptions(
-        apiKey: dotenv.env['FIREBASE_API_KEY'] ?? '',
-        appId: dotenv.env['FIREBASE_APP_ID'] ?? '',
-        messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] ?? '',
-        projectId: dotenv.env['FIREBASE_PROJECT_ID'] ?? '',
-        authDomain: dotenv.env['FIREBASE_AUTH_DOMAIN'] ?? '',
-        storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? '',
-        measurementId: dotenv.env['FIREBASE_MEASUREMENT_ID'] ?? '',
+        apiKey: const bool.hasEnvironment('FIREBASE_API_KEY')
+            ? const String.fromEnvironment('FIREBASE_API_KEY')
+            : dotenv.env['FIREBASE_API_KEY'] ?? '',
+        appId: const bool.hasEnvironment('FIREBASE_APP_ID')
+            ? const String.fromEnvironment('FIREBASE_APP_ID')
+            : dotenv.env['FIREBASE_APP_ID'] ?? '',
+        messagingSenderId:
+            const bool.hasEnvironment('FIREBASE_MESSAGING_SENDER_ID')
+                ? const String.fromEnvironment('FIREBASE_MESSAGING_SENDER_ID')
+                : dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] ?? '',
+        projectId: const bool.hasEnvironment('FIREBASE_PROJECT_ID')
+            ? const String.fromEnvironment('FIREBASE_PROJECT_ID')
+            : dotenv.env['FIREBASE_PROJECT_ID'] ?? '',
+        authDomain: const bool.hasEnvironment('FIREBASE_AUTH_DOMAIN')
+            ? const String.fromEnvironment('FIREBASE_AUTH_DOMAIN')
+            : dotenv.env['FIREBASE_AUTH_DOMAIN'] ?? '',
+        storageBucket: const bool.hasEnvironment('FIREBASE_STORAGE_BUCKET')
+            ? const String.fromEnvironment('FIREBASE_STORAGE_BUCKET')
+            : dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? '',
+        measurementId: const bool.hasEnvironment('FIREBASE_MEASUREMENT_ID')
+            ? const String.fromEnvironment('FIREBASE_MEASUREMENT_ID')
+            : dotenv.env['FIREBASE_MEASUREMENT_ID'] ?? '',
       );
 
   static FirebaseOptions get android => FirebaseOptions(

@@ -63,7 +63,8 @@ class EmailApiImpl implements EmailApi {
     );
     try {
       var headers = {
-        'Authorization': 'Bearer ${dotenv.env['SENDGRID_API_KEY']}',
+        'Authorization':
+            'Bearer ${const bool.hasEnvironment('SENDGRID_API_KEY') ? const String.fromEnvironment('SENDGRID_API_KEY') : dotenv.env['SENDGRID_API_KEY'] ?? ''}',
         'Content-Type': 'application/json'
       };
       var request = http.Request('POST', Uri.parse(_sendGridUrl));
@@ -72,7 +73,11 @@ class EmailApiImpl implements EmailApi {
           {
             "to": [
               {"email": StringConst.DEV_EMAIL},
-              {"email": "${dotenv.env['MY_PERSONAL_EMAIL']}"}
+              {
+                "email": const bool.hasEnvironment('MY_PERSONAL_EMAIL')
+                    ? const String.fromEnvironment('MY_PERSONAL_EMAIL')
+                    : dotenv.env['MY_PERSONAL_EMAIL'] ?? ''
+              }
             ]
           }
         ],
