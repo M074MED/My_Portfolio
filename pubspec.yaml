@@ -49,6 +49,7 @@ dependencies:
   fluttertoast: ^8.2.1
   video_player: ^2.9.2
   flutter_dotenv: ^5.2.1
+  emailjs: ^4.0.0
 
 
 dev_dependencies:

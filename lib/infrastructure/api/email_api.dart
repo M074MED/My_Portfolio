@@ -1,15 +1,12 @@
-import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../failures/email_failure.dart';
-import 'package:http/http.dart' as http;
-import '../../values/values.dart';
 import 'email_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:emailjs/emailjs.dart' as emailjs;
 
 abstract class EmailApi {
-  ///portfolio-api-chi.vercel.app/api/getintouch
   Future<Email> sendEmail({
     required String name,
     required String email,
@@ -19,10 +16,7 @@ abstract class EmailApi {
 }
 
 class EmailApiImpl implements EmailApi {
-  final http.Client client;
-  static const _sendGridUrl = 'https://api.sendgrid.com/v3/mail/send';
-
-  EmailApiImpl({required this.client});
+  EmailApiImpl();
 
   _saveEmailToDatabase({
     required String name,
@@ -62,54 +56,38 @@ class EmailApiImpl implements EmailApi {
       message: message,
     );
     try {
-      var headers = {
-        'Authorization':
-            'Bearer ${const bool.hasEnvironment('SENDGRID_API_KEY') ? const String.fromEnvironment('SENDGRID_API_KEY') : dotenv.env['SENDGRID_API_KEY'] ?? ''}',
-        'Content-Type': 'application/json'
+      Map<String, dynamic> templateParams = {
+        "subject": subject,
+        "from_name": name,
+        "from_email": email,
+        "message": message,
+        "to_name": name,
+        "to_email": email,
       };
-      var request = http.Request('POST', Uri.parse(_sendGridUrl));
-      request.body = json.encode({
-        "personalizations": [
-          {
-            "to": [
-              {"email": StringConst.DEV_EMAIL},
-              {
-                "email": const bool.hasEnvironment('MY_PERSONAL_EMAIL')
-                    ? const String.fromEnvironment('MY_PERSONAL_EMAIL')
-                    : dotenv.env['MY_PERSONAL_EMAIL'] ?? ''
-              }
-            ]
-          }
-        ],
-        "from": {"email": StringConst.DEV_EMAIL, "name": name},
-        "subject": "Message from My Portfolio: $subject",
-        "content": [
-          {
-            "type": "text/html",
-            "value": """
-<h1 style="text-align: center;">Message from My Portfolio</h1>
-<h4>From: $name</h4>
-<h4>email: <a href="mailto:$email">$email</a></h4>
-<h2 style="text-align: center;">Content</h2>
-$message
-"""
-          }
-        ]
-      });
-      request.headers.addAll(headers);
 
-      http.StreamedResponse response = await request.send();
+      emailjs.EmailJSResponseStatus response = await emailjs.send(
+        'sendgrid',
+        'contact_me',
+        templateParams,
+        emailjs.Options(
+          publicKey: const bool.hasEnvironment('EMAILJS_PUBLIC_KEY')
+              ? const String.fromEnvironment('EMAILJS_PUBLIC_KEY')
+              : dotenv.env['EMAILJS_PUBLIC_KEY'] ?? '',
+          privateKey: const bool.hasEnvironment('EMAILJS_PRIVATE_KEY')
+              ? const String.fromEnvironment('EMAILJS_PRIVATE_KEY')
+              : dotenv.env['EMAILJS_PRIVATE_KEY'] ?? '',
+        ),
+      );
 
-      if (response.statusCode == 202) {
-        // SendGrid returns 202 for success
-        debugPrint("SendGrid Success: ${response.reasonPhrase}");
+      if (response.status == 200) {
+        debugPrint("Send Email Success: ${response.text}");
         return Email(status: "success");
       } else {
-        log("SendGrid Error: ${response.reasonPhrase}");
+        log("Send Email Error: ${response.text}");
         throw EmailFailure.serverError();
       }
     } catch (e) {
-      log("SendGrid Error: ${e.toString()}");
+      log("Send Email Error: ${e.toString()}");
       throw EmailFailure.serverError();
     }
   }

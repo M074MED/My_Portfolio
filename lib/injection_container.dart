@@ -9,8 +9,8 @@ final getIt = GetIt.instance;
 
 void configureDependencies() {
   getIt.registerFactory(() => EmailBloc(getIt()));
-  getIt.registerLazySingleton<EmailRepository>(() => EmailRepositoryImpl(emailApi: getIt()));
-  getIt.registerLazySingleton<EmailApi>(() => EmailApiImpl(client: getIt()));
+  getIt.registerLazySingleton<EmailRepository>(
+      () => EmailRepositoryImpl(emailApi: getIt()));
+  getIt.registerLazySingleton<EmailApi>(() => EmailApiImpl());
   getIt.registerLazySingleton(() => http.Client());
-
 }
