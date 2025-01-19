@@ -6,7 +6,6 @@ import '../../../../values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-
 class NextProject extends StatefulWidget {
   const NextProject({
     Key? key,
@@ -116,7 +115,7 @@ class _NextProjectState extends State<NextProject>
                   width: widthOfScreen(context),
                   height: assignHeight(context, 0.3),
                   child: Image.asset(
-                    widget.nextProject.coverUrl,
+                    widget.nextProject.image,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -236,7 +235,7 @@ class _NextProjectState extends State<NextProject>
                     child: ScaleTransition(
                       scale: scaleAnimation,
                       child: Image.asset(
-                        widget.nextProject.coverUrl,
+                        widget.nextProject.image,
                         fit: BoxFit.cover,
                         color: _isHovering ? Colors.transparent : Colors.grey,
                         colorBlendMode: _isHovering
@@ -253,5 +252,4 @@ class _NextProjectState extends State<NextProject>
       },
     );
   }
-
 }

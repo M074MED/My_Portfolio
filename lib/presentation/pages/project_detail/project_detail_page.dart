@@ -175,7 +175,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
                 .where((asset) => !asset.endsWith('.mp4')),
             if (projectDetails!.hasNextProject &&
                 projectDetails!.nextProject != null)
-              projectDetails!.nextProject!.coverUrl,
+              projectDetails!.nextProject!.image,
           ],
           child: ListView(
             padding: EdgeInsets.zero,

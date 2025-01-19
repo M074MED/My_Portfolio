@@ -166,7 +166,7 @@ class _ContactPageState extends State<ContactPage>
             clearText();
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                backgroundColor: AppColors.white,
+                backgroundColor: AppColors.lightGreen,
                 content: Text(
                   StringConst.EMAIL_RESPONSE,
                   textAlign: TextAlign.center,

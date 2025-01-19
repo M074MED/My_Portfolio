@@ -64,6 +64,8 @@ class ImagePath {
   // Projects
 
   // GameChanger
+  static const String GAMECHANGER_THUMBNAIL =
+      "$projectsDir/gamechanger/thumbnail.png";
   static const String GAMECHANGER_COVER = "$projectsDir/gamechanger/0.png";
   static const String GAMECHANGER_1 = "$projectsDir/gamechanger/1.png";
   static const String GAMECHANGER_2 = "$projectsDir/gamechanger/2.png";
@@ -73,6 +75,7 @@ class ImagePath {
   static const String GAMECHANGER_6 = "$projectsDir/gamechanger/6.png";
 
   // Mulham
+  static const String MULHAM_THUMBNAIL = "$projectsDir/mulham/thumbnail.png";
   static const String MULHAM_COVER = "$projectsDir/mulham/0.png";
   static const String MULHAM_1 = "$projectsDir/mulham/1.png";
   static const String MULHAM_2 = "$projectsDir/mulham/2.png";
@@ -92,6 +95,7 @@ class ImagePath {
   static const String MULHAM_16 = "$projectsDir/mulham/16.png";
 
   // FAIT
+  static const String FAIT_THUMBNAIL = "$projectsDir/fait/thumbnail.png";
   static const String FAIT_COVER = "$projectsDir/fait/0.png";
   static const String FAIT_1 = "$projectsDir/fait/1.png";
   static const String FAIT_2 = "$projectsDir/fait/2.png";
@@ -106,6 +110,8 @@ class ImagePath {
   static const String FAIT_11 = "$projectsDir/fait/11.png";
 
   // Attendfy Pro
+  static const String ATTENDFY_PRO_THUMBNAIL =
+      "$projectsDir/attendfy_pro/thumbnail.png";
   static const String ATTENDFY_PRO_COVER = "$projectsDir/attendfy_pro/0.png";
   static const String ATTENDFY_PRO_1 = "$projectsDir/attendfy_pro/1.png";
   static const String ATTENDFY_PRO_2 = "$projectsDir/attendfy_pro/2.png";
@@ -115,11 +121,15 @@ class ImagePath {
   static const String ATTENDFY_PRO_6 = "$projectsDir/attendfy_pro/6.png";
 
   // MessageMe
+  static const String MESSAGEME_THUMBNAIL =
+      "$projectsDir/messageme/thumbnail.png";
   static const String MESSAGEME_COVER = "$projectsDir/messageme/0.png";
   static const String MESSAGEME_1 = "$projectsDir/messageme/1.png";
   static const String MESSAGEME_2 = "$projectsDir/messageme/2.png";
 
   // Metatris
+  static const String METATRIS_THUMBNAIL =
+      "$projectsDir/metatris/thumbnail.png";
   static const String METATRIS_COVER = "$projectsDir/metatris/0.png";
   static const String METATRIS_1 = "$projectsDir/metatris/1.png";
   static const String METATRIS_2 = "$projectsDir/metatris/2.png";
@@ -129,12 +139,16 @@ class ImagePath {
   static const String METATRIS_6 = "$projectsDir/metatris/6.png";
 
   // Space Fortress
+  static const String SPACE_FORTRESS_THUMBNAIL =
+      "$projectsDir/space_fortress/thumbnail.png";
   static const String SPACE_FORTRESS_COVER =
       "$projectsDir/space_fortress/0.png";
   static const String SPACE_FORTRESS_1 = "$projectsDir/space_fortress/1.png";
   static const String SPACE_FORTRESS_2 = "$projectsDir/space_fortress/2.png";
 
   // Spacescape
+  static const String SPACESCAPE_THUMBNAIL =
+      "$projectsDir/spacescape/thumbnail.png";
   static const String SPACESCAPE_COVER = "$projectsDir/spacescape/0.png";
   static const String SPACESCAPE_1 = "$projectsDir/spacescape/1.mp4";
   static const String SPACESCAPE_2 = "$projectsDir/spacescape/2.png";
@@ -144,10 +158,13 @@ class ImagePath {
   static const String SPACESCAPE_6 = "$projectsDir/spacescape/6.png";
 
   // M074MED_V1
+  static const String M074MED_V1_THUMBNAIL =
+      "$projectsDir/m074med_v1/thumbnail.png";
   static const String M074MED_V1_COVER = "$projectsDir/m074med_v1/0.png";
   static const String M074MED_V1_1 = "$projectsDir/m074med_v1/1.png";
 
   // WebShop
+  static const String WEBSHOP_THUMBNAIL = "$projectsDir/webshop/thumbnail.png";
   static const String WEBSHOP_COVER = "$projectsDir/webshop/0.png";
   static const String WEBSHOP_1 = "$projectsDir/webshop/1.png";
   static const String WEBSHOP_2 = "$projectsDir/webshop/2.png";
@@ -157,6 +174,8 @@ class ImagePath {
   static const String WEBSHOP_6 = "$projectsDir/webshop/6.png";
 
   // Job Board
+  static const String JOB_BOARD_THUMBNAIL =
+      "$projectsDir/job_board/thumbnail.png";
   static const String JOB_BOARD_COVER = "$projectsDir/job_board/0.png";
   static const String JOB_BOARD_1 = "$projectsDir/job_board/1.png";
   static const String JOB_BOARD_2 = "$projectsDir/job_board/2.png";
@@ -166,6 +185,7 @@ class ImagePath {
   static const String JOB_BOARD_6 = "$projectsDir/job_board/6.png";
 
   // Library Management System
+  static const String LMS_THUMBNAIL = "$projectsDir/lms/thumbnail.png";
   static const String LMS_COVER = "$projectsDir/lms/0.png";
   static const String LMS_1 = "$projectsDir/lms/1.png";
   static const String LMS_2 = "$projectsDir/lms/2.png";
