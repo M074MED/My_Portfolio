@@ -1,3 +1,6 @@
+import 'package:loading_animation_widget/loading_animation_widget.dart';
+
+import '../../core/layout/adaptive.dart';
 import '../../values/values.dart';
 import '../../core/utils/functions.dart';
 import 'package:flutter/material.dart';
@@ -136,23 +139,47 @@ class _LoadingSliderContentState extends State<_LoadingSliderContent> {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: widget.controller,
-      builder: (context, child) {
-        if (widget.controller.status == AnimationStatus.completed &&
-            _imagesLoaded &&
-            widget.onLoadingDone != null) {
-          widget.onLoadingDone!();
-        }
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          AnimatedBuilder(
+            animation: widget.controller,
+            builder: (context, child) {
+              if (widget.controller.status == AnimationStatus.completed &&
+                  _imagesLoaded &&
+                  widget.onLoadingDone != null) {
+                widget.onLoadingDone!();
+              }
 
-        return Container(
-          height: widget.height,
-          width: widget.isSlideForward
-              ? widget.forwardSlideAnimation.value
-              : widget.backwardsSlideAnimation.value,
-          color: widget.color,
-        );
-      },
+              return Container(
+                height: widget.height,
+                width: widget.isSlideForward
+                    ? widget.forwardSlideAnimation.value
+                    : widget.backwardsSlideAnimation.value,
+                color: widget.color,
+              );
+            },
+          ),
+          if (!_imagesLoaded)
+            Positioned(
+              top: MediaQuery.sizeOf(context).height / 2,
+              left: MediaQuery.sizeOf(context).width / 2,
+              child: Transform.translate(
+                offset: Offset(
+                  responsiveSize(context, -50, -50),
+                  responsiveSize(context, -50, -50),
+                ), // Half the size of the loading widget
+                child: LoadingAnimationWidget.progressiveDots(
+                  color: Colors.white,
+                  size: responsiveSize(context, 100, 100),
+                ),
+              ),
+            ),
+        ],
+      ),
     );
   }
 }
