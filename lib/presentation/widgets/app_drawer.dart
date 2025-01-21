@@ -2,6 +2,7 @@ import '../../core/layout/adaptive.dart';
 import '../pages/home/home_page.dart';
 import '../pages/widgets/socials.dart';
 import 'app_logo.dart';
+import 'loading_slider.dart';
 import 'nav_item.dart';
 import 'page_wrapper.dart';
 import 'spaces.dart';
@@ -14,6 +15,7 @@ class AppDrawer extends StatefulWidget {
     required this.menuList,
     required this.selectedItemRouteName,
     required this.controller,
+    required this.forwardSlideController,
     this.color = AppColors.black,
     this.width,
     this.onClose,
@@ -23,6 +25,7 @@ class AppDrawer extends StatefulWidget {
   final List<NavItemData> menuList;
   final Color color;
   final AnimationController controller;
+  final AnimationController forwardSlideController;
   final double? width;
   final GestureTapCallback? onClose;
 
@@ -154,6 +157,11 @@ class _AppDrawerState extends State<AppDrawer>
                   ),
                 ),
               ),
+              LoadingSlider(
+                controller: widget.forwardSlideController,
+                width: widthOfScreen(context),
+                height: heightOfScreen(context),
+              ),
             ],
           ),
         ),
@@ -188,16 +196,24 @@ class _AppDrawerState extends State<AppDrawer>
           child: NavItem(
             controller: widget.controller,
             onTap: () {
-              if (menuList[index].route == HomePage.homePageRoute) {
-                Navigator.of(context).pushNamed(
-                  menuList[index].route,
-                  arguments: NavigationArguments(
-                    showUnVeilPageAnimation: true,
-                  ),
-                );
-              } else {
-                Navigator.of(context).pushNamed(menuList[index].route);
-              }
+              widget.forwardSlideController.forward();
+              widget.forwardSlideController.addStatusListener((status) {
+                if (status == AnimationStatus.completed) {
+                  if (menuList[index].route == HomePage.homePageRoute) {
+                    Navigator.of(context).pushNamed(
+                      menuList[index].route,
+                      arguments: NavigationArguments(
+                        showUnVeilPageAnimation: true,
+                      ),
+                    );
+                  } else {
+                    Navigator.of(context).pushNamed(menuList[index].route);
+                  }
+                  Future.delayed(Duration(milliseconds: 500), () {
+                    widget.forwardSlideController.reset();
+                  });
+                }
+              });
             },
             index: index + 1,
             route: menuList[index].route,

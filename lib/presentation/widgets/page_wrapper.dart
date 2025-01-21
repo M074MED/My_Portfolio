@@ -112,6 +112,7 @@ class _PageWrapperState extends State<PageWrapper>
         controller: widget.navBarAnimationController,
         menuList: Data.menuItems,
         selectedItemRouteName: widget.selectedRoute,
+        forwardSlideController: forwardSlideController,
       ),
       body: Stack(
         children: [
