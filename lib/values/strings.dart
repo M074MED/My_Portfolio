@@ -180,8 +180,10 @@ class StringConst {
   static const String CERTIFICATION_PAGE = "/certifications";
 
   //Socials
-  static const String GITHUB_URL = "https://www.github.com/M074MED";
   static const String LINKED_IN_URL = "https://www.linkedin.com/in/m074med";
+  static const String GITHUB_URL = "https://www.github.com/M074MED";
+  static const String UPWORK_URL = "https://www.upwork.com/freelancers/~018923da1797a42902?mp_source=share";
+  static const String YOUTUBE_URL = "https://www.youtube.com/@M074MED";
   static const String X_URL = "https://x.com/_m074med_";
   static const String INSTAGRAM_URL = "https://www.instagram.com/_m074med_";
   static const String TELEGRAM_URL = "https://t.me/M074MED";
@@ -191,10 +193,12 @@ class StringConst {
   static const String CONNECT = "Connect with me";
   static const String EMAIL = "Email";
   static const String LINKED_IN = "LinkedIn";
+  static const String GITHUB = "Github";
+  static const String UPWORK = "Upwork";
+  static const String YOUTUBE = "YouTube";
   static const String X = "X (Twitter)";
   static const String INSTAGRAM = "Instagram";
   static const String TELEGRAM = "Telegram";
-  static const String GITHUB = "Github";
   static const String FACEBOOK = "Facebook";
 
   //Certificate Urls

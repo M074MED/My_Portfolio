@@ -106,14 +106,24 @@ class Data {
 
   static List<SocialData> socialData = [
     SocialData(
+      name: StringConst.LINKED_IN,
+      iconData: FontAwesomeIcons.linkedin,
+      url: StringConst.LINKED_IN_URL,
+    ),
+    SocialData(
       name: StringConst.GITHUB,
       iconData: FontAwesomeIcons.github,
       url: StringConst.GITHUB_URL,
     ),
     SocialData(
-      name: StringConst.LINKED_IN,
-      iconData: FontAwesomeIcons.linkedin,
-      url: StringConst.LINKED_IN_URL,
+      name: StringConst.UPWORK,
+      iconData: FontAwesomeIcons.upwork,
+      url: StringConst.UPWORK_URL,
+    ),
+    SocialData(
+      name: StringConst.YOUTUBE,
+      iconData: FontAwesomeIcons.youtube,
+      url: StringConst.YOUTUBE_URL,
     ),
     SocialData(
       name: StringConst.X,
@@ -139,19 +149,24 @@ class Data {
 
   static List<SocialData> socialData1 = [
     SocialData(
-      name: StringConst.GITHUB,
-      iconData: FontAwesomeIcons.github,
-      url: StringConst.GITHUB_URL,
-    ),
-    SocialData(
       name: StringConst.LINKED_IN,
       iconData: FontAwesomeIcons.linkedin,
       url: StringConst.LINKED_IN_URL,
     ),
     SocialData(
-      name: StringConst.X,
-      iconData: FontAwesomeIcons.xTwitter,
-      url: StringConst.X_URL,
+      name: StringConst.GITHUB,
+      iconData: FontAwesomeIcons.github,
+      url: StringConst.GITHUB_URL,
+    ),
+    SocialData(
+      name: StringConst.UPWORK,
+      iconData: FontAwesomeIcons.upwork,
+      url: StringConst.UPWORK_URL,
+    ),
+    SocialData(
+      name: StringConst.YOUTUBE,
+      iconData: FontAwesomeIcons.youtube,
+      url: StringConst.YOUTUBE_URL,
     ),
   ];
 
@@ -160,6 +175,11 @@ class Data {
       name: StringConst.LINKED_IN,
       iconData: FontAwesomeIcons.linkedin,
       url: StringConst.LINKED_IN_URL,
+    ),
+    SocialData(
+      name: StringConst.YOUTUBE,
+      iconData: FontAwesomeIcons.youtube,
+      url: StringConst.YOUTUBE_URL,
     ),
     SocialData(
       name: StringConst.X,
