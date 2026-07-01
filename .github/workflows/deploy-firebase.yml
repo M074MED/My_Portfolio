@@ -66,6 +66,9 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
         run: |
-          echo "$FIREBASE_SERVICE_ACCOUNT" > "$RUNNER_TEMP/firebase-service-account.json"
-          export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/firebase-service-account.json"
+          cred_path="$RUNNER_TEMP/firebase-service-account.json"
+          trap 'rm -f "$cred_path"' EXIT
+          umask 077
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT" > "$cred_path"
+          export GOOGLE_APPLICATION_CREDENTIALS="$cred_path"
           firebase deploy --only hosting --project ${{ secrets.FIREBASE_PROJECT_ID }}
