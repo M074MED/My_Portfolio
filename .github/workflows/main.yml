@@ -13,8 +13,10 @@ jobs:
   deploy-firebase:
     # needs: build
     uses: ./.github/workflows/deploy-firebase.yml
+    secrets: inherit
 
   deploy-github-pages:
     # needs: build
     # needs: deploy-firebase
     uses: ./.github/workflows/deploy-github-pages.yml
+    secrets: inherit
