@@ -21,14 +21,17 @@ class CertificationPage extends StatefulWidget {
 
 class _CertificationPageState extends State<CertificationPage>
     with TickerProviderStateMixin {
-  late AnimationController _certificationsController;
+  late List<AnimationController> _certificationControllers;
   late AnimationController _headingTextController;
 
   @override
   void initState() {
-    _certificationsController = AnimationController(
-      duration: Animations.slideAnimationDurationShort,
-      vsync: this,
+    _certificationControllers = List.generate(
+      Data.certificationData.length,
+      (_) => AnimationController(
+        duration: Animations.slideAnimationDurationShort,
+        vsync: this,
+      ),
     );
     _headingTextController = AnimationController(
       vsync: this,
@@ -41,7 +44,9 @@ class _CertificationPageState extends State<CertificationPage>
   @override
   void dispose() {
     _headingTextController.dispose();
-    _certificationsController.dispose();
+    for (final controller in _certificationControllers) {
+      controller.dispose();
+    }
     super.dispose();
   }
 
@@ -93,32 +98,18 @@ class _CertificationPageState extends State<CertificationPage>
             headingText: StringConst.CERTIFICATIONS,
             headingTextController: _headingTextController,
           ),
-          VisibilityDetector(
-            key: Key('certifications'),
-            onVisibilityChanged: (visibilityInfo) {
-              double visiblePercentage = visibilityInfo.visibleFraction * 100;
-              if (visiblePercentage > 40) {
-                _certificationsController.forward();
-              }
-            },
-            child: Padding(
-              padding: padding,
-              child: ContentArea(
-                width: contentAreaWidth,
-                child: AnimatedBuilder(
-                  animation: _certificationsController,
-                  builder: (context, child) {
-                    return Wrap(
-                      direction: Axis.horizontal,
-                      spacing: assignWidth(context, 0.05),
-                      runSpacing: assignHeight(context, 0.02),
-                      children: _certificateList(
-                        data: Data.certificationData,
-                        width: contentAreaWidth,
-                        spacing: spacing,
-                      ),
-                    );
-                  },
+          Padding(
+            padding: padding,
+            child: ContentArea(
+              width: contentAreaWidth,
+              child: Wrap(
+                direction: Axis.horizontal,
+                spacing: assignWidth(context, 0.05),
+                runSpacing: assignHeight(context, 0.02),
+                children: _certificateList(
+                  data: Data.certificationData,
+                  width: contentAreaWidth,
+                  spacing: spacing,
                 ),
               ),
             ),
@@ -136,46 +127,44 @@ class _CertificationPageState extends State<CertificationPage>
     required double spacing,
   }) {
     List<Widget> widgets = [];
-    double duration =
-        _certificationsController.duration!.inMilliseconds.roundToDouble();
-    double durationForEachPortfolio =
-        _certificationsController.duration!.inMilliseconds.roundToDouble() /
-            data.length;
 
     for (var i = 0; i < data.length; i++) {
-      double start = durationForEachPortfolio * i;
-      double end = durationForEachPortfolio * (i + 1);
       widgets.add(
-        FadeTransition(
-          opacity: Tween<double>(
-            begin: 0,
-            end: 1,
-          ).animate(
-            CurvedAnimation(
-              parent: _certificationsController,
-              curve: Interval(
-                start > 0.0 ? start / duration : 0.0,
-                end > 0.0 ? end / duration : 1.0,
+        VisibilityDetector(
+          key: Key('certification-$i'),
+          onVisibilityChanged: (visibilityInfo) {
+            double visiblePercentage = visibilityInfo.visibleFraction * 100;
+            if (visiblePercentage > 10) {
+              _certificationControllers[i].forward();
+            }
+          },
+          child: FadeTransition(
+            opacity: Tween<double>(
+              begin: 0,
+              end: 1,
+            ).animate(
+              CurvedAnimation(
+                parent: _certificationControllers[i],
                 curve: Curves.easeIn,
               ),
             ),
-          ),
-          child: CertificationCard(
-            imageUrl: data[i].image,
-            onTap: () => _viewCertificate(data[i].url),
-            title: data[i].title,
-            subtitle: data[i].awardedBy,
-            actionTitle: StringConst.VIEW,
-            isMobileOrTablet: isDisplayMobileOrTablet(context) ? true : false,
-            height: isDisplayMobile(context)
-                ? assignHeight(context, 0.20)
-                : assignHeight(context, 0.45),
-            width: isDisplayMobile(context)
-                ? assignWidth(
-                    context,
-                    0.8,
-                  )
-                : (width - spacing) / 2,
+            child: CertificationCard(
+              imageUrl: data[i].image,
+              onTap: () => _viewCertificate(data[i].url),
+              title: data[i].title,
+              subtitle: data[i].awardedBy,
+              actionTitle: StringConst.VIEW,
+              isMobileOrTablet: isDisplayMobileOrTablet(context) ? true : false,
+              height: isDisplayMobile(context)
+                  ? assignHeight(context, 0.20)
+                  : assignHeight(context, 0.45),
+              width: isDisplayMobile(context)
+                  ? assignWidth(
+                      context,
+                      0.8,
+                    )
+                  : (width - spacing) / 2,
+            ),
           ),
         ),
       );

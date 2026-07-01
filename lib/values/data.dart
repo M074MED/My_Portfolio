@@ -44,10 +44,21 @@ class NoteWorthyProjectDetails {
   final String? technologyUsed;
 }
 
+class PositionData {
+  PositionData({
+    required this.position,
+    required this.duration,
+    required this.roles,
+  });
+
+  final String position;
+  final String duration;
+  final List<String> roles;
+}
+
 class ExperienceData {
   ExperienceData({
-    required this.position,
-    required this.roles,
+    required this.positions,
     required this.location,
     required this.duration,
     required this.company,
@@ -58,8 +69,7 @@ class ExperienceData {
   final String? companyUrl;
   final String location;
   final String duration;
-  final String position;
-  final List<String> roles;
+  final List<PositionData> positions;
 }
 
 class SkillData {
@@ -70,6 +80,16 @@ class SkillData {
 
   final String skillName;
   final double skillLevel;
+}
+
+class TechCategory {
+  TechCategory({
+    required this.title,
+    required this.skills,
+  });
+
+  final String title;
+  final List<String> skills;
 }
 
 class SubMenuData {
@@ -203,34 +223,82 @@ class Data {
     ),
   ];
 
-  static List<String> mobileTechnologies = [
-    StringConst.FLUTTER,
-    StringConst.DART,
-    StringConst.FLAME,
-    StringConst.KIVY,
-    StringConst.JAVA,
-  ];
-
-  static List<String> otherTechnologies = [
-    StringConst.PYTHON,
-    StringConst.DJANGO,
-    StringConst.DJANGO_REST,
-    StringConst.MYSQL,
-    StringConst.HTML,
-    StringConst.CSS,
-    StringConst.JAVASCRIPT,
-    StringConst.JQUERY,
-    StringConst.BOOTSTRAP,
-    StringConst.REACT,
-    StringConst.WORDPRESS,
-    StringConst.CPP,
-    StringConst.ORACLE_SQL,
-    StringConst.GIT,
-    StringConst.JSON,
-    StringConst.AJAX,
+  static List<TechCategory> technologyCategories = [
+    TechCategory(
+      title: StringConst.TECH_MOBILE,
+      skills: [
+        StringConst.FLUTTER,
+        StringConst.DART,
+        StringConst.FLAME,
+        StringConst.RIVERPOD,
+        StringConst.PROVIDER,
+        StringConst.BLOC,
+        StringConst.FIREBASE,
+        StringConst.ML_KIT,
+        StringConst.KIVY,
+        StringConst.JAVA,
+      ],
+    ),
+    TechCategory(
+      title: StringConst.TECH_WEB,
+      skills: [
+        StringConst.REACT,
+        StringConst.JAVASCRIPT,
+        StringConst.TYPESCRIPT,
+        StringConst.HTML,
+        StringConst.CSS,
+        StringConst.JQUERY,
+        StringConst.AJAX,
+        StringConst.BOOTSTRAP,
+        StringConst.TAILWIND,
+        StringConst.VITE,
+        StringConst.WORDPRESS,
+      ],
+    ),
+    TechCategory(
+      title: StringConst.TECH_BACKEND,
+      skills: [
+        StringConst.PYTHON,
+        StringConst.DJANGO,
+        StringConst.DJANGO_REST,
+        StringConst.FASTAPI,
+        StringConst.CPP,
+      ],
+    ),
+    TechCategory(
+      title: StringConst.TECH_DATABASES,
+      skills: [
+        StringConst.MYSQL,
+        StringConst.POSTGRESQL,
+        StringConst.ORACLE_SQL,
+        StringConst.REDIS,
+        StringConst.PINECONE,
+        StringConst.JSON,
+      ],
+    ),
+    TechCategory(
+      title: StringConst.TECH_DEVOPS,
+      skills: [
+        StringConst.AWS,
+        StringConst.GIT,
+        StringConst.GITHUB_ACTIONS,
+        StringConst.CODEMAGIC,
+        StringConst.SHOREBIRD,
+        StringConst.SENTRY,
+      ],
+    ),
+    TechCategory(
+      title: StringConst.TECH_AI,
+      skills: [
+        StringConst.CLAUDE_CODE,
+        StringConst.CURSOR,
+        StringConst.GITHUB_COPILOT,
+      ],
+    ),
   ];
 
   static List<ProjectItemData> projects = [
+    Projects.TREX,
     Projects.GAMECHANGER,
     Projects.MULHAM,
     Projects.FAIT,
@@ -385,6 +453,34 @@ class Data {
 
   static List<CertificationData> certificationData = [
     CertificationData(
+      title: StringConst.CLAUDE_CODE_IN_ACTION,
+      url: StringConst.CLAUDE_CODE_IN_ACTION_CERT_URL,
+      image: ImagePath.CLAUDE_CODE_IN_ACTION_CERT,
+      imageSize: 0.325,
+      awardedBy: StringConst.ANTHROPIC,
+    ),
+    CertificationData(
+      title: StringConst.CLAUDE_101,
+      url: StringConst.CLAUDE_101_CERT_URL,
+      image: ImagePath.CLAUDE_101_CERT,
+      imageSize: 0.325,
+      awardedBy: StringConst.ANTHROPIC,
+    ),
+    CertificationData(
+      title: StringConst.AI_FLUENCY,
+      url: StringConst.AI_FLUENCY_CERT_URL,
+      image: ImagePath.AI_FLUENCY_CERT,
+      imageSize: 0.325,
+      awardedBy: StringConst.ANTHROPIC,
+    ),
+    CertificationData(
+      title: StringConst.MOBILE_DEV,
+      url: StringConst.MOBILE_DEV_2025_CERT_URL,
+      image: ImagePath.MOBILE_DEV_2025_CERT,
+      imageSize: 0.325,
+      awardedBy: StringConst.AUC_GC,
+    ),
+    CertificationData(
       title: StringConst.BSD_CS_AI,
       url: StringConst.BSD_CS_AI_CERT_URL,
       image: ImagePath.BSD_CS_AI_CERT,
@@ -451,45 +547,130 @@ class Data {
 
   static List<ExperienceData> experienceData = [
     ExperienceData(
-      company: StringConst.COMPANY_3,
-      position: StringConst.POSITION_3,
-      companyUrl: StringConst.COMPANY_3_URL,
-      roles: [
-        StringConst.COMPANY_3_ROLE_1,
-        StringConst.COMPANY_3_ROLE_2,
-        StringConst.COMPANY_3_ROLE_3,
+      company: StringConst.COMPANY_4,
+      companyUrl: StringConst.COMPANY_4_URL,
+      location: StringConst.LOCATION_4,
+      duration: StringConst.DURATION_4,
+      positions: [
+        PositionData(
+          position: StringConst.POSITION_4_1,
+          duration: StringConst.DURATION_4_1,
+          roles: [
+            StringConst.COMPANY_4_1_ROLE_1,
+            StringConst.COMPANY_4_1_ROLE_2,
+          ],
+        ),
+        PositionData(
+          position: StringConst.POSITION_4_2,
+          duration: StringConst.DURATION_4_2,
+          roles: [
+            StringConst.COMPANY_4_2_ROLE_1,
+            StringConst.COMPANY_4_2_ROLE_2,
+            StringConst.COMPANY_4_2_ROLE_3,
+            StringConst.COMPANY_4_2_ROLE_4,
+          ],
+        ),
+        PositionData(
+          position: StringConst.POSITION_4_3,
+          duration: StringConst.DURATION_4_3,
+          roles: [
+            StringConst.COMPANY_4_3_ROLE_1,
+            StringConst.COMPANY_4_3_ROLE_2,
+            StringConst.COMPANY_4_3_ROLE_3,
+            StringConst.COMPANY_4_3_ROLE_4,
+          ],
+        ),
       ],
+    ),
+    ExperienceData(
+      company: StringConst.COMPANY_3,
+      companyUrl: StringConst.COMPANY_3_URL,
       location: StringConst.LOCATION_3,
       duration: StringConst.DURATION_3,
+      positions: [
+        PositionData(
+          position: StringConst.POSITION_3,
+          duration: StringConst.DURATION_3,
+          roles: [
+            StringConst.COMPANY_3_ROLE_1,
+            StringConst.COMPANY_3_ROLE_2,
+            StringConst.COMPANY_3_ROLE_3,
+            StringConst.COMPANY_3_ROLE_4,
+            StringConst.COMPANY_3_ROLE_5,
+          ],
+        ),
+      ],
     ),
     ExperienceData(
       company: StringConst.COMPANY_2,
-      position: StringConst.POSITION_2,
       companyUrl: StringConst.COMPANY_2_URL,
-      roles: [
-        StringConst.COMPANY_2_ROLE_1,
-        StringConst.COMPANY_2_ROLE_2,
-        StringConst.COMPANY_2_ROLE_3,
-      ],
       location: StringConst.LOCATION_2,
       duration: StringConst.DURATION_2,
+      positions: [
+        PositionData(
+          position: StringConst.POSITION_2,
+          duration: StringConst.DURATION_2,
+          roles: [
+            StringConst.COMPANY_2_ROLE_1,
+            StringConst.COMPANY_2_ROLE_2,
+            StringConst.COMPANY_2_ROLE_3,
+            StringConst.COMPANY_2_ROLE_4,
+            StringConst.COMPANY_2_ROLE_5,
+          ],
+        ),
+      ],
     ),
     ExperienceData(
       company: StringConst.COMPANY_1,
-      position: StringConst.POSITION_1,
       companyUrl: StringConst.COMPANY_1_URL,
-      roles: [
-        StringConst.COMPANY_1_ROLE_1,
-        StringConst.COMPANY_1_ROLE_2,
-        StringConst.COMPANY_1_ROLE_3,
-      ],
       location: StringConst.LOCATION_1,
       duration: StringConst.DURATION_1,
+      positions: [
+        PositionData(
+          position: StringConst.POSITION_1,
+          duration: StringConst.DURATION_1,
+          roles: [
+            StringConst.COMPANY_1_ROLE_1,
+            StringConst.COMPANY_1_ROLE_2,
+            StringConst.COMPANY_1_ROLE_3,
+            StringConst.COMPANY_1_ROLE_4,
+            StringConst.COMPANY_1_ROLE_5,
+          ],
+        ),
+      ],
     ),
   ];
 }
 
 class Projects {
+  static ProjectItemData TREX = ProjectItemData(
+    projectId: StringConst.TREX_ID,
+    title: StringConst.TREX,
+    subtitle: StringConst.TREX_SUBTITLE,
+    platform: StringConst.TREX_PLATFORM,
+    primaryColor: AppColors.trex,
+    image: ImagePath.TREX_THUMBNAIL,
+    coverUrl: ImagePath.TREX_COVER,
+    navTitleColor: AppColors.trex,
+    // navSelectedTitleColor: AppColors.trex,
+    appLogoColor: AppColors.trex,
+    projectAssets: [
+      ImagePath.TREX_COVER,
+      ImagePath.TREX_1,
+      ImagePath.TREX_2,
+      ImagePath.TREX_3,
+      ImagePath.TREX_4,
+      ImagePath.TREX_5,
+      ImagePath.TREX_6,
+    ],
+    category: StringConst.TREX_CATEGORY,
+    portfolioDescription: StringConst.TREX_DETAIL,
+    technologyUsed: "${StringConst.FLUTTER} / Firebase.",
+    playStoreUrl: StringConst.TREX_PLAYSTORE_URL,
+    appStoreUrl: StringConst.TREX_APPSTORE_URL,
+    partnerPlayStoreUrl: StringConst.TREX_PARTNER_PLAYSTORE_URL,
+    partnerAppStoreUrl: StringConst.TREX_PARTNER_APPSTORE_URL,
+  );
   static ProjectItemData GAMECHANGER = ProjectItemData(
     projectId: StringConst.GAMECHANGER_ID,
     title: StringConst.GAMECHANGER,

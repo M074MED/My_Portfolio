@@ -260,6 +260,66 @@ class _AboutprojectState extends State<Aboutproject> {
               ],
             ),
           ),
+          if (widget.projectData.partnerPlayStoreUrl != null ||
+              widget.projectData.partnerAppStoreUrl != null) ...[
+            SpaceH30(),
+            ProjectData(
+              controller: widget.projectDataController,
+              title: StringConst.PARTNER_APP,
+              subtitle: "",
+            ),
+            SizedBox(
+              width: projectDataWidth,
+              child: Wrap(
+                spacing: responsiveSize(
+                    context, widget.width * 0.1, widget.width * 0.17,
+                    md: widget.width * 0.17),
+                runSpacing: responsiveSize(context, 30, 40),
+                children: [
+                  if (widget.projectData.partnerPlayStoreUrl != null)
+                    InkWell(
+                      onTap: () {
+                        Functions.launchLink(
+                            widget.projectData.partnerPlayStoreUrl!);
+                      },
+                      child: AnimatedPositionedWidget(
+                        controller: CurvedAnimation(
+                          parent: widget.projectDataController,
+                          curve: Animations.textSlideInCurve,
+                        ),
+                        width: googlePlayButtonWidth,
+                        height: 50,
+                        child: Image.asset(
+                          ImagePath.GOOGLE_PLAY,
+                          width: googlePlayButtonWidth,
+                          // fit: BoxFit.fitHeight,
+                        ),
+                      ),
+                    ),
+                  if (widget.projectData.partnerAppStoreUrl != null)
+                    InkWell(
+                      onTap: () {
+                        Functions.launchLink(
+                            widget.projectData.partnerAppStoreUrl!);
+                      },
+                      child: AnimatedPositionedWidget(
+                        controller: CurvedAnimation(
+                          parent: widget.projectDataController,
+                          curve: Animations.textSlideInCurve,
+                        ),
+                        width: googlePlayButtonWidth,
+                        height: 50,
+                        child: Image.asset(
+                          ImagePath.APP_STORE,
+                          width: googlePlayButtonWidth,
+                          // fit: BoxFit.fitHeight,
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ]
         ],
       ),
     );

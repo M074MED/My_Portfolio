@@ -23,6 +23,8 @@ class ProjectItemData {
     this.webUrl = "",
     this.playStoreUrl = "",
     this.appStoreUrl = "",
+    this.partnerPlayStoreUrl,
+    this.partnerAppStoreUrl,
     this.isPublic = false,
     this.isLive = false,
     this.isOnPlayStore = false,
@@ -60,6 +62,8 @@ class ProjectItemData {
   final String webUrl;
   final String playStoreUrl;
   final String appStoreUrl;
+  final String? partnerPlayStoreUrl;
+  final String? partnerAppStoreUrl;
   final String? technologyUsed;
 }
 

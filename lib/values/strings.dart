@@ -64,24 +64,31 @@ class StringConst {
   // About Page
   static const String ABOUT_DEV_CATCH_LINE =
       "I am a passionate Software Engineer and Flutter Developer with a keen eye for details.";
-  static const String ABOUT_DEV_CATCH_LINE_1 = "I specialize in building high ";
+  static const String ABOUT_DEV_CATCH_LINE_1 = "Specialize in building high ";
   static const String ABOUT_DEV_CATCH_LINE_2 =
       "quality mobile & web applications.";
   // static const String ABOUT_DEV_CATCH_LINE_3 = "& web applications";
-  static const String ABOUT_DEV_CATCH_LINE_4 = "I also have a strong";
+  static const String ABOUT_DEV_CATCH_LINE_4 = "Also have a strong";
   static const String ABOUT_DEV_CATCH_LINE_5 =
       "passion for new tech and AI models & tools.";
   static const String ABOUT_DEV_STORY = "Story";
   static const String ABOUT_DEV_STORY_TITLE = "A little bit about myself.";
   static const String ABOUT_DEV_STORY_CONTENT_1 =
-      "I am a Software Engineer with a passion for building high-quality applications. I have extensive experience building mobile and web applications. I currently work as a Flutter Developer at GameChanger Research Solutions and AUC, and I am enthusiastic about Python and Machine Learning technologies.";
+      "Software Engineer with a passion for building high-quality applications. Have extensive experience building mobile and web applications. Currently work as a Software Engineer at Shawwir.";
   static const String ABOUT_DEV_STORY_CONTENT_2 =
-      "I have a Bachelor’s degree in Computer Science and Artificial Intelligence from Beni Suef University, where I majored in Software Engineering. My strong technical skills and excellent interpersonal skills have enabled me to work and interact with clients all over the world.";
+      "Have a Bachelor’s degree in Computer Science and Artificial Intelligence from Beni Suef University, with a major in Software Engineering. My strong technical skills and excellent interpersonal skills have enabled me to work and interact with clients all over the world.";
   static const String ABOUT_DEV_STORY_CONTENT_3 =
-      "I am very great at finding solutions to problems and I have a very keen eye for details. I enjoy building fun/useful projects in my free time. I am an avid reader and lover of following new tech and AI models & tools, and I like content creation.";
+      "Enthusiastic about new tech and AI models & tools. Very good at finding solutions to problems and have a very keen eye for detail. Enjoy building fun/useful projects in my free time.";
   static const String ABOUT_DEV_TECHNOLOGY = "Technology";
   static const String MOBILE_TECH = "Mobile Technologies";
   static const String OTHER_TECH = "Web / Cloud / Design Technologies";
+  // Technology categories
+  static const String TECH_MOBILE = "Mobile";
+  static const String TECH_WEB = "Web";
+  static const String TECH_BACKEND = "Backend & APIs";
+  static const String TECH_DATABASES = "Databases & Data";
+  static const String TECH_DEVOPS = "Cloud & DevOps";
+  static const String TECH_AI = "AI Tools";
   static const String ABOUT_DEV_TECHNOLOGY_TITLE = "What I use.";
   static const String ABOUT_DEV_TECHNOLOGY_CONTENT =
       "I use a number of tools to aid my creative process when bringing things to life. Listed below are the tools and technologies that I have used over the years.";
@@ -111,6 +118,7 @@ class StringConst {
   static const String TECHNOLOGY_USED = "Technology Used";
   static const String LAUNCH_APP = "Launch App";
   static const String SOURCE_CODE = "Source Code";
+  static const String PARTNER_APP = "Partner App";
   static const String NEXT_PROJECT = "Next Project";
 
   static const String VIEW = "View";
@@ -142,27 +150,60 @@ class StringConst {
   static const String MESSAGE_HINT_TEXT = "Message";
 
   //Skills
+  // Mobile / Flutter ecosystem
   static const String FLUTTER = "Flutter";
   static const String DART = "Dart";
   static const String FLAME = "Flame";
+  static const String RIVERPOD = "Riverpod";
+  static const String PROVIDER = "Provider";
+  static const String BLOC = "Bloc";
+  static const String FIREBASE = "Firebase";
+  static const String ML_KIT = "Google ML Kit";
+  static const String KIVY = "Kivy";
+  static const String JAVA = "Java";
+
+  // Languages
   static const String PYTHON = "Python";
-  static const String DJANGO = "Django";
-  static const String DJANGO_REST = "Django Rest API Framework";
-  static const String MYSQL = "MySQL";
+  static const String JAVASCRIPT = "JavaScript";
+  static const String TYPESCRIPT = "TypeScript";
+  static const String CPP = "C++";
+
+  // Web frontend
+  static const String REACT = "React JS";
   static const String HTML = "HTML";
   static const String CSS = "CSS";
-  static const String JAVASCRIPT = "JavaScript";
   static const String JQUERY = "jQuery";
-  static const String BOOTSTRAP = "Bootstrap";
-  static const String REACT = "React JS";
-  static const String KIVY = "Kivy";
-  static const String WORDPRESS = "WordPress";
-  static const String CPP = "C++";
-  static const String JAVA = "Java";
-  static const String ORACLE_SQL = "Oracle SQL";
-  static const String GIT = "Git & GitHub";
-  static const String JSON = "JSON";
   static const String AJAX = "Ajax";
+  static const String BOOTSTRAP = "Bootstrap";
+  static const String TAILWIND = "Tailwind CSS";
+  static const String VITE = "Vite";
+  static const String WORDPRESS = "WordPress";
+
+  // Backend frameworks
+  static const String DJANGO = "Django";
+  static const String DJANGO_REST = "Django Rest API Framework";
+  static const String FASTAPI = "FastAPI";
+
+  // Databases
+  static const String MYSQL = "MySQL";
+  static const String POSTGRESQL = "PostgreSQL";
+  static const String ORACLE_SQL = "Oracle SQL";
+  static const String REDIS = "Redis";
+  static const String PINECONE = "Pinecone";
+
+  // Cloud, DevOps & tools
+  static const String AWS = "AWS";
+  static const String GIT = "Git & GitHub";
+  static const String GITHUB_ACTIONS = "GitHub Actions";
+  static const String CODEMAGIC = "Codemagic";
+  static const String SHOREBIRD = "Shorebird";
+  static const String SENTRY = "Sentry";
+  static const String JSON = "JSON";
+
+  // AI-powered dev tools
+  static const String CLAUDE_CODE = "Claude Code";
+  static const String CURSOR = "Cursor";
+  static const String GITHUB_COPILOT = "GitHub Copilot";
 
   //routes
   static const String LOADING_PAGE = "/";
@@ -182,7 +223,8 @@ class StringConst {
   //Socials
   static const String LINKED_IN_URL = "https://www.linkedin.com/in/m074med";
   static const String GITHUB_URL = "https://www.github.com/M074MED";
-  static const String UPWORK_URL = "https://www.upwork.com/freelancers/~018923da1797a42902?mp_source=share";
+  static const String UPWORK_URL =
+      "https://www.upwork.com/freelancers/~018923da1797a42902?mp_source=share";
   static const String YOUTUBE_URL = "https://www.youtube.com/@M074MED";
   static const String X_URL = "https://x.com/_m074med_";
   static const String INSTAGRAM_URL = "https://www.instagram.com/_m074med_";
@@ -202,6 +244,14 @@ class StringConst {
   static const String FACEBOOK = "Facebook";
 
   //Certificate Urls
+  static const String CLAUDE_CODE_IN_ACTION_CERT_URL =
+      "https://verify.skilljar.com/c/68inwtq2mqkt";
+  static const String CLAUDE_101_CERT_URL =
+      "https://verify.skilljar.com/c/oo9bai9pczt5";
+  static const String AI_FLUENCY_CERT_URL =
+      "https://verify.skilljar.com/c/eo4c4pzd7zjo";
+  static const String MOBILE_DEV_2025_CERT_URL =
+      "https://drive.google.com/file/d/1cAAggKBIwLlaK1FpwR9sViYJu4W6VAcn/view?usp=sharing";
   static const String BSD_CS_AI_CERT_URL =
       "https://drive.google.com/file/d/10GWXXoei0MyiAU6AnCkvaDEbZi49ZZAZ/view?usp=sharing";
   static const String MOBILE_DEV_2024_CERT_URL =
@@ -222,9 +272,10 @@ class StringConst {
       "https://www.credly.com/badges/6aa1ee06-5610-455a-b2a1-5bb6b3091575";
 
   //AwardedBy
-  static const String AUC = "The American University of Cairo";
+  static const String ANTHROPIC = "Anthropic";
+  static const String AUC = "The American University in Cairo";
   static const String AUC_GC =
-      "The American University of Cairo & GameChanger Research Solutions";
+      "The American University in Cairo & GameChanger Research Solutions";
   static const String UDACITY_EGFWD = "Udacity & Egypt fwd";
   static const String EGFWD = "Egypt fwd";
   static const String BSU = "Beni-Suef University";
@@ -234,6 +285,9 @@ class StringConst {
   static const String BANQUE_MISR = "Banque Misr";
 
   //CertificationType
+  static const String CLAUDE_CODE_IN_ACTION = "Claude Code in Action";
+  static const String CLAUDE_101 = "Claude 101";
+  static const String AI_FLUENCY = "Al Fluency Framework & Foundations";
   static const String BSD_CS_AI =
       "Bachelor's degree in Computer Science & Artificial Intelligence";
   static const String MOBILE_DEV = "Mobile Development";
@@ -249,43 +303,89 @@ class StringConst {
 
   //Experience
   static const String CURRENT_MONTH_YEAR = "Present";
-  static const String STARTED_MONTH_YEAR = "April 2021";
+  static const String STARTED_MONTH_YEAR = "Apr 2021";
 
   static const String COMPANY_1 = "Freelance";
   static const String COMPANY_1_URL = "";
   static const String POSITION_1 = "Software Engineer";
   static const String COMPANY_1_ROLE_1 =
-      "Build multiple mobile apps using Flutter.";
+      "Built multiple cross-platform mobile apps with Flutter for clients across different industries.";
   static const String COMPANY_1_ROLE_2 =
-      "Develop multiple web apps using Django, Python, JavaScript, HTML and CSS.";
+      "Developed and deployed web applications using Python, Django, and modern frontend stacks (HTML, CSS, JS).";
   static const String COMPANY_1_ROLE_3 =
-      "Maintain multiple personal projects and client projects as a freelancer.";
+      "Delivered custom software solutions for global clients, ensuring high satisfaction and repeat business.";
+  static const String COMPANY_1_ROLE_4 =
+      "Maintained personal and client projects with continuous improvements and feature updates.";
+  static const String COMPANY_1_ROLE_5 =
+      "Technologies: Flutter, Firebase, Django, MySQL, HTML, CSS, JavaScript.";
   static const String LOCATION_1 = "";
-  static const String DURATION_1 = "April 2021 - Present";
+  static const String DURATION_1 = "Apr 2021 - Present";
 
   static const String COMPANY_2 = "AUC (The American University in Cairo)";
   static const String COMPANY_2_URL = "https://www.aucegypt.edu/";
   static const String POSITION_2 = "Flutter Developer";
   static const String COMPANY_2_ROLE_1 =
-      "Work with a team to develop mobile psychology applications as video games (such as Tetris game and Space Fortress game) for psychology research using Dart, Flutter, and Flame technologies.";
+      "Developed mobile psychology research apps with game mechanics (Tetris, Space Fortress) using Flutter and Flame.";
   static const String COMPANY_2_ROLE_2 =
-      "Implement eye-tracking functionality using Google Machine Learning Face Detection in the applications.";
+      "Integrated eye-tracking functionality with Google ML Kit to support cognitive research studies.";
   static const String COMPANY_2_ROLE_3 =
-      "Responsible for coding, scripting, implementing functionality and integrations, and creating GUI in the applications.";
+      "Collaborated with researchers to translate study requirements into reliable mobile applications.";
+  static const String COMPANY_2_ROLE_4 =
+      "Delivered apps that enabled international psychology research presentations and publications.";
+  static const String COMPANY_2_ROLE_5 =
+      "Technologies: Flutter, Flame, google_mlkit_face_detection.";
   static const String LOCATION_2 = "New Cairo - Egypt";
-  static const String DURATION_2 = "April 2022 - Present";
+  static const String DURATION_2 = "Apr 2022 - May 2025";
 
   static const String COMPANY_3 = "GameChanger Research Solutions";
   static const String COMPANY_3_URL = "https://www.gamechangerresearch.com/";
   static const String POSITION_3 = "Flutter Developer";
   static const String COMPANY_3_ROLE_1 =
-      "Work with a team to develop and maintain the GameChanger mobile app using Flutter.";
+      "Designed, developed, and maintained the GameChanger mobile app using Flutter.";
   static const String COMPANY_3_ROLE_2 =
-      "Develop and maintain Metatris and Space Fortress games and integrate them into the GameChanger app using Flutter.";
+      "Built and integrated Metatris and Space Fortress games into the app, driving user engagement for research participants.";
   static const String COMPANY_3_ROLE_3 =
-      "Responsible for coding, scripting, implementing functionality and integrations, and creating GUI in the applications.";
+      "Implemented CI/CD pipelines (Codemagic, GitHub Actions) to streamline deployment and reduce release times.";
+  static const String COMPANY_3_ROLE_4 =
+      "Enhanced app stability and performance by integrating Sentry error monitoring.";
+  static const String COMPANY_3_ROLE_5 =
+      "Technologies: Flutter, Riverpod, Shorebird, Sentry, Codemagic CI/CD, GitHub Actions.";
   static const String LOCATION_3 = "New Cairo - Egypt";
-  static const String DURATION_3 = "Sept 2023 - Present";
+  static const String DURATION_3 = "Sep 2023 - May 2025";
+
+  static const String COMPANY_4 = "Shawwir";
+  static const String COMPANY_4_URL = "https://www.shawwir.com/";
+  static const String LOCATION_4 = "New Cairo - Egypt";
+  static const String DURATION_4 = "Apr 2025 - Present";
+
+  static const String POSITION_4_1 = "Software Engineer";
+  static const String DURATION_4_1 = "Apr 2026 - Present";
+  static const String COMPANY_4_1_ROLE_1 =
+      "Work with a team to develop and maintain the Shawwir AI lawyer assistant platform using Claude Code.";
+  static const String COMPANY_4_1_ROLE_2 =
+      "Technologies: Claude Code, Python, FastAPI, PostgreSQL, Pinecone, Redis, AWS, React, TypeScript, Vite, Tailwind.";
+
+  static const String POSITION_4_2 = "Senior Flutter Developer";
+  static const String DURATION_4_2 = "Nov 2025 - Present";
+  static const String COMPANY_4_2_ROLE_1 =
+      "Redesigned and modernized apps' UI, delivering a more intuitive and engaging user experience.";
+  static const String COMPANY_4_2_ROLE_2 =
+      "Refactored and restructured the codebase to improve architecture, readability, maintainability, and scalability while reducing technical debt.";
+  static const String COMPANY_4_2_ROLE_3 =
+      "Leveraged AI-powered development tools, including Claude Code, Cursor, and GitHub Copilot, to accelerate development, enhance code quality, assist with debugging, and streamline refactoring.";
+  static const String COMPANY_4_2_ROLE_4 =
+      "Technologies: Flutter, Provider, Firebase, Claude Code, Cursor, GitHub Copilot.";
+
+  static const String POSITION_4_3 = "Flutter Developer";
+  static const String DURATION_4_3 = "Apr 2025 - Nov 2025";
+  static const String COMPANY_4_3_ROLE_1 =
+      "Developed and maintained Shawwir Client and Shawwir Lawyer mobile apps using Flutter, improving performance and user satisfaction.";
+  static const String COMPANY_4_3_ROLE_2 =
+      "Upgraded apps to Flutter null-safety and the latest Dart versions, ensuring compatibility and stability.";
+  static const String COMPANY_4_3_ROLE_3 =
+      "Collaborated with cross-functional teams to deliver scalable solutions on time.";
+  static const String COMPANY_4_3_ROLE_4 =
+      "Technologies: Flutter, Provider, Firebase.";
 
   //Portfolio, Projects
   static const String PORTFOLIO_SITE_V2_ID = "m074med-v2";
@@ -301,6 +401,23 @@ class StringConst {
       "https://github.com/M074MED/My_Portfolio";
   static const String PORTFOLIO_SITE_V2_WEB_URL = "https://m074med.web.app/";
 
+  static const String TREX_ID = "trex";
+  static const String TREX = "Trex";
+  static const String TREX_PLATFORM = "Android / IOS.";
+  static const String TREX_CATEGORY = "Logistics.";
+  static const String TREX_SUBTITLE =
+      "Go-to logistics solution for shipping products or vehicles from anywhere to Egypt.";
+  static const String TREX_DETAIL =
+      "Built the Trex apps from scratch with my team. Trex is a go-to logistics solution for shipping products or vehicles from anywhere in the world to Egypt — two apps, one for customers (Trex) and one for partners / shipping companies (Trex Partner).";
+  static const String TREX_PLAYSTORE_URL =
+      "https://play.google.com/store/apps/details?id=com.trex.app";
+  static const String TREX_PARTNER_PLAYSTORE_URL =
+      "https://play.google.com/store/apps/details?id=com.trexPartner.app";
+  static const String TREX_APPSTORE_URL =
+      "https://apps.apple.com/eg/app/trex-logistic/id6744899621";
+  static const String TREX_PARTNER_APPSTORE_URL =
+      "https://apps.apple.com/eg/app/trex-partner/id6744887360";
+
   static const String GAMECHANGER_ID = "gamechanger";
   static const String GAMECHANGER = "GameChanger";
   static const String GAMECHANGER_PLATFORM = "Android / IOS / Web.";
@@ -308,7 +425,7 @@ class StringConst {
   static const String GAMECHANGER_SUBTITLE =
       "Connects with teachers, researchers, and professors doing social science research.";
   static const String GAMECHANGER_DETAIL =
-      "I worked with my team to develop and maintain this app for GameChanger Research Solutions. This app facilitates connections among teachers, researchers, and professors engaged in social science research. Additionally, we have integrated Metatris and Space Fortress games into this app.";
+      "Developed and maintained this app for GameChanger Research Solutions with my team. It facilitates connections among teachers, researchers, and professors engaged in social-science research, with the Metatris and Space Fortress games integrated in.";
   static const String GAMECHANGER_PLAYSTORE_URL =
       "https://play.google.com/store/apps/details?id=com.itargs.research";
   static const String GAMECHANGER_APPSTORE_URL =
@@ -371,7 +488,7 @@ class StringConst {
   static const String METATRIS_DESIGNER = "";
   static const String METATRIS_SUBTITLE = "Tetris, But Better";
   static const String METATRIS_DETAIL =
-      "Metatris is a game developed from scratch by a team for the American University in Cairo (AUC). It has been integrated into the GameChanger app as a package. This game is similar to Tetris but includes additional features such as eye-tracking functionality. You can try the Metatris game through the GameChanger app.";
+      "Metatris is a game developed from scratch by my team and me for the American University in Cairo (AUC). It has been integrated into the GameChanger app as a package. This game is similar to Tetris but includes additional features such as eye-tracking functionality. You can try the Metatris game through the GameChanger app.";
   static const String METATRIS_PLAYSTORE_URL = "";
   static const String METATRIS_GITHUB_URL = "";
 
@@ -383,7 +500,7 @@ class StringConst {
   static const String SPACE_FORTRESS_SUBTITLE =
       "An engaging space battle game where strategy meets action.";
   static const String SPACE_FORTRESS_DETAIL =
-      "Space Fortress is a game developed from scratch by a team for the American University in Cairo (AUC). It has been integrated into the GameChanger app as a package. This game is built using flame package. You can try the Space Fortress game through the GameChanger app.";
+      "Space Fortress is a game developed from scratch by my team and me for the American University in Cairo (AUC). It has been integrated into the GameChanger app as a package. This game is built using flame package. You can try the Space Fortress game through the GameChanger app.";
   static const String SPACE_FORTRESS_GITHUB_URL = "";
   static const String SPACE_FORTRESS_WEB_URL = "";
 
