@@ -71,7 +71,7 @@ class ImagePath {
 
   // Projects
 
-  // GameChanger
+  // Trex
   static const String TREX_THUMBNAIL = "$projectsDir/trex/thumbnail.png";
   static const String TREX_COVER = "$projectsDir/trex/0.png";
   static const String TREX_1 = "$projectsDir/trex/1.png";

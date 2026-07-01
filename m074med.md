@@ -7,7 +7,7 @@
     <a href="mailto:contact.mohammedmamdouh@gmail.com" target="blank"><img src="https://img.shields.io/badge/Gmail-c14438?style=flat&logo=Gmail&logoColor=white" alt="Email"></a>
     <a href="https://www.upwork.com/freelancers/~018923da1797a42902?mp_source=share" target="blank"><img src="https://img.shields.io/badge/UpWork-6FDA44?style=flat&logo=Upwork&logoColor=white" alt="Upwork"></a>
     <a href="https://www.youtube.com/@M074MED" target="blank"><img src="https://img.shields.io/badge/YouTube-%23ff0033?style=flat&logo=youtube&logoColor=white" alt="YouTube"/></a>
-    <a href="https://x.com/_m074med_" target="blank"><img alt="X (formerly Twitter) Follow" src="https://img.shields.io/twitter/follow/:_m074med_"></a>
+    <a href="https://x.com/_m074med_" target="blank"><img alt="X (formerly Twitter) Follow" src="https://img.shields.io/twitter/follow/_m074med_?style=social"></a>
     <a href="https://www.instagram.com/_m074med_" target="blank"><img src="https://img.shields.io/badge/Instagram-%23E4415F?style=flat&logo=instagram&logoColor=white" alt="Instagram"/></a>
     <a href="https://www.facebook.com/m074med" target="blank"><img src="https://img.shields.io/badge/Facebook-%233b5998?style=flat&logo=facebook&logoColor=white" alt="Facebook"/></a>
 </p>
