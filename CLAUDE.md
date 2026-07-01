@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Personal portfolio site (`m074med`) built with Flutter and primarily targeting **Flutter Web**. Deployed to Firebase Hosting (https://m074med.web.app) and GitHub Pages. CI pins Flutter `3.27.0`; the Dart SDK constraint is `>=2.12.0 <4.0.0`.
+Personal portfolio site (`m074med`) built with Flutter and primarily targeting **Flutter Web**. Deployed to Firebase Hosting (https://m074med.web.app) and GitHub Pages. CI pins Flutter `3.29.3`; the Dart SDK constraint is `>=2.12.0 <4.0.0`.
 
 ## Commands
 

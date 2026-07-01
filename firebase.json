@@ -1,6 +1,7 @@
 
 {
   "hosting": {
+    "site": "m074med",
     "public": "build/web",
     "ignore": [
       "firebase.json",
