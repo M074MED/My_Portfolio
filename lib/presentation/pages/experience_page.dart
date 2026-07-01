@@ -26,10 +26,6 @@ class ExperiencePage extends StatefulWidget {
 class _ExperiencePageState extends State<ExperiencePage>
     with TickerProviderStateMixin {
   late AnimationController _controller;
-  late AnimationController _experience1Controller;
-  late AnimationController _experience2Controller;
-  late AnimationController _experience3Controller;
-  late AnimationController _experience4Controller;
   late List<AnimationController> _experienceControllers;
 
   @override
@@ -38,38 +34,22 @@ class _ExperiencePageState extends State<ExperiencePage>
       duration: const Duration(milliseconds: 1200),
       vsync: this,
     );
-    _experience1Controller = AnimationController(
-      duration: const Duration(milliseconds: 1200),
-      vsync: this,
+    _experienceControllers = List.generate(
+      Data.experienceData.length,
+      (_) => AnimationController(
+        duration: const Duration(milliseconds: 1200),
+        vsync: this,
+      ),
     );
-    _experience2Controller = AnimationController(
-      duration: const Duration(milliseconds: 1200),
-      vsync: this,
-    );
-    _experience3Controller = AnimationController(
-      duration: const Duration(milliseconds: 1200),
-      vsync: this,
-    );
-    _experience4Controller = AnimationController(
-      duration: const Duration(milliseconds: 1200),
-      vsync: this,
-    );
-    _experienceControllers = [
-      _experience1Controller,
-      _experience2Controller,
-      _experience3Controller,
-      _experience4Controller,
-    ];
     super.initState();
   }
 
   @override
   void dispose() {
     _controller.dispose();
-    _experience1Controller.dispose();
-    _experience2Controller.dispose();
-    _experience3Controller.dispose();
-    _experience4Controller.dispose();
+    for (final controller in _experienceControllers) {
+      controller.dispose();
+    }
     super.dispose();
   }
 
@@ -148,10 +128,20 @@ class _ExperiencePageState extends State<ExperiencePage>
         Sizes.TEXT_SIZE_20,
       ),
     );
+    TextStyle? positionStyle = defaultTitleStyle?.copyWith(
+      fontSize: responsiveSize(
+        context,
+        Sizes.TEXT_SIZE_16,
+        Sizes.TEXT_SIZE_18,
+      ),
+      fontWeight: FontWeight.w300,
+    );
 
     List<Widget> items = [];
 
     for (int index = 0; index < data.length; index++) {
+      final List<PositionData> positions = data[index].positions;
+      final bool hasMultiplePositions = positions.length > 1;
       items.add(
         VisibilityDetector(
           key: Key('experience-section-$index'),
@@ -183,28 +173,30 @@ class _ExperiencePageState extends State<ExperiencePage>
                   text: data[index].company,
                   textStyle: defaultTitleStyle,
                 ),
-                SpaceH16(),
-                AnimatedTextSlideBoxTransition(
-                  controller: _experienceControllers[index],
-                  text: data[index].position,
-                  textStyle: defaultTitleStyle?.copyWith(
-                    fontSize: responsiveSize(
-                      context,
-                      Sizes.TEXT_SIZE_16,
-                      Sizes.TEXT_SIZE_18,
-                    ),
-                    fontWeight: FontWeight.w300,
+                if (!hasMultiplePositions) ...[
+                  SpaceH16(),
+                  AnimatedTextSlideBoxTransition(
+                    controller: _experienceControllers[index],
+                    text: positions.first.position,
+                    textStyle: positionStyle,
                   ),
-                ),
+                ],
               ],
             ),
             body: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: _buildRoles(
-                roles: data[index].roles,
-                controller: _experienceControllers[index],
-                width: width * 0.75,
-              ),
+              children: hasMultiplePositions
+                  ? _buildPositions(
+                      positions: positions,
+                      positionStyle: positionStyle,
+                      controller: _experienceControllers[index],
+                      width: width * 0.75,
+                    )
+                  : _buildRoles(
+                      roles: positions.first.roles,
+                      controller: _experienceControllers[index],
+                      width: width * 0.75,
+                    ),
             ),
           ),
         ),
@@ -264,6 +256,54 @@ class _ExperiencePageState extends State<ExperiencePage>
       );
 
       items.add(SpaceH12());
+    }
+
+    return items;
+  }
+
+  List<Widget> _buildPositions({
+    required List<PositionData> positions,
+    required TextStyle? positionStyle,
+    required AnimationController controller,
+    required double width,
+  }) {
+    final TextTheme textTheme = Theme.of(context).textTheme;
+    final TextStyle? durationStyle = textTheme.bodyLarge?.copyWith(
+      fontSize: Sizes.TEXT_SIZE_12,
+      color: AppColors.grey600,
+      fontWeight: FontWeight.w400,
+      letterSpacing: 2,
+    );
+
+    List<Widget> items = [];
+    for (int index = 0; index < positions.length; index++) {
+      final PositionData position = positions[index];
+      items.add(
+        AnimatedTextSlideBoxTransition(
+          controller: controller,
+          text: position.position,
+          textStyle: positionStyle,
+        ),
+      );
+      items.add(SpaceH8());
+      items.add(
+        AnimatedTextSlideBoxTransition(
+          controller: controller,
+          text: position.duration.toUpperCase(),
+          textStyle: durationStyle,
+        ),
+      );
+      items.add(SpaceH16());
+      items.addAll(
+        _buildRoles(
+          roles: position.roles,
+          controller: controller,
+          width: width,
+        ),
+      );
+      if (index != positions.length - 1) {
+        items.add(SpaceH30());
+      }
     }
 
     return items;

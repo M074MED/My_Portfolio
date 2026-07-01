@@ -30,6 +30,7 @@ class AppColors {
   static const Color errorRed = Color(0xFFFF2019);
 
   // Project Primary Colors
+  static const Color trex = Color(0xFF6AA7FC);
   static const Color gameChanger = Color(0xFFf00001);
   static const Color mulham = Color(0xFF345995);
   static const Color fait = Color(0xFF15d1e0);

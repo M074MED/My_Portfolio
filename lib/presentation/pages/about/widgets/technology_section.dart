@@ -5,7 +5,8 @@ import '../../../../values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-const double spacing = 20;
+const double spacing = 24;
+const double runSpacing = 40;
 
 class TechnologySection extends StatelessWidget {
   const TechnologySection({
@@ -20,119 +21,77 @@ class TechnologySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? titleStyle = textTheme.titleMedium?.copyWith(
-      fontSize: Sizes.TEXT_SIZE_16,
-      color: AppColors.black,
-    );
     return Container(
       width: width,
       child: ResponsiveBuilder(
         builder: (context, sizingInformation) {
           double screenWidth = sizingInformation.screenSize.width;
+          RefinedBreakpoints breakpoints = RefinedBreakpoints();
 
-          if (screenWidth < RefinedBreakpoints().tabletNormal) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AnimatedTextSlideBoxTransition(
-                  controller: controller,
-                  width: screenWidth,
-                  text: StringConst.MOBILE_TECH,
-                  textStyle: titleStyle,
-                ),
-                SpaceH20(),
-                Wrap(
-                  direction: Axis.vertical,
-                  spacing: 20,
-                  children: _buildTechnologies(
-                    context,
-                    data: Data.mobileTechnologies,
-                    controller: controller,
-                    width: screenWidth,
-                  ),
-                ),
-                SpaceH40(),
-                AnimatedTextSlideBoxTransition(
-                  controller: controller,
-                  width: screenWidth,
-                  text: StringConst.OTHER_TECH,
-                  textStyle: titleStyle,
-                ),
-                SpaceH20(),
-                Wrap(
-                  spacing: (width * 0.1) / 3,
-                  runSpacing: 20,
-                  children: _buildTechnologies(
-                    context,
-                    controller: controller,
-                    data: Data.otherTechnologies,
-                    width: width * 0.3,
-                  ),
-                ),
-              ],
-            );
+          // Scale the number of category columns up with the screen size.
+          int columns;
+          if (screenWidth < breakpoints.tabletNormal) {
+            columns = 2; // mobile
+          } else if (screenWidth < breakpoints.desktopSmall) {
+            columns = 3; // tablet / small laptop
+          } else if (screenWidth < breakpoints.desktopLarge) {
+            columns = 4; // desktop
           } else {
-            return Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  width: width * 0.25,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      AnimatedTextSlideBoxTransition(
-                        controller: controller,
-                        width: width * 0.25,
-                        text: StringConst.MOBILE_TECH,
-                        textStyle: titleStyle,
-                      ),
-                      SpaceH20(),
-                      Wrap(
-                        direction: Axis.vertical,
-                        spacing: spacing,
-                        children: _buildTechnologies(
-                          context,
-                          controller: controller,
-                          data: Data.mobileTechnologies,
-                          width: width * 0.25,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    width: (width * 0.75),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        AnimatedTextSlideBoxTransition(
-                          controller: controller,
-                          width: (width * 0.75),
-                          text: StringConst.OTHER_TECH,
-                          textStyle: titleStyle,
-                        ),
-                        SpaceH20(),
-                        Wrap(
-                          spacing: spacing,
-                          runSpacing: spacing,
-                          children: _buildTechnologies(
-                            context,
-                            controller: controller,
-                            data: Data.otherTechnologies,
-                            width: ((width * 0.75) - (spacing * 3)) / 5,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            );
+            columns = 6; // large desktop — all categories on one row
           }
+
+          double columnWidth =
+              (width - (spacing * (columns - 1))) / columns;
+
+          return Wrap(
+            spacing: spacing,
+            runSpacing: runSpacing,
+            children: Data.technologyCategories
+                .map(
+                  (category) => _buildCategory(
+                    context,
+                    category: category,
+                    width: columnWidth,
+                  ),
+                )
+                .toList(),
+          );
         },
+      ),
+    );
+  }
+
+  Widget _buildCategory(
+    BuildContext context, {
+    required TechCategory category,
+    required double width,
+  }) {
+    TextTheme textTheme = Theme.of(context).textTheme;
+    TextStyle? titleStyle = textTheme.titleMedium?.copyWith(
+      fontSize: Sizes.TEXT_SIZE_16,
+      color: AppColors.black,
+    );
+
+    return SizedBox(
+      width: width,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AnimatedTextSlideBoxTransition(
+            controller: controller,
+            width: width,
+            maxLines: 2,
+            text: category.title,
+            textStyle: titleStyle,
+          ),
+          SpaceH20(),
+          ..._buildTechnologies(
+            context,
+            data: category.skills,
+            controller: controller,
+            width: width,
+          ),
+        ],
       ),
     );
   }
@@ -141,7 +100,7 @@ class TechnologySection extends StatelessWidget {
     BuildContext context, {
     required List<String> data,
     required AnimationController controller,
-    double? width,
+    required double width,
   }) {
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? bodyText1Style = textTheme.bodyLarge?.copyWith(
@@ -152,19 +111,24 @@ class TechnologySection extends StatelessWidget {
     List<Widget> items = [];
     for (var item in data) {
       items.add(
-        SizedBox(
-          width: width,
-          child: AnimatedPositionedText(
-            controller: CurvedAnimation(
-              parent: controller,
-              curve: Interval(
-                0.6,
-                1.0,
-                curve: Curves.ease,
+        Padding(
+          padding: const EdgeInsets.only(bottom: 20),
+          child: SizedBox(
+            width: width,
+            child: AnimatedPositionedText(
+              controller: CurvedAnimation(
+                parent: controller,
+                curve: Interval(
+                  0.6,
+                  1.0,
+                  curve: Curves.ease,
+                ),
               ),
+              width: width,
+              maxLines: 2,
+              text: item,
+              textStyle: bodyText1Style,
             ),
-            text: item,
-            textStyle: bodyText1Style,
           ),
         ),
       );

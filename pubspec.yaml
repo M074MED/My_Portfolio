@@ -75,6 +75,7 @@ flutter:
     - assets/images/
     - assets/images/certificates/
     - assets/images/projects/
+    - assets/images/projects/trex/
     - assets/images/projects/gamechanger/
     - assets/images/projects/mulham/
     - assets/images/projects/fait/

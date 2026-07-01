@@ -42,6 +42,14 @@ class ImagePath {
   static const String APP_STORE = "$imageDir/app_store.png";
 
   // Certifications
+  static const String CLAUDE_CODE_IN_ACTION_CERT =
+      "$imageDir/certificates/claude_code_in_action_cert.jpg";
+  static const String CLAUDE_101_CERT =
+      "$imageDir/certificates/claude_101_cert.jpg";
+  static const String AI_FLUENCY_CERT =
+      "$imageDir/certificates/ai_fluency_framework_and_foundations_cert.jpg";
+  static const String MOBILE_DEV_2025_CERT =
+      "$imageDir/certificates/mobile_dev_2025_cert.jpeg";
   static const String MOBILE_DEV_2024_CERT =
       "$imageDir/certificates/mobile_dev_2024_cert.jpg";
   static const String MOBILE_DEV_2023_CERT =
@@ -62,6 +70,16 @@ class ImagePath {
       "$imageDir/certificates/banque_misr_training_program_cert.png";
 
   // Projects
+
+  // GameChanger
+  static const String TREX_THUMBNAIL = "$projectsDir/trex/thumbnail.png";
+  static const String TREX_COVER = "$projectsDir/trex/0.png";
+  static const String TREX_1 = "$projectsDir/trex/1.png";
+  static const String TREX_2 = "$projectsDir/trex/2.png";
+  static const String TREX_3 = "$projectsDir/trex/3.png";
+  static const String TREX_4 = "$projectsDir/trex/4.png";
+  static const String TREX_5 = "$projectsDir/trex/5.png";
+  static const String TREX_6 = "$projectsDir/trex/6.png";
 
   // GameChanger
   static const String GAMECHANGER_THUMBNAIL =
