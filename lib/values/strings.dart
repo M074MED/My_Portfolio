@@ -287,7 +287,7 @@ class StringConst {
   //CertificationType
   static const String CLAUDE_CODE_IN_ACTION = "Claude Code in Action";
   static const String CLAUDE_101 = "Claude 101";
-  static const String AI_FLUENCY = "Al Fluency Framework & Foundations";
+  static const String AI_FLUENCY = "AI Fluency Framework & Foundations";
   static const String BSD_CS_AI =
       "Bachelor's degree in Computer Science & Artificial Intelligence";
   static const String MOBILE_DEV = "Mobile Development";
