@@ -453,16 +453,9 @@ class Data {
 
   static List<CertificationData> certificationData = [
     CertificationData(
-      title: StringConst.INTRODUCTION_TO_AGENT_SKILLS,
-      url: StringConst.INTRODUCTION_TO_AGENT_SKILLS_CERT_URL,
-      image: ImagePath.INTRODUCTION_TO_AGENT_SKILLS_CERT,
-      imageSize: 0.325,
-      awardedBy: StringConst.ANTHROPIC,
-    ),
-    CertificationData(
-      title: StringConst.INTRODUCTION_TO_MCP,
-      url: StringConst.INTRODUCTION_TO_MCP_CERT_URL,
-      image: ImagePath.INTRODUCTION_TO_MCP_CERT,
+      title: StringConst.MCP_ADVANCED_TOPICS,
+      url: StringConst.MCP_ADVANCED_TOPICS_CERT_URL,
+      image: ImagePath.MCP_ADVANCED_TOPICS_CERT,
       imageSize: 0.325,
       awardedBy: StringConst.ANTHROPIC,
     ),
@@ -474,9 +467,16 @@ class Data {
       awardedBy: StringConst.ANTHROPIC,
     ),
     CertificationData(
-      title: StringConst.MCP_ADVANCED_TOPICS,
-      url: StringConst.MCP_ADVANCED_TOPICS_CERT_URL,
-      image: ImagePath.MCP_ADVANCED_TOPICS_CERT,
+      title: StringConst.INTRODUCTION_TO_MCP,
+      url: StringConst.INTRODUCTION_TO_MCP_CERT_URL,
+      image: ImagePath.INTRODUCTION_TO_MCP_CERT,
+      imageSize: 0.325,
+      awardedBy: StringConst.ANTHROPIC,
+    ),
+    CertificationData(
+      title: StringConst.INTRODUCTION_TO_AGENT_SKILLS,
+      url: StringConst.INTRODUCTION_TO_AGENT_SKILLS_CERT_URL,
+      image: ImagePath.INTRODUCTION_TO_AGENT_SKILLS_CERT,
       imageSize: 0.325,
       awardedBy: StringConst.ANTHROPIC,
     ),

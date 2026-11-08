@@ -42,14 +42,14 @@ class ImagePath {
   static const String APP_STORE = "$imageDir/app_store.png";
 
   // Certifications
-  static const String INTRODUCTION_TO_AGENT_SKILLS_CERT =
-      "$imageDir/certificates/introduction_to_agent_skills_cert.jpg";
-  static const String INTRODUCTION_TO_MCP_CERT =
-      "$imageDir/certificates/introduction_to_mcp_cert.jpg";
-  static const String BUILDING_WITH_THE_CLAUDE_API_CERT =
-      "$imageDir/certificates/building_with_the_claude_api_cert.jpg";
   static const String MCP_ADVANCED_TOPICS_CERT =
       "$imageDir/certificates/mcp_advanced_topics_cert.jpg";
+  static const String BUILDING_WITH_THE_CLAUDE_API_CERT =
+      "$imageDir/certificates/building_with_the_claude_api_cert.jpg";
+  static const String INTRODUCTION_TO_MCP_CERT =
+      "$imageDir/certificates/introduction_to_mcp_cert.jpg";
+  static const String INTRODUCTION_TO_AGENT_SKILLS_CERT =
+      "$imageDir/certificates/introduction_to_agent_skills_cert.jpg";
   static const String CLAUDE_CODE_IN_ACTION_CERT =
       "$imageDir/certificates/claude_code_in_action_cert.jpg";
   static const String CLAUDE_101_CERT =
