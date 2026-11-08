@@ -453,6 +453,34 @@ class Data {
 
   static List<CertificationData> certificationData = [
     CertificationData(
+      title: StringConst.INTRODUCTION_TO_AGENT_SKILLS,
+      url: StringConst.INTRODUCTION_TO_AGENT_SKILLS_CERT_URL,
+      image: ImagePath.INTRODUCTION_TO_AGENT_SKILLS_CERT,
+      imageSize: 0.325,
+      awardedBy: StringConst.ANTHROPIC,
+    ),
+    CertificationData(
+      title: StringConst.INTRODUCTION_TO_MCP,
+      url: StringConst.INTRODUCTION_TO_MCP_CERT_URL,
+      image: ImagePath.INTRODUCTION_TO_MCP_CERT,
+      imageSize: 0.325,
+      awardedBy: StringConst.ANTHROPIC,
+    ),
+    CertificationData(
+      title: StringConst.BUILDING_WITH_THE_CLAUDE_API,
+      url: StringConst.BUILDING_WITH_THE_CLAUDE_API_CERT_URL,
+      image: ImagePath.BUILDING_WITH_THE_CLAUDE_API_CERT,
+      imageSize: 0.325,
+      awardedBy: StringConst.ANTHROPIC,
+    ),
+    CertificationData(
+      title: StringConst.MCP_ADVANCED_TOPICS,
+      url: StringConst.MCP_ADVANCED_TOPICS_CERT_URL,
+      image: ImagePath.MCP_ADVANCED_TOPICS_CERT,
+      imageSize: 0.325,
+      awardedBy: StringConst.ANTHROPIC,
+    ),
+    CertificationData(
       title: StringConst.CLAUDE_CODE_IN_ACTION,
       url: StringConst.CLAUDE_CODE_IN_ACTION_CERT_URL,
       image: ImagePath.CLAUDE_CODE_IN_ACTION_CERT,
