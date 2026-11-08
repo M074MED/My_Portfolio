@@ -244,14 +244,14 @@ class StringConst {
   static const String FACEBOOK = "Facebook";
 
   //Certificate Urls
-  static const String INTRODUCTION_TO_AGENT_SKILLS_CERT_URL =
-      "https://verify.skilljar.com/c/ve5z2jhennqk";
-  static const String INTRODUCTION_TO_MCP_CERT_URL =
-      "https://verify.skilljar.com/c/z3c6oxicmqh3";
-  static const String BUILDING_WITH_THE_CLAUDE_API_CERT_URL =
-      "https://verify.skilljar.com/c/5hx2ry2im5p9";
   static const String MCP_ADVANCED_TOPICS_CERT_URL =
       "https://verify.skilljar.com/c/rss8yuyqcov3";
+  static const String BUILDING_WITH_THE_CLAUDE_API_CERT_URL =
+      "https://verify.skilljar.com/c/5hx2ry2im5p9";
+  static const String INTRODUCTION_TO_MCP_CERT_URL =
+      "https://verify.skilljar.com/c/z3c6oxicmqh3";
+  static const String INTRODUCTION_TO_AGENT_SKILLS_CERT_URL =
+      "https://verify.skilljar.com/c/ve5z2jhennqk";
   static const String CLAUDE_CODE_IN_ACTION_CERT_URL =
       "https://verify.skilljar.com/c/68inwtq2mqkt";
   static const String CLAUDE_101_CERT_URL =
@@ -293,14 +293,14 @@ class StringConst {
   static const String BANQUE_MISR = "Banque Misr";
 
   //CertificationType
-  static const String INTRODUCTION_TO_AGENT_SKILLS =
-      "Introduction to Agent Skills";
-  static const String INTRODUCTION_TO_MCP =
-      "Introduction to Model Context Protocol";
-  static const String BUILDING_WITH_THE_CLAUDE_API =
-      "Building with the Claude API";
   static const String MCP_ADVANCED_TOPICS =
       "Model Context Protocol: Advanced Topics";
+  static const String BUILDING_WITH_THE_CLAUDE_API =
+      "Building with the Claude API";
+  static const String INTRODUCTION_TO_MCP =
+      "Introduction to Model Context Protocol";
+  static const String INTRODUCTION_TO_AGENT_SKILLS =
+      "Introduction to Agent Skills";
   static const String CLAUDE_CODE_IN_ACTION = "Claude Code in Action";
   static const String CLAUDE_101 = "Claude 101";
   static const String AI_FLUENCY = "AI Fluency Framework & Foundations";
